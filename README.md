@@ -16,6 +16,9 @@ This uses a table check to find other Script Includes having the same API name. 
 ### getMessage() called in Client Script 
 This is a simple table check to find client scripts with use the getMessage function but do not preload messages using the Messages field. As the check does a simple contains query it could produce false-positives if the getMessage is either commented or from another library.
 
+### 
+This will check ACL rules with operation READ for usage of Glide API calls, i.e. GlideRecord and GlideAggregate as these can cause significant performance impact. s the check does a simple contains query it could produce false-positives if the getMessage is either commented or from another library.
+
 ## Category: Security
 
 ## Category: User Experience
