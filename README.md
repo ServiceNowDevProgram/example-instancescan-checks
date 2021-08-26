@@ -21,6 +21,9 @@ This will check ACL rules with operation READ for usage of Glide API calls, i.e.
 
 ## Category: Security
 
+### Tables without ACLs
+This check searches for any custom table if there exists at least one ACL record. If not a finding is raised.
+
 ## Category: User Experience
 
 
