@@ -2,6 +2,23 @@
 
 This repository is intended to surf example checks which you can use in your instance scan implementation. The check in here are explicitally marked as examples. We are not claiming them to work perfect neither are all of them implemented to allow validations of best practice. They are provided to show the possibilities of [ServiceNow Instance Scan|https://docs.servicenow.com/bundle/rome-servicenow-platform/page/administer/health-scan/reference/hs-landing-page.html] and serve as boiler plates when implementing your own checks.
 
+# Checks in this repository
+
+## Category: Manageability
+
+### Duplicate Script Include Name
+This uses a table check to find other Script Includes having the same API name. Technically this is possible, but causes issues as there is no way to control which Script Include will be instantiated when being called.
+
+## Category: Upgradability
+
+## Category: Performance
+
+## Category: Security
+
+## Category: User Experience
+
+
+
 # Additional resources
 
 Please check these additional links for more information and details:
