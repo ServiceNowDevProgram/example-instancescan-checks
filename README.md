@@ -19,6 +19,9 @@ This is a simple table check to find client scripts with use the getMessage func
 ### Glide-API in ACL
 This will check ACL rules with operation READ for usage of Glide API calls, i.e. GlideRecord and GlideAggregate as these can cause significant performance impact. s the check does a simple contains query it could produce false-positives if the getMessage is either commented or from another library.
 
+### Cache flushed as part of scripts
+This is using some advanced linter check to find usages of gs.setProperty or gs.cacheFlush. Both functions will trigger a cache flush and thus cause performance impacts. 
+
 ## Category: Security
 
 ### Tables without ACLs
