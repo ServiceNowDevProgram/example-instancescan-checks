@@ -1,6 +1,7 @@
 # example-instancescan-checks
 
-This repository is intended to surf example checks which you can use in your instance scan implementation. The check in here are explicitally marked as examples. We are not claiming them to work perfect neither are all of them implemented to allow validations of best practice. They are provided to show the possibilities of [ServiceNow Instance Scan|https://docs.servicenow.com/bundle/rome-servicenow-platform/page/administer/health-scan/reference/hs-landing-page.html] and serve as boiler plates when implementing your own checks.
+ServiceNow open-sourced this repository of example [ServiceNow Instance Scan|https://docs.servicenow.com/bundle/rome-servicenow-platform/page/administer/health-scan/reference/hs-landing-page.html] Checks with the intent to help customers get started faster in adopting Instance Scan, but will not be providing formal support. The checkes contained in this repository are therefor considered "use at your own risk", and will rely on the open-source community to help drive fixes and feature enhancements via Issues. ServiceNow is not claiming them to work perfect neither are all of them implemented to allow validations of best practice. Occasionally, ServiceNow may choose to contribute to the open-source project to help address the highest priority Issues, and will do our best to keep the checks updated with the latest changes shipped with family releases.
+
 
 # Checks in this repository
 
