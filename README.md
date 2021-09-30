@@ -22,6 +22,12 @@ This will check ACL rules with operation READ for usage of Glide API calls, i.e.
 ### Cache flushed as part of scripts
 This is using some advanced linter check to find usages of gs.setProperty or gs.cacheFlush. Both functions will trigger a cache flush and thus cause performance impacts. 
 
+### Global Business Rules
+This is a simple table check to find Business Rules that are global. Global Business Rules have no condition or table restrictions and load on every page in the system. Most functions defined in global Business Rules are fairly specific, such as an advanced reference qualifier on one field of one form. There is no benefit to loading this kind of script on every page.
+
+### Global Client Scripts 
+This is a simple table check to find Client Scripts that are global. Global client scripts have no table restrictions; therefore they will load on every page in the system introducing browser load delay in the process.
+
 ## Category: Security
 
 ### Tables without ACLs
