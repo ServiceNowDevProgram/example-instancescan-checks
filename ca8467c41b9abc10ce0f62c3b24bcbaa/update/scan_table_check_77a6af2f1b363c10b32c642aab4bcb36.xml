@@ -28,17 +28,17 @@ Test your access controls, both authentication and authorization, before releasi
 })(engine);]]></script>
         <short_description>Scripted REST APIs should be not be public</short_description>
         <sys_class_name>scan_table_check</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
+        <sys_created_by>jochen.larbig</sys_created_by>
         <sys_created_on>2021-10-01 06:12:59</sys_created_on>
         <sys_id>77a6af2f1b363c10b32c642aab4bcb36</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Scripted REST API without Authentication</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_77a6af2f1b363c10b32c642aab4bcb36</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-01 06:41:11</sys_updated_on>
+        <sys_updated_by>jochen.larbig</sys_updated_by>
+        <sys_updated_on>2021-10-01 08:04:57</sys_updated_on>
         <table>sys_ws_operation</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
