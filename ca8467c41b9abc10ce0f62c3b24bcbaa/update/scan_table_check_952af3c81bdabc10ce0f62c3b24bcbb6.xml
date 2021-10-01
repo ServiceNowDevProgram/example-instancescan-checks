@@ -2,9 +2,9 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>performance</category>
-        <conditions table="sys_security_acl">operation=read^advanced=true^scriptLIKEGlideRecord^ORscriptLIKEGlideAggregate^EQ<item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
+        <conditions table="sys_security_acl">operation=read^ORoperation=delete^advanced=true^scriptLIKEGlideRecord^ORscriptLIKEGlideAggregate^EQ<item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
+            <item display_table="sys_security_operation" display_value="delete" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="true" value="delete"/>
             <item endquery="false" field="advanced" goto="false" newquery="false" operator="=" or="false" value="true"/>
             <item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="false" value="GlideRecord"/>
             <item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="true" value="GlideAggregate"/>
@@ -29,17 +29,15 @@
         <sys_class_name>scan_table_check</sys_class_name>
         <sys_created_by>daniel.draes</sys_created_by>
         <sys_created_on>2021-08-26 14:07:47</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>952af3c81bdabc10ce0f62c3b24bcbb6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Glide-API in ACL</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_952af3c81bdabc10ce0f62c3b24bcbb6</sys_update_name>
-        <sys_updated_by>daniel.draes</sys_updated_by>
-        <sys_updated_on>2021-08-26 14:07:47</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-30 12:11:14</sys_updated_on>
         <table>sys_security_acl</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
