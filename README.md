@@ -9,7 +9,13 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 ### Duplicate Script Include Name
 This uses a table check to find other Script Includes having the same API name. Technically this is possible, but causes issues as there is no way to control which Script Include will be instantiated when being called.
 
+### Product Catalog without Product Models
+Catalog Items in the Product Catalog should be created from the underlying Product Model and this association should be kept intact.
+
 ## Category: Upgradability
+
+### Incident table should not be extended
+Check if the baseline restriction to extend the Incident table has been removed and at least one child table extending Incident has been created.
 
 ## Category: Performance
 
@@ -32,6 +38,9 @@ This is a simple table check to find Client Scripts that are global. Global clie
 
 ### Tables without ACLs
 This check searches for any custom table if there exists at least one ACL record. If not a finding is raised.
+
+### Scripted REST API without Authentication
+Scripted REST APIs should be not be public but enforce  access controls and require additional access to data. 
 
 ## Category: User Experience
 
