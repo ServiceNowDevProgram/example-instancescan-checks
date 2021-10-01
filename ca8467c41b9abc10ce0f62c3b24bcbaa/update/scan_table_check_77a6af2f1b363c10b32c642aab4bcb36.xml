@@ -12,11 +12,9 @@
         <finding_type>scan_finding</finding_type>
         <name>Scripted REST API without Authentication</name>
         <priority>2</priority>
-        <resolution_details>Require additional access controls for operations that modify data. Requests such as PUT, POST, and DELETE should require a higher level of access than GET. &#13;
-Configure these API resources to require a more strict ACL.&#13;
-&#13;
-&#13;
-Test your access controls, both authentication and authorization, before releasing the API.</resolution_details>
+        <resolution_details>Scripted REST APIs should be not be public but enforce  access controls and require additional access to data. &#13;
+Requests such as PUT, POST, and DELETE should require a higher level of access than GET. &#13;
+Configure these API resources to require a more strict ACL.</resolution_details>
         <run_condition/>
         <score_max>100</score_max>
         <score_min>0</score_min>
@@ -31,14 +29,14 @@ Test your access controls, both authentication and authorization, before releasi
         <sys_created_by>jochen.larbig</sys_created_by>
         <sys_created_on>2021-10-01 06:12:59</sys_created_on>
         <sys_id>77a6af2f1b363c10b32c642aab4bcb36</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Scripted REST API without Authentication</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_77a6af2f1b363c10b32c642aab4bcb36</sys_update_name>
         <sys_updated_by>jochen.larbig</sys_updated_by>
-        <sys_updated_on>2021-10-01 08:04:57</sys_updated_on>
+        <sys_updated_on>2021-10-01 08:08:05</sys_updated_on>
         <table>sys_ws_operation</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
