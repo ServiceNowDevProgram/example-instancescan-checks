@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>security</category>
+        <conditions table="sys_ws_operation">requires_authentication=false^web_service_definition.enforce_aclISEMPTY^EQ<item endquery="false" field="requires_authentication" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="false" field="web_service_definition.enforce_acl" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Enforce existing access controls and require additional access to data. In addition to requiring authentication to access the API, require authorization to access data. Use the GlideRecordSecure API in your scripted REST API scripts. This API ensures that access controls defined on the underlying data are applied for the requesting user.&#13;
+&#13;
+Require additional access controls for operations that modify data. Requests such as PUT, POST, and DELETE should require a higher level of access than GET. &#13;
+Configure these API resources to require a more strict ACL.&#13;
+&#13;
+Test your access controls, both authentication and authorization, before releasing the API.</description>
+        <documentation_url>https://docs.servicenow.com/csh?topicname=scripted-rest-good-practices.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Scripted REST API without Authentication</name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Scripted REST APIs should be not be public</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-01 06:12:59</sys_created_on>
+        <sys_id>77a6af2f1b363c10b32c642aab4bcb36</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Scripted REST API without Authentication</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_77a6af2f1b363c10b32c642aab4bcb36</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-01 06:33:12</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
