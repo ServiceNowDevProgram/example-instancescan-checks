@@ -40,6 +40,12 @@ This is a simple table check to find Business Rules that are global. Global Busi
 ### Global Client Scripts 
 This is a simple table check to find Client Scripts that are global. Global client scripts have no table restrictions; therefore they will load on every page in the system introducing browser load delay in the process.
 
+### Using Synchronous AJAX calls in client script
+Synchronous usage of AJAX calls (getXMLWait) pauses the browser interaction until data is retrieved from the server side and thereby reducing user experience. Using them in an onLoad or onChange client side scripts is not a best practice recommendation and can create performance issues for your users.
+
+### Business Rule without any conditions
+A business rule is triggered whenever a user opens a list or form view or when a user inserts/updates or deletes a record. Without any conditions added, it will always evaluate to true and triggerred at all times. This can add to the performance increasing server processing time and hence it is recommended to restrict business rule execution by either adding a condition or filter condition or a role condition and preventing its execution unless it is necessary.
+
 ## Category: Security
 
 ### Tables without ACLs
