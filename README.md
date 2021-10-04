@@ -12,6 +12,9 @@ This uses a table check to find other Script Includes having the same API name. 
 ### Product Catalog without Product Models
 Catalog Items in the Product Catalog should be created from the underlying Product Model and this association should be kept intact.
 
+### Do not use hard-coded sys_ids
+Hard-coded sys_ids can lead to unpredictable results (sys_ids may differ between instances) and can be difficult to track down.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
@@ -47,6 +50,12 @@ This check searches for any custom table if there exists at least one ACL record
 
 ### Scripted REST API without Authentication
 Scripted REST APIs should be not be public but enforce  access controls and require additional access to data. 
+
+### Avoid the eval function
+Improper use of eval() opens up your code for injection attacks and difficulties with debugging.
+
+### Do not use gr as a variable name
+The platform is Javascript and a lot of code is run in a global variable scope. A "gr" defined in one business rule can clobber another "gr" defined in some other script.
 
 ## Category: User Experience
 
