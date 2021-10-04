@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>performance</category>
+        <description>Synchronous usage of AJAX calls (getXMLWait) pauses the browser interaction until data is retrieved from the server side and thereby reducing user experience. Using them in an onLoad or onChange client side scripts is not a best practice recommendation and can create performance issues for your users</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0517273</documentation_url>
+        <name>Using Synchronous AJAX calls in client script</name>
+        <priority>2</priority>
+        <resolution_details>Relpace getXMLWait with Asynchronous GlideAjax calls ie use getXML or getXMLAnswer with a callback function</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+    var updateVersionAPI = new global.UpdateVersionAPI(); // updateVersionAPI to find custom sys_metadata records
+    var clientScripts = new GlideRecord('sys_script_client');
+    clientScripts.addQuery('sys_class_name', 'sys_script_client');
+    // get all active custom client scripts with getXMLWait in it.
+    clientScripts.addEncodedQuery("active=true^scriptLIKEgetXMLWait^type=onLoad^ORtype=onChange");
+    clientScripts.query();
+    var resClientScripts = updateVersionAPI.getCustomerFileIds(clientScripts); // Find the custom clientscripts with getXMLWait and type is portal/all.
+    if (resClientScripts.length > 0) { //If there are custom client scripts using getXMLWait on portal
+        for (var i = 0; i < resClientScripts.length; i++) {
+            var csGr = new GlideRecord('sys_script_client');
+            // Get the specific client script and create finding records.
+            csGr.get(resClientScripts[i]);
+            engine.finding.setCurrentSource(csGr);
+            engine.finding.increment();
+        }
+    }
+})(engine);]]></script>
+        <short_description>Using Synchronous AJAX calls (getXMLWait) in onLoad or onChange client script</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-04 16:17:33</sys_created_on>
+        <sys_id>4cfd41f82f43f0107c12db9df699b691</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Using Synchronous AJAX calls in client script</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_4cfd41f82f43f0107c12db9df699b691</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-04 17:12:11</sys_updated_on>
+    </scan_script_only_check>
+</record_update>

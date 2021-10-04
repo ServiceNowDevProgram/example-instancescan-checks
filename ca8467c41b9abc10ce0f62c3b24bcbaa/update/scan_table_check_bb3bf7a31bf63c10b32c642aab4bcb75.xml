@@ -3,14 +3,13 @@
         <active>true</active>
         <advanced>false</advanced>
         <category>upgradability</category>
-        <conditions table="sys_db_object">super_class=f662b6fc1b263010043fdc61ab4bcb00^EQ<item display_table="sys_db_object" display_value="Incident" endquery="false" field="super_class" goto="false" newquery="false" operator="=" or="false" value="f662b6fc1b263010043fdc61ab4bcb00"/>
+        <conditions table="sys_db_object">super_class=f662b6fc1b263010043fdc61ab4bcb00^EQ<item endquery="false" field="super_class" goto="false" newquery="false" operator="=" or="false" value="f662b6fc1b263010043fdc61ab4bcb00"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description>The baseline restriction to extend the Incident table has been removed and at least one child table extending Incident has been created.&#13;
 - To support a custom Incident table a high amount of customization to the other ITSM processes is required&#13;
 - New functionality in future releases might not work on extended tables or would require further customization.</description>
         <documentation_url/>
-        <finding_type>scan_finding</finding_type>
         <name>Incident table should not be extended</name>
         <priority>1</priority>
         <resolution_details>Reevaluate the requirements behind this and remove the extended tables:&#13;

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>performance</category>
         <description>If a cache flush is triggered as part of a non-ootb script execution this will require the platform to rebuild the cache before returning to its BAU state. This activity has a significant performance impact.</description>
         <documentation_url>https://developer.servicenow.com/app.do#!/api_doc?v=newyork&amp;id=r_SGSYS-setProperty_S_S_S</documentation_url>
-        <finding_type>scan_finding</finding_type>
         <name>Cache flushed as part of scripts</name>
         <priority>2</priority>
         <resolution_details>Remove any cache flush triggers unless necessary. Recommended is only the pre-defined cache flush actions that are built into out the box solutions.&#13;
@@ -54,13 +52,11 @@ Care should be taken when setting system properties (sys_properties) using this 
         <sys_class_name>scan_linter_check</sys_class_name>
         <sys_created_by>daniel.draes</sys_created_by>
         <sys_created_on>2021-08-27 07:18:40</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>0b7623d41b1afc10ce0f62c3b24bcb24</sys_id>
         <sys_mod_count>8</sys_mod_count>
         <sys_name>Cache flushed as part of scripts</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_linter_check_0b7623d41b1afc10ce0f62c3b24bcb24</sys_update_name>
         <sys_updated_by>daniel.draes</sys_updated_by>
