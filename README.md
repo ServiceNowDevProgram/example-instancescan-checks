@@ -20,6 +20,9 @@ Check if the baseline restriction to extend the Incident table has been removed 
 ### Choice table should not be extended
 Check if the Choice [sys_choice] table has been extended. This is not supported by ServiceNow.
 
+### User table should not be extended
+Check if the User [sys_user] table has been extended. This is not recommended and can cause problems when a user needs to be in more than one user table.
+
 ## Category: Performance
 
 ### getMessage() called in Client Script 
