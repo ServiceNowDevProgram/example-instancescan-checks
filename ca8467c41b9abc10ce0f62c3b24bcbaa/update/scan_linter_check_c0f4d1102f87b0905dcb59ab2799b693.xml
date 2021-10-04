@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <attributes/>
+        <category>security</category>
+        <description>The platform is Javascript and a lot of code is run in a global variable scope.&#13;
+&#13;
+A "gr" defined in one business rule can clobber another "gr" defined in some other script, which happens to be running as part of the same update or transaction. One 'gr' can be replaced by the other 'gr' for something completely unrelated, and your script will continue running subsequent lines thinking it is the one it defined.&#13;
+&#13;
+Your script could end up returning no query result, or updating a different record, from even a different table, than the one you have just queried for in your script. That can clearly have serious implications.</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0713029</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Do not use gr as a variable name</name>
+        <priority>2</priority>
+        <resolution_details>You could wrap your scripts in a function to avoid your script clobbering another gr, which is why new business rules, calculated fields, etc. mostly now have a default script added to wrap the code to protect the variables within the function, but most scripts and including older business rules don't require this. Wrapping your code in a function is good coding practice, so always do this.&#13;
+&#13;
+When using more than one GlideRecord in your script, you may also accidentally re-use the gr name. The best practice is to use your own unique variable names, relevant to the table you are using, and never use 'gr'.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+	
+	/** 
+	  * The following to exclude certain tables like sys_script_execution_history 
+	  * from being part of this scan is NOT possible here due to app scoping issues
+	  * (https://github.com/ServiceNowDevProgram/example-instancescan-checks/issues/9)
+	  */
+	//var excludedTablesProp = gs.getProperty(/* custom property name here */);
+	//var excludedTables = excludedTablesProp.split(',');
+	//var tableName = engine.current.getTableName();
+	//if (!new ArrayUtil().contains(excludedTables, tableName)) {
+		
+    engine.rootNode.visit(function(node) {
+		if (node.getTypeName() === "NAME" 
+			&& node.getParent().getTypeName() === "VAR" 
+			&& node.getNameIdentifier() === "gr") {
+			
+			engine.finding.incrementWithNode(node);
+		}
+    });
+
+})(engine);]]></script>
+        <short_description>Do not use gr as a variable name</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2021-10-03 03:31:17</sys_created_on>
+        <sys_id>c0f4d1102f87b0905dcb59ab2799b693</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Do not use gr as a variable name</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_c0f4d1102f87b0905dcb59ab2799b693</sys_update_name>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2021-10-04 14:05:50</sys_updated_on>
+    </scan_linter_check>
+</record_update>
