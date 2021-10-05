@@ -3,7 +3,8 @@
         <active>true</active>
         <advanced>false</advanced>
         <category>performance</category>
-        <conditions table="sys_script_client">table=global^EQ<item endquery="false" field="table" goto="false" newquery="false" operator="=" or="false" value="global"/>
+        <conditions table="sys_script_client">table=global^active=true^EQ<item endquery="false" field="table" goto="false" newquery="false" operator="=" or="false" value="global"/>
+            <item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description>A global client script is any client script where the selected Table is Global. Global client scripts have no table restrictions; therefore they will load on every page in the system introducing browser load delay in the process. There is no benefit to loading this kind of scripts on every page.</description>
@@ -25,14 +26,14 @@
         <sys_created_by>nia.mccash</sys_created_by>
         <sys_created_on>2021-09-30 20:56:41</sys_created_on>
         <sys_id>2b77e92f2fb67c505dcb59ab2799b61f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Avoid Global Client Scripts</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_2b77e92f2fb67c505dcb59ab2799b61f</sys_update_name>
         <sys_updated_by>nia.mccash</sys_updated_by>
-        <sys_updated_on>2021-09-30 20:56:41</sys_updated_on>
+        <sys_updated_on>2021-10-04 00:51:52</sys_updated_on>
         <table>sys_script_client</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
