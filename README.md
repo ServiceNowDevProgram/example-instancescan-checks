@@ -15,6 +15,9 @@ Catalog Items in the Product Catalog should be created from the underlying Produ
 ### Do not use hard-coded sys_ids
 Hard-coded sys_ids can lead to unpredictable results (sys_ids may differ between instances) and can be difficult to track down.
 
+### Hard coded Instance URL
+Hard coding instance URL is not a best practice as they reduce the usability of your code. The URL remains static and it does not change when you move the code to a different instance or it can get overwritten during clone backs. This can break the related functionalities or create unexpected results.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
