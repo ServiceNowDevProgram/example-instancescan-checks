@@ -11,7 +11,7 @@
         <description>Before business rules execute before the data on current record is saved to database. In case, the before business rule fails or aborts its operation, then any insert operations within the business rule becomes invalid but it cannot be reverted back as the operation would have already been completed. In order to avoid such issues, before business rules should not include insert operations.</description>
         <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0722983</documentation_url>
         <finding_type>scan_finding</finding_type>
-        <name>Before Business rules should not insert() records on any tables</name>
+        <name>Before Business rules should not insert() records in any table</name>
         <priority>3</priority>
         <resolution_details>Move the insert operation from before business rule to  an after business rule so it executes only after the current record is saved to the database.</resolution_details>
         <run_condition/>
@@ -23,7 +23,7 @@
     // Add your code here
 
 })(engine);]]></script>
-        <short_description>Before Business rules should not insert records on any table</short_description>
+        <short_description>Before Business rules should not insert records in any table</short_description>
         <sys_class_name>scan_table_check</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-08 15:32:39</sys_created_on>
