@@ -18,6 +18,9 @@ Hard-coded sys_ids can lead to unpredictable results (sys_ids may differ between
 ### Hard coded Instance URL
 Hard coding instance URL is not a best practice as they reduce the usability of your code. The URL remains static and it does not change when you move the code to a different instance or it can get overwritten during clone backs. This can break the related functionalities or create unexpected results.
 
+### Before Business rules should not insert() records in any tables
+Before business rules execute before the data on current record is saved to database. In case, the before business rule fails or aborts its operation, then any insert operations within the business rule becomes invalid but it cannot be reverted back as the operation would have already been completed. In order to avoid such issues, before business rules should not include insert operations.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
@@ -51,6 +54,9 @@ Synchronous usage of AJAX calls (getXMLWait) pauses the browser interaction unti
 
 ### Business Rule without any conditions
 A business rule is triggered whenever a user opens a list or form view or when a user inserts/updates or deletes a record. Without any conditions added, it will always evaluate to true and triggerred at all times. This can add to the performance increasing server processing time and hence it is recommended to restrict business rule execution by either adding a condition or filter condition or a role condition and preventing its execution unless it is necessary.
+
+### Business rules should not use current.update() 
+Avoid using current.update() in a business rule script. The update() method triggers business rules to run on the same table for insert and update operations, leading to a business rule calling itself over and over. Changes made in before business rules are automatically saved when all before business rules are complete, and after business rules are best used for updating related, not current, objects
 
 ## Category: Security
 
