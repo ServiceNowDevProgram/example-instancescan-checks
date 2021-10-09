@@ -6,11 +6,39 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Consider using getXMLAnswer instead of getXML
+getXMLAnswer only retrieves the Answer which we are actually after. getXML retrieves the whole XML document. In most cases, we are not interested in the whole XML document, though only in the Answer.
+For the rare cases where you are interested in the whole XML document, simply mute the generated scan finding.
+
+### Could not verify Remote instance connection
+Connection test for the remote instance defined did not result in a positive response. 
+
 ### Duplicate Script Include Name
 This uses a table check to find other Script Includes having the same API name. Technically this is possible, but causes issues as there is no way to control which Script Include will be instantiated when being called.
 
+### Don't use new Array()
+In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
+
+### Don't use new Object()
+In general, you should use the object literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
+
+### High number of workflows running for a single record
+In general, for a single record only a few Workflow context will be running. If a high number of Workflow context are active, this often indicates an issue on the starting conditions of your Workflow. More then 10 active Workflow context is considered being a high number. 
+
+### Parent All Nodes/Active Nodes without childs
+Schedule records with system ID "all Nodes" or "active nodes", are considered to be parent schedules. Parent schedules that themselves will never run but instead spawn child jobs (of the same name) for each application node required by their definition. Jobs with system ID "all nodes", are typically background maintenance jobs required for general node health and management. Jobs with system ID "active nodes", are typically jobs that need to run the same event processor or other jobs that need increased processing bandwidth across the platform.
+
 ### Product Catalog without Product Models
 Catalog Items in the Product Catalog should be created from the underlying Product Model and this association should be kept intact.
+
+### Scripts should not contain debugging statements in production
+The "gs.log()", "gs.debug()", "console.log()", etc. statements can be used to write information to the system log, while the "gs.print()", etc. statements also sends it as output to the screen. It is generally used when debugging. Using "gs.log()", "gs.debug()", "console.log()", etc. statements on a production instance will pollute the system log, while it is never used as you do not perform debugging on a production instance.
+
+### Unprocessed queues
+External Communication Channel (ECC) Queue is a connection point between an instance and the MID Server. Jobs that the MID Server needs to perform are saved in this queue until the MID Server is ready to handle them. The default polling interval is set to 40 seconds. When there are unprocessed queue records, this can indicate a large volume of queue records, a processing issue in general, or a MID Server issue.
+
+### Unprocessed schedules
+Schedules with a state "Ready" run at the next scheduled interval (this does not include schedules with trigger type "Run at System Startup" and "On Demand"). When there are unprocessed schedules, this can indicate a large volume of schedules, a processing issue in general, or errors on the individual schedule itself.
 
 ### Do not use hard-coded sys_ids
 Hard-coded sys_ids can lead to unpredictable results (sys_ids may differ between instances) and can be difficult to track down.
