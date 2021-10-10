@@ -58,6 +58,9 @@ A business rule is triggered whenever a user opens a list or form view or when a
 ### Business rules should not use current.update() 
 Avoid using current.update() in a business rule script. The update() method triggers business rules to run on the same table for insert and update operations, leading to a business rule calling itself over and over. Changes made in before business rules are automatically saved when all before business rules are complete, and after business rules are best used for updating related, not current, objects
 
+### Avoid Dot-Walking to the sys_id of a Reference Field
+The value of a reference field is a sys_id. When you dot-walk to the sys_id, the system does an additional database query to retrieve the caller_id record, then retrieves the sys_id. This can lead to performance issues. 
+
 ## Category: Security
 
 ### Tables without ACLs
