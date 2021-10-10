@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <attributes/>
+        <category>performance</category>
+        <description>The value of a reference field is a sys_id. When you dot-walk to the sys_id, the system does an additional database query to retrieve the caller_id record, then retrieves the sys_id. This can lead to performance issues. </description>
+        <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/scripting_technical_best_practices#avoid-dot-walking-to-the-sys-id-of-a-reference-field</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid Dot-Walking to the sys_id of a Reference Field</name>
+        <priority>2</priority>
+        <resolution_details>Instead of &#13;
+var id = current.caller_id.sys_id;&#13;
+&#13;
+use &#13;
+var id = current.getValue('caller_id'); </resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    engine.rootNode.visit(function(node) {
+		if (node.getNameIdentifier() && node.getNameIdentifier() === 'sys_id' 
+			&& node.getParent().getTypeName() === 'GETPROP') {
+
+			// Found dot-walk to sys_id. Check for sibling nodes
+			var numChildren = 0;
+			node.getParent().visit(function(childnode) {
+				if (childnode.getTypeName() === "GETPROP") {
+					numChildren++;
+				}
+			});
+			// Ignore parent nodes with only one child where sys_id is the child
+			// eg. current.sys_id
+			// Assume all other parents with multiple children are dot-walks to sys_id
+			// of a reference field eg. current.caller_id.sys_id
+			// Where children = [current.caller_id, current.caller_id.sys_id]
+			if (numChildren > 1)
+				engine.finding.incrementWithNode(node);
+		}
+	});
+
+})(engine);]]></script>
+        <short_description>Avoid Dot-Walking to the sys_id of a Reference Field</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2021-10-09 17:47:42</sys_created_on>
+        <sys_id>22a19fd62f4778105dcb59ab2799b6e5</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Avoid Dot-Walking to the sys_id of a Reference Field</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_22a19fd62f4778105dcb59ab2799b6e5</sys_update_name>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2021-10-10 01:16:46</sys_updated_on>
+    </scan_linter_check>
+</record_update>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>manageability</category>
+        <conditions table="sys_script">active=true^when=before^scriptLIKEinsert()^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item display_value="before" endquery="false" field="when" goto="false" newquery="false" operator="=" or="false" value="before"/>
+            <item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="false" value="insert()"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Before business rules execute before the data on current record is saved to database. In case, the before business rule fails or aborts its operation, then any insert operations within the business rule becomes invalid but it cannot be reverted back as the operation would have already been completed. In order to avoid such issues, before business rules should not include insert operations.</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0722983</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Before Business rules should not insert() records in any table</name>
+        <priority>3</priority>
+        <resolution_details>Move the insert operation from before business rule to  an after business rule so it executes only after the current record is saved to the database.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Before Business rules should not insert records in any table</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-08 15:32:39</sys_created_on>
+        <sys_id>7589e10ebc0330107f448f0d4936142b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Before Business rules should not insert() records on any tables</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_7589e10ebc0330107f448f0d4936142b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-08 15:32:39</sys_updated_on>
+        <table>sys_script</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
