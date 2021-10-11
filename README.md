@@ -89,6 +89,9 @@ Avoid using current.update() in a business rule script. The update() method trig
 ### Avoid Dot-Walking to the sys_id of a Reference Field
 The value of a reference field is a sys_id. When you dot-walk to the sys_id, the system does an additional database query to retrieve the caller_id record, then retrieves the sys_id. This can lead to performance issues. 
 
+### Query business rules should not use query() on GlideRecord
+Query business rules that query themselves will continue to loop indefinitely until being caught by the platforms recursion limit. This can build up to an excessive response time and possibly cause the transaction to time out or create performance issues.
+
 ## Category: Security
 
 ### Tables without ACLs
