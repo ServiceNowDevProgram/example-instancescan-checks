@@ -89,6 +89,9 @@ Avoid using current.update() in a business rule script. The update() method trig
 ### Avoid Dot-Walking to the sys_id of a Reference Field
 The value of a reference field is a sys_id. When you dot-walk to the sys_id, the system does an additional database query to retrieve the caller_id record, then retrieves the sys_id. This can lead to performance issues. 
 
+### Do not use getRowCount() for fetching row count
+Using getRowCount method of GlideRecord can cause performance issues while quering on tables with high record count. The method counts each row one by one to determine the total row count and hence more the number of rows, more time it would take to execute scripts that uses it.
+
 ## Category: Security
 
 ### Tables without ACLs
