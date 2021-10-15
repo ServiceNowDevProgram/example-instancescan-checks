@@ -1,0 +1,42 @@
+<xml>
+<scan_table_check>
+<active>true</active>
+<advanced>true</advanced>
+<attributes/>
+<category>manageability</category>
+<conditions table="sys_script_client">
+active=true^messagesISEMPTY^scriptLIKEgetMessage^EQ
+<item goto="false" or="false" field="active" endquery="false" value="true" operator="=" newquery="false"/>
+<item goto="false" or="false" field="messages" endquery="false" value="" operator="ISEMPTY" newquery="false"/>
+<item goto="false" or="false" field="script" endquery="false" value="getMessage" operator="LIKE" newquery="false"/>
+<item goto="false" or="false" field="" endquery="true" value="" operator="=" newquery="false"/>
+</conditions>
+<description>Check if getMessage() is called in Client Script without preloading message key</description>
+<documentation_url/>
+<name>Check getMessage() called in Client Script without preloading message key</name>
+<priority>2</priority>
+<resolution_details>Please add a message in the 'Messages' field to use the getMessage() function in client scripts</resolution_details>
+<run_condition/>
+<score_max>100</score_max>
+<score_min>0</score_min>
+<score_scale>1</score_scale>
+<script>
+<![CDATA[ (function (engine) { var regex = /\bgetMessage\s*\(/g; if(current.script.match(regex)) { engine.finding.increment(); } })(engine); ]]>
+</script>
+<short_description>Check if getMessage() called in Client Script without preloading message key</short_description>
+<sys_class_name>scan_table_check</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-10-15 11:33:12</sys_created_on>
+<sys_id>3b05b0d007dbb010921cf48f7c1ed063</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Check getMessage() called in Client Script without preloading message key</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>scan_table_check_3b05b0d007dbb010921cf48f7c1ed063</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-10-15 11:33:12</sys_updated_on>
+<table>sys_script_client</table>
+<use_manifest>false</use_manifest>
+</scan_table_check>
+</xml>
