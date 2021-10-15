@@ -49,6 +49,12 @@ Hard coding instance URL is not a best practice as they reduce the usability of 
 ### Before Business rules should not insert() records in any tables
 Before business rules execute before the data on current record is saved to database. In case, the before business rule fails or aborts its operation, then any insert operations within the business rule becomes invalid but it cannot be reverted back as the operation would have already been completed. In order to avoid such issues, before business rules should not include insert operations.
 
+### Update set description should not be empty
+Validates the description of the update sets created is not empty as it provides the release management team better understanding what's getting pushed.
+
+### Update set should not have more than 1000 updates 
+Update sets with more than 1000 configuration updates should be broken down into multiple update sets with batching or the parent story has to be more granular as reviewing update set configs and commiting/backing out may have issues.  
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
