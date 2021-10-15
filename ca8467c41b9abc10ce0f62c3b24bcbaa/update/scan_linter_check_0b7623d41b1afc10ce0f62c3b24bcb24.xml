@@ -29,7 +29,7 @@ Care should be taken when setting system properties (sys_properties) using this 
 					return;
 				}
 				
-				if (childnode.getNameIdentifier() === "setProperty" || node.getNameIdentifier() === "cacheFlush") {
+				if (childnode.getNameIdentifier() === "setProperty" || childnode.getNameIdentifier() === "cacheFlush") {
 					method_found = true;
 					return;
 				}
@@ -45,21 +45,21 @@ Care should be taken when setting system properties (sys_properties) using this 
 				engine.finding.incrementWithNode(node);
 			}
         }
-
     });
+	
 })(engine);]]></script>
         <short_description>Cache flushed as part of scripts</short_description>
         <sys_class_name>scan_linter_check</sys_class_name>
         <sys_created_by>daniel.draes</sys_created_by>
         <sys_created_on>2021-08-27 07:18:40</sys_created_on>
         <sys_id>0b7623d41b1afc10ce0f62c3b24bcb24</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Cache flushed as part of scripts</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_linter_check_0b7623d41b1afc10ce0f62c3b24bcb24</sys_update_name>
-        <sys_updated_by>daniel.draes</sys_updated_by>
-        <sys_updated_on>2021-08-27 08:12:47</sys_updated_on>
+        <sys_updated_by>mark.roethof</sys_updated_by>
+        <sys_updated_on>2021-10-03 16:55:38</sys_updated_on>
     </scan_linter_check>
 </record_update>
