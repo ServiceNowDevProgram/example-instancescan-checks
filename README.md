@@ -49,6 +49,12 @@ Hard coding instance URL is not a best practice as they reduce the usability of 
 ### Before Business rules should not insert() records in any tables
 Before business rules execute before the data on current record is saved to database. In case, the before business rule fails or aborts its operation, then any insert operations within the business rule becomes invalid but it cannot be reverted back as the operation would have already been completed. In order to avoid such issues, before business rules should not include insert operations.
 
+### Update set description should not be empty
+Validates the description of the update sets created is not empty as it provides the release management team better understanding what's getting pushed.
+
+### Update set should not have more than 1000 updates 
+Update sets with more than 1000 configuration updates should be broken down into multiple update sets with batching or the parent story has to be more granular as reviewing update set configs and commiting/backing out may have issues.  
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
@@ -91,6 +97,9 @@ The value of a reference field is a sys_id. When you dot-walk to the sys_id, the
 
 ### Do not use getRowCount() for fetching row count
 Using getRowCount method of GlideRecord can cause performance issues while quering on tables with high record count. The method counts each row one by one to determine the total row count and hence more the number of rows, more time it would take to execute scripts that uses it.
+
+### Query business rules should not use query() on GlideRecord
+Query business rules that query themselves will continue to loop indefinitely until being caught by the platforms recursion limit. This can build up to an excessive response time and possibly cause the transaction to time out or create performance issues.
 
 ## Category: Security
 
