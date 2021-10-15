@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_column_type_check">
+    <scan_column_type_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>performance</category>
+        <column_type>script</column_type>
+        <description>Using getRowCount method of GlideRecord can cause performance issues while quering on tables with high record count. The method counts each row one by one to determine the total row count and hence more the number of rows, more time it would take to execute scripts that uses it.</description>
+        <documentation_url>https://developer.servicenow.com/dev.do#!/reference/api/rome/server_legacy/c_GlideAggregateAPI</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Do not use getRowCount() for fetching row count</name>
+        <priority>3</priority>
+        <resolution_details>Instead of using getRowCount, use GlideAggregate to retrieve table row count as this will improve performance because it works like a stored procedure.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+
+    var script = engine.columnValue;
+    if (script.indexOf("getRowCount") > -1) {
+        engine.finding.increment();
+    }
+
+})(engine);]]></script>
+        <short_description>Do not use getRowCount() for fetching row count</short_description>
+        <sys_class_name>scan_column_type_check</sys_class_name>
+        <sys_created_by>ali.abdulrazak</sys_created_by>
+        <sys_created_on>2021-10-11 16:31:10</sys_created_on>
+        <sys_id>4514d5c7400730107f44dbb3b15cf295</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Do not use getRowCount() for fetching row count</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_column_type_check_4514d5c7400730107f44dbb3b15cf295</sys_update_name>
+        <sys_updated_by>ali.abdulrazak</sys_updated_by>
+        <sys_updated_on>2021-10-11 17:02:49</sys_updated_on>
+    </scan_column_type_check>
+</record_update>
