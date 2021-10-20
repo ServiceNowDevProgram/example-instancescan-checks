@@ -1,0 +1,1 @@
+Monitor users with role `admin` (not locked out) that are not logged for longer than 1 month
