@@ -115,6 +115,9 @@ Improper use of eval() opens up your code for injection attacks and difficulties
 ### Do not use gr as a variable name
 The platform is Javascript and a lot of code is run in a global variable scope. A "gr" defined in one business rule can clobber another "gr" defined in some other script.
 
+### Admins not logged in for 1 month
+Monitor users with role `admin` (not locked out) that are not logged for longer than 1 month
+
 ## Category: User Experience
 
 
