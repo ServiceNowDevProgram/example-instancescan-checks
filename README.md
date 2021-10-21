@@ -118,6 +118,11 @@ The platform is Javascript and a lot of code is run in a global variable scope. 
 ### Admins not logged in for 1 month
 Monitor users with role `admin` (not locked out) that are not logged for longer than 1 month
 
+### Users left in already inactivated Groups
+After deactivation of Groups there can be still some users.
+Group offer membership but also can provide some roles that after deactivation should be considered as no longer needed.
+
+
 ## Category: User Experience
 
 
