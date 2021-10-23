@@ -55,6 +55,9 @@ Validates the description of the update sets created is not empty as it provides
 ### Update set should not have more than 1000 updates 
 Update sets with more than 1000 configuration updates should be broken down into multiple update sets with batching or the parent story has to be more granular as reviewing update set configs and commiting/backing out may have issues.  
 
+### Updates in wrong update set scope
+The scope for Customer Update [sys_update_xml] records should match the scope of the Update Set in which the Customer Update resides. Having a mismatch may cause Update Sets to generate preview errors meaning you cannot commit them until the errors are resolved.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
