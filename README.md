@@ -101,6 +101,21 @@ Using getRowCount method of GlideRecord can cause performance issues while queri
 ### Query business rules should not use query() on GlideRecord
 Query business rules that query themselves will continue to loop indefinitely until being caught by the platforms recursion limit. This can build up to an excessive response time and possibly cause the transaction to time out or create performance issues.
 
+### Always deregister $rootScope.$on listeners on the scope $destory event
+$rootScope.$on listeners will remain in memory if not properly cleaned up. This will create a memory leak if the controller falls out of scope.
+```javascript
+api.controller = function ($rootScope, $scope) {
+  /* widget controller */
+  var c = this;
+
+  var deregister = $rootScope.$on("someevent", function () {});
+
+  $scope.$on("$destroy", function destroyScope() {
+    deregister();
+  });
+};
+```
+
 ## Category: Security
 
 ### Tables without ACLs
