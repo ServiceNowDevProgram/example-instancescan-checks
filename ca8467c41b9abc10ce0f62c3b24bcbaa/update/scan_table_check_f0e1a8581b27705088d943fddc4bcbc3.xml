@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>performance</category>
+        <conditions table="sp_widget">client_scriptLIKE$rootScope.$on^client_scriptNOT LIKE$scope.$on('destroy'^ORclient_scriptNOT LIKE$scope.$on("destroy"^EQ<item endquery="false" field="client_script" goto="false" newquery="false" operator="LIKE" or="false" value="$rootScope.$on"/>
+            <item endquery="false" field="client_script" goto="false" newquery="false" operator="NOT LIKE" or="false" value="$scope.$on('destroy'"/>
+            <item endquery="false" field="client_script" goto="false" newquery="false" operator="NOT LIKE" or="true" value="$scope.$on(&quot;destroy&quot;"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>$rootScope.$on listeners will remain in memory if you navigate to another controller. This will create a memory leak if the controller falls out of scope.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>$rootScope.$on listener</name>
+        <priority>1</priority>
+        <resolution_details>api.controller = function ($rootScope, $scope) {&#13;
+  /* widget controller */&#13;
+  var c = this;&#13;
+&#13;
+  var deregister = $rootScope.$on("someevent", function () {});&#13;
+&#13;
+  $scope.$on("$destroy", function destroyScope() {&#13;
+    deregister();&#13;
+  });&#13;
+};</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (finding, current) {
+
+	
+
+})(finding, current);]]></script>
+        <short_description>Always deregister $rootScope.$on listeners on the scope $destory event</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-27 20:20:15</sys_created_on>
+        <sys_id>f0e1a8581b27705088d943fddc4bcbc3</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>$rootScope.$on listener</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_f0e1a8581b27705088d943fddc4bcbc3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-27 21:40:28</sys_updated_on>
+        <table>sp_widget</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
