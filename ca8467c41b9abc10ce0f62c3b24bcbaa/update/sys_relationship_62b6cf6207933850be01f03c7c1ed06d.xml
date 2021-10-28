@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_relationship">
+    <sys_relationship action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <apply_to/>
+        <basic_apply_to>sys_scope</basic_apply_to>
+        <basic_query_from>scan_result</basic_query_from>
+        <insert_callback/>
+        <name>Scan Results</name>
+        <query_from/>
+        <query_with><![CDATA[(function refineQuery(current, parent) {
+
+    var grTarget = new GlideRecord('scan_target');
+    if (grTarget.get('record_id', parent.getUniqueValue())) {
+        var targetId = grTarget.getUniqueValue();
+        var arrComboIds = [];
+        var grCombo = new GlideRecord('scan_combo');
+        grCombo.addQuery('targets', 'IN', targetId);
+        grCombo.query();
+        while (grCombo.next()) {
+            arrComboIds.push(grCombo.getUniqueValue());
+        }
+        current.addQuery('combo', 'IN', arrComboIds.toString());
+    }
+	else {
+		current.addQuery('sys_id', '-1');
+	}
+
+
+})(current, parent);]]></query_with>
+        <reference_field>combo</reference_field>
+        <related_list/>
+        <simple_reference>false</simple_reference>
+        <sys_class_name>sys_relationship</sys_class_name>
+        <sys_created_by>w.geek6</sys_created_by>
+        <sys_created_on>2021-10-22 21:49:33</sys_created_on>
+        <sys_id>62b6cf6207933850be01f03c7c1ed06d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Scan Results</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>sys_relationship_62b6cf6207933850be01f03c7c1ed06d</sys_update_name>
+        <sys_updated_by>w.geek6</sys_updated_by>
+        <sys_updated_on>2021-10-22 21:54:11</sys_updated_on>
+    </sys_relationship>
+    <sys_translated_text action="delete_multiple" query="documentkey=62b6cf6207933850be01f03c7c1ed06d"/>
+    <sys_ui_related_list_relationship_entry action="INSERT_OR_UPDATE">
+        <filter/>
+        <list_id display_value="Store Application - Default view" name="sys_store_app" related_list="NULL" sys_domain="global" view="Default view">ef51849077311010ca93aeca78106100</list_id>
+        <order_by/>
+        <position>3</position>
+        <related_list>REL:62b6cf6207933850be01f03c7c1ed06d</related_list>
+        <sys_class_name>sys_ui_related_list_relationship_entry</sys_class_name>
+        <sys_created_by>w.geek6</sys_created_by>
+        <sys_created_on>2021-10-22 21:54:30</sys_created_on>
+        <sys_id>22f7cfe207933850be01f03c7c1ed095</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_relationship display_value="Scan Results">62b6cf6207933850be01f03c7c1ed06d</sys_relationship>
+        <sys_ui_related_list display_value="Store Application - Default view" name="sys_store_app" related_list="NULL" sys_domain="global" view="Default view">ef51849077311010ca93aeca78106100</sys_ui_related_list>
+        <sys_updated_by>w.geek6</sys_updated_by>
+        <sys_updated_on>2021-10-22 21:54:30</sys_updated_on>
+    </sys_ui_related_list_relationship_entry>
+    <sys_ui_related_list_relationship_entry action="INSERT_OR_UPDATE">
+        <filter/>
+        <list_id display_value="Application - Default view" name="sys_scope" related_list="NULL" sys_domain="global" view="Default view">0ce24420d701310092610eca5e6103f1</list_id>
+        <order_by/>
+        <position>1</position>
+        <related_list>REL:62b6cf6207933850be01f03c7c1ed06d</related_list>
+        <sys_class_name>sys_ui_related_list_relationship_entry</sys_class_name>
+        <sys_created_by>w.geek6</sys_created_by>
+        <sys_created_on>2021-10-22 21:54:30</sys_created_on>
+        <sys_id>6ef7cfe207933850be01f03c7c1ed093</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_relationship display_value="Scan Results">62b6cf6207933850be01f03c7c1ed06d</sys_relationship>
+        <sys_ui_related_list display_value="Application - Default view" name="sys_scope" related_list="NULL" sys_domain="global" view="Default view">0ce24420d701310092610eca5e6103f1</sys_ui_related_list>
+        <sys_updated_by>w.geek6</sys_updated_by>
+        <sys_updated_on>2021-10-22 21:54:30</sys_updated_on>
+    </sys_ui_related_list_relationship_entry>
+    <sys_ui_related_list_relationship_entry action="INSERT_OR_UPDATE">
+        <filter/>
+        <list_id display_value="Custom Application - Default view" name="sys_app" related_list="NULL" sys_domain="global" view="Default view">adb9cea3c3301200f7d1ca3adfba8fe0</list_id>
+        <order_by/>
+        <position>5</position>
+        <related_list>REL:62b6cf6207933850be01f03c7c1ed06d</related_list>
+        <sys_class_name>sys_ui_related_list_relationship_entry</sys_class_name>
+        <sys_created_by>w.geek6</sys_created_by>
+        <sys_created_on>2021-10-22 21:49:33</sys_created_on>
+        <sys_id>c2d64b6207933850be01f03c7c1ed09f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_relationship display_value="Scan Results">62b6cf6207933850be01f03c7c1ed06d</sys_relationship>
+        <sys_ui_related_list display_value="Custom Application - Default view" name="sys_app" related_list="NULL" sys_domain="global" view="Default view">adb9cea3c3301200f7d1ca3adfba8fe0</sys_ui_related_list>
+        <sys_updated_by>w.geek6</sys_updated_by>
+        <sys_updated_on>2021-10-22 21:49:33</sys_updated_on>
+    </sys_ui_related_list_relationship_entry>
+</record_update>

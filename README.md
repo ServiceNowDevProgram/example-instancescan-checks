@@ -55,6 +55,9 @@ Validates the description of the update sets created is not empty as it provides
 ### Update set should not have more than 1000 updates 
 Update sets with more than 1000 configuration updates should be broken down into multiple update sets with batching or the parent story has to be more granular as reviewing update set configs and commiting/backing out may have issues.  
 
+### Updates in wrong update set scope
+The scope for Customer Update [sys_update_xml] records should match the scope of the Update Set in which the Customer Update resides. Having a mismatch may cause Update Sets to generate preview errors meaning you cannot commit them until the errors are resolved.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
@@ -129,6 +132,14 @@ Improper use of eval() opens up your code for injection attacks and difficulties
 
 ### Do not use gr as a variable name
 The platform is Javascript and a lot of code is run in a global variable scope. A "gr" defined in one business rule can clobber another "gr" defined in some other script.
+
+### Admins not logged in for 1 month
+Monitor users with role `admin` (not locked out) that are not logged for longer than 1 month
+
+### Users left in already inactivated Groups
+After deactivation of Groups there can be still some users.
+Group offer membership but also can provide some roles that after deactivation should be considered as no longer needed.
+
 
 ## Category: User Experience
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_relationship">
+    <sys_relationship action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <apply_to/>
+        <basic_apply_to>sys_update_set</basic_apply_to>
+        <basic_query_from>scan_result</basic_query_from>
+        <insert_callback/>
+        <name>Scan Results</name>
+        <query_from/>
+        <query_with><![CDATA[(function refineQuery(current, parent) {
+    var grTarget = new GlideRecord('scan_target');
+    if (grTarget.get('record_id', parent.getUniqueValue())) {
+        var targetId = grTarget.getUniqueValue();
+        var arrComboIds = [];
+        var grCombo = new GlideRecord('scan_combo');
+        grCombo.addQuery('targets', 'IN', targetId);
+        grCombo.query();
+        while (grCombo.next()) {
+            arrComboIds.push(grCombo.getUniqueValue());
+        }
+        current.addQuery('combo', 'IN', arrComboIds.toString());
+    }
+	else {
+		current.addQuery('sys_id', '-1');
+	}
+
+})(current, parent);]]></query_with>
+        <reference_field>combo</reference_field>
+        <related_list/>
+        <simple_reference>false</simple_reference>
+        <sys_class_name>sys_relationship</sys_class_name>
+        <sys_created_by>w.geek6</sys_created_by>
+        <sys_created_on>2021-10-22 21:39:39</sys_created_on>
+        <sys_id>eb33476e07533850be01f03c7c1ed0fa</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Scan Results</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>sys_relationship_eb33476e07533850be01f03c7c1ed0fa</sys_update_name>
+        <sys_updated_by>w.geek6</sys_updated_by>
+        <sys_updated_on>2021-10-22 21:55:33</sys_updated_on>
+    </sys_relationship>
+    <sys_translated_text action="delete_multiple" query="documentkey=eb33476e07533850be01f03c7c1ed0fa"/>
+    <sys_ui_related_list_relationship_entry action="INSERT_OR_UPDATE">
+        <filter/>
+        <list_id display_value="Update Set - Default view" name="sys_update_set" related_list="NULL" sys_domain="global" view="Default view">13cee3c347231200c17e19fbac9a7139</list_id>
+        <order_by/>
+        <position>6</position>
+        <related_list>REL:eb33476e07533850be01f03c7c1ed0fa</related_list>
+        <sys_class_name>sys_ui_related_list_relationship_entry</sys_class_name>
+        <sys_created_by>w.geek6</sys_created_by>
+        <sys_created_on>2021-10-22 21:39:39</sys_created_on>
+        <sys_id>f0948b6e07533850be01f03c7c1ed069</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_relationship display_value="Scan Results">eb33476e07533850be01f03c7c1ed0fa</sys_relationship>
+        <sys_ui_related_list display_value="Update Set - Default view" name="sys_update_set" related_list="NULL" sys_domain="global" view="Default view">13cee3c347231200c17e19fbac9a7139</sys_ui_related_list>
+        <sys_updated_by>w.geek6</sys_updated_by>
+        <sys_updated_on>2021-10-22 21:39:39</sys_updated_on>
+    </sys_ui_related_list_relationship_entry>
+</record_update>
