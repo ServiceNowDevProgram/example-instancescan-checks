@@ -122,6 +122,9 @@ Monitor users with role `admin` (not locked out) that are not logged for longer 
 After deactivation of Groups there can be still some users.
 Group offer membership but also can provide some roles that after deactivation should be considered as no longer needed.
 
+### Report with public role can expose data to unauthenticated clients
+For table that store reports definition there is also posibility to assign roles. It is possible that by default it is added `public` role. It means that even not authorized clients can access such report and sometimes with exposed data that shouldn't be accessible.
+
 
 ## Category: User Experience
 
