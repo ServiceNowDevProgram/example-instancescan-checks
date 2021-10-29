@@ -140,6 +140,8 @@ Monitor users with role `admin` (not locked out) that are not logged for longer 
 After deactivation of Groups there can be still some users.
 Group offer membership but also can provide some roles that after deactivation should be considered as no longer needed.
 
+### Scheduled Job with RunAs set as Locked Out user
+Detecting no longer active user with flag Locked Out set to true that is set as a RunAs for Scheduled Job
 
 ## Category: User Experience
 
