@@ -55,6 +55,9 @@ Validates the description of the update sets created is not empty as it provides
 ### Update set should not have more than 1000 updates 
 Update sets with more than 1000 configuration updates should be broken down into multiple update sets with batching or the parent story has to be more granular as reviewing update set configs and commiting/backing out may have issues.  
 
+### Updates in wrong update set scope
+The scope for Customer Update [sys_update_xml] records should match the scope of the Update Set in which the Customer Update resides. Having a mismatch may cause Update Sets to generate preview errors meaning you cannot commit them until the errors are resolved.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
@@ -101,6 +104,21 @@ Using getRowCount method of GlideRecord can cause performance issues while queri
 ### Query business rules should not use query() on GlideRecord
 Query business rules that query themselves will continue to loop indefinitely until being caught by the platforms recursion limit. This can build up to an excessive response time and possibly cause the transaction to time out or create performance issues.
 
+### Always deregister $rootScope.$on listeners on the scope $destory event
+$rootScope.$on listeners will remain in memory if not properly cleaned up. This will create a memory leak if the controller falls out of scope.
+```javascript
+api.controller = function ($rootScope, $scope) {
+  /* widget controller */
+  var c = this;
+
+  var deregister = $rootScope.$on("someevent", function () {});
+
+  $scope.$on("$destroy", function destroyScope() {
+    deregister();
+  });
+};
+```
+
 ## Category: Security
 
 ### Tables without ACLs
@@ -125,6 +143,8 @@ Group offer membership but also can provide some roles that after deactivation s
 ### Report with public role can expose data to unauthenticated clients
 For table that store reports definition there is also posibility to assign roles. It is possible that by default it is added `public` role. It means that even not authorized clients can access such report and sometimes with exposed data that shouldn't be accessible.
 
+### Scheduled Job with RunAs set as Locked Out user
+Detecting no longer active user with flag Locked Out set to true that is set as a RunAs for Scheduled Job
 
 ## Category: User Experience
 
