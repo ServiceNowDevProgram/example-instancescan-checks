@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <attributes/>
+        <category>security</category>
+        <conditions table="sys_report">is_published=true^roles=public^type!=list^EQ<item endquery="false" field="is_published" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="roles" goto="false" newquery="false" operator="=" or="false" value="public"/>
+            <item display_value="List" endquery="false" field="type" goto="false" newquery="false" operator="!=" or="false" value="list"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>A report can be published to 'public' and if all ACLs of the source tables are correctly configured no data will be exposed. &#13;
+Never the less it's best practice to keep the first barrier of security and publish reports to groups, roles or user.</description>
+        <documentation_url>https://docs.servicenow.com/bundle/rome-now-intelligence/page/use/reporting/task/t_PublishAReport.html?cshalt=yes</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Reports published to 'Public'</name>
+        <priority>2</priority>
+        <resolution_details>Unpublish the 'public' reports and assign them to group, roles or user as described in the docs.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Avoid publish reports to 'public' as they can be an entry point to data</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>but</sys_created_by>
+        <sys_created_on>2021-12-28 08:30:47</sys_created_on>
+        <sys_id>5d305188db7841500931b6d1ba96194b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Reports published to 'Public'</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_5d305188db7841500931b6d1ba96194b</sys_update_name>
+        <sys_updated_by>but</sys_updated_by>
+        <sys_updated_on>2021-12-28 08:30:47</sys_updated_on>
+        <table>sys_report</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

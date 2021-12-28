@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <attributes/>
+        <category>manageability</category>
+        <conditions table="sys_user_has_role">state=active^role!=940ba702933002009c8579b4f47ffbe2^role!=7fcaa702933002009c8579b4f47ffbde^inherited=false^EQ<item display_value="Active" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="active"/>
+            <item display_table="sys_user_role" display_value="snc_external" endquery="false" field="role" goto="false" newquery="false" operator="!=" or="false" value="940ba702933002009c8579b4f47ffbe2"/>
+            <item display_table="sys_user_role" display_value="snc_internal" endquery="false" field="role" goto="false" newquery="false" operator="!=" or="false" value="7fcaa702933002009c8579b4f47ffbde"/>
+            <item endquery="false" field="inherited" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>To maintain the manageability of the user administration it is best practice to assign roles to groups and not directly to users.&#13;
+A user gets the roles by being a member of a group.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Roles directly assigned</name>
+        <priority>3</priority>
+        <resolution_details>Create an according group, assign the role to the group, and put the user in.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Roles should not assigned directly to user</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>but</sys_created_by>
+        <sys_created_on>2021-12-28 09:34:02</sys_created_on>
+        <sys_id>b4cf118cdbb841500931b6d1ba961920</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Roles directly assigned</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_b4cf118cdbb841500931b6d1ba961920</sys_update_name>
+        <sys_updated_by>but</sys_updated_by>
+        <sys_updated_on>2021-12-28 09:46:42</sys_updated_on>
+        <table>sys_user_has_role</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

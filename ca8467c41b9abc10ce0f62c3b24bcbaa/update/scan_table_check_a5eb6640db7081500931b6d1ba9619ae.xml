@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <attributes/>
+        <category>manageability</category>
+        <conditions table="sys_update_set">name!=Default^state!=ignore^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="!=" or="false" value="Default"/>
+            <item display_value="Ignore" endquery="false" field="state" goto="false" newquery="false" operator="!=" or="false" value="ignore"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Update sets should have unique names to avoid confusion when they should be deployed or reviewed</description>
+        <documentation_url>https://docs.servicenow.com/bundle/rome-application-development/page/build/system-update-sets/reference/update-set-administration.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Update set unique names</name>
+        <priority>3</priority>
+        <resolution_details>Rename concerned update sets.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Search for update sets with duplicate names
+	
+	var UpdateSet_GA = new GlideAggregate('sys_update_set');
+	UpdateSet_GA.addQuery('state', '!=', 'ignore');
+	UpdateSet_GA.addQuery('name', current.name);
+	UpdateSet_GA.addAggregate('Count', 'name');
+	UpdateSet_GA.groupBy('name');
+	UpdateSet_GA.query();
+	while(UpdateSet_GA.next()){
+		if(UpdateSet_GA.getAggregate('Count', 'name')>1){
+			finding.setCurrentSource(current);
+			finding.increment();
+		}
+	}
+})(engine);]]></script>
+        <short_description>Update sets should have unique names</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>but</sys_created_by>
+        <sys_created_on>2021-12-28 15:09:14</sys_created_on>
+        <sys_id>a5eb6640db7081500931b6d1ba9619ae</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Update set unique names</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_a5eb6640db7081500931b6d1ba9619ae</sys_update_name>
+        <sys_updated_by>but</sys_updated_by>
+        <sys_updated_on>2021-12-28 15:19:19</sys_updated_on>
+        <table>sys_update_set</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
