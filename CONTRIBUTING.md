@@ -15,5 +15,6 @@
 5. Use your forked repo to [Import your application](https://developer.servicenow.com/dev.do#!/learn/learning-plans/quebec/new_to_servicenow/app_store_learnv2_devenvironment_quebec_importing_an_application_from_source_control)
 5. Make updates to the application
 6. In Studio, commit your changes to source control
-7. Submit a pull request to the ServiceNowDevProgram/example-instancescan-checks
+7. If you added a new Instance Scan check, add documentation of the check to the README.md file. 
+8. Submit a pull request to the ServiceNowDevProgram/example-instancescan-checks
  `master` branch
