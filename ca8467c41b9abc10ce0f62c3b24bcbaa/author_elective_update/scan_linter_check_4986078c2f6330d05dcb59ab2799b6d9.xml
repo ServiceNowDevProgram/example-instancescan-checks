@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="DELETE">
+        <active>true</active>
+        <attributes/>
+        <category>user_experience</category>
+        <description/>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Provide alternate value when fetching Glide property</name>
+        <priority>3</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    engine.rootNode.visit(function(node) {
+		
+		// Find an occurrence of the getProperty function
+		if (node.getNameIdentifier() && node.getNameIdentifier() === 'getProperty') {
+
+			// Walk up the AST tree to check if function is called on GlideSystem 
+			if (node.getParent().getTypeName() === 'GETPROP' 
+				&& node.getParent().toSource() === 'gs.getProperty') {
+				
+				var argsProvided = 0;
+				
+				// Walk up to grandparent to check for the arguments provided
+				node.getParent().getParent().visit(function(childnode) {
+					// Case 1: Finds argument specified as a string, including when 
+					// default value is provided as number or boolean
+					// eg. gs.getProperty('value1', 'value2');
+					if (childnode.getTypeName() === 'STRING' || childnode.getTypeName() === 'NUMBER' 
+						|| childnode.getTypeName() === 'TRUE' || childnode.getTypeName() === 'FALSE') {
+						argsProvided ++;
+					}
+					// Case 2: Find argument specified as a variable
+					// eg. gs.getProperty(propertyName, defaultValue);
+					else if (childnode.getTypeName() === 'NAME' && childnode.getNameIdentifier()
+						&& childnode.getNameIdentifier() !== 'gs' 
+						&& childnode.getNameIdentifier() !== 'getProperty') {
+						argsProvided++;
+					}
+
+				});
+				if (argsProvided != 2) {
+					engine.finding.incrementWithNode(node);
+				}
+			}				
+		}
+	});
+
+})(engine);]]></script>
+        <short_description>Provide alternate value when fetching Glide property</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2021-10-27 13:39:00</sys_created_on>
+        <sys_id>4986078c2f6330d05dcb59ab2799b6d9</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_name>Provide alternate value when fetching Glide property</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_4986078c2f6330d05dcb59ab2799b6d9</sys_update_name>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2021-10-27 16:36:02</sys_updated_on>
+    </scan_linter_check>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</application>
+        <file_path/>
+        <instance_id>d11553a0dbb3df0ccbf6d5b0cf961947</instance_id>
+        <instance_name>dev69016</instance_name>
+        <name>scan_linter_check_4986078c2f6330d05dcb59ab2799b6d9</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="scan_linter_check"&gt;
+    &lt;scan_linter_check action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;attributes/&gt;
+        &lt;category&gt;user_experience&lt;/category&gt;
+        &lt;description/&gt;
+        &lt;documentation_url/&gt;
+        &lt;finding_type&gt;scan_finding&lt;/finding_type&gt;
+        &lt;name&gt;Provide alternate value when fetching Glide property&lt;/name&gt;
+        &lt;priority&gt;3&lt;/priority&gt;
+        &lt;resolution_details/&gt;
+        &lt;run_condition/&gt;
+        &lt;score_max&gt;100&lt;/score_max&gt;
+        &lt;score_min&gt;0&lt;/score_min&gt;
+        &lt;score_scale&gt;1&lt;/score_scale&gt;
+        &lt;script&gt;&lt;![CDATA[(function (engine) {
+
+    engine.rootNode.visit(function(node) {
+		
+		// Find an occurrence of the getProperty function
+		if (node.getNameIdentifier() &amp;&amp; node.getNameIdentifier() === 'getProperty') {
+
+			// Walk up the AST tree to check if function is called on GlideSystem 
+			if (node.getParent().getTypeName() === 'GETPROP' 
+				&amp;&amp; node.getParent().toSource() === 'gs.getProperty') {
+				
+				var argsProvided = 0;
+				
+				// Walk up to grandparent to check for the arguments provided
+				node.getParent().getParent().visit(function(childnode) {
+					// Case 1: Finds argument specified as a string, including when 
+					// default value is provided as number or boolean
+					// eg. gs.getProperty('value1', 'value2');
+					if (childnode.getTypeName() === 'STRING' || childnode.getTypeName() === 'NUMBER' 
+						|| childnode.getTypeName() === 'TRUE' || childnode.getTypeName() === 'FALSE') {
+						argsProvided ++;
+					}
+					// Case 2: Find argument specified as a variable
+					// eg. gs.getProperty(propertyName, defaultValue);
+					else if (childnode.getTypeName() === 'NAME' &amp;&amp; childnode.getNameIdentifier()
+						&amp;&amp; childnode.getNameIdentifier() !== 'gs' 
+						&amp;&amp; childnode.getNameIdentifier() !== 'getProperty') {
+						argsProvided++;
+					}
+
+				});
+				if (argsProvided != 2) {
+					engine.finding.incrementWithNode(node);
+				}
+			}				
+		}
+	});
+
+})(engine);]]&gt;&lt;/script&gt;
+        &lt;short_description&gt;Provide alternate value when fetching Glide property&lt;/short_description&gt;
+        &lt;sys_class_name&gt;scan_linter_check&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;nia.mccash&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2021-10-27 13:39:00&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;4986078c2f6330d05dcb59ab2799b6d9&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;34&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Provide alternate value when fetching Glide property&lt;/sys_name&gt;
+        &lt;sys_package display_value="Example Instance Checks" source="x_appe_exa_checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Example Instance Checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;scan_linter_check_4986078c2f6330d05dcb59ab2799b6d9&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;nia.mccash&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2021-10-27 16:36:02&lt;/sys_updated_on&gt;
+    &lt;/scan_linter_check&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>500600901</payload_hash>
+        <record_name>Provide alternate value when fetching Glide property</record_name>
+        <reverted_from/>
+        <source>93491cff2f8219105dcb59ab2799b6c3</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2022-09-26 19:27:34</sys_created_on>
+        <sys_id>2b495cff2f8219105dcb59ab2799b67c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1837b44dfc90000001</sys_recorded_at>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2022-09-26 19:27:34</sys_updated_on>
+        <type>Linter Check</type>
+        <update_guid>67495cffdb821910acdf91937906867c</update_guid>
+        <update_guid_history>67495cffdb821910acdf91937906867c:0,b6e7dc3f6c821910942e32986f1d2934:1083851429,b936d47b8882191040aba76115901ec2:0,73f1d073e3821910537f799539a439ab:1855961962,35ec62014c2f3410b4981fa9ced9c817:0,7ce67fc4682b30d0020d574e0b844b2e:-1538286495,000177c471a730d02ba082cdda29778f:-915724962,8410ff8046e730d05b5b8d801c30b3e1:-474967810,120fef80bbe730d0069ea2bc53751cd9:143208289,eb5fabc0d1e730d026c0db42d8c1f03e:-1542783915,120fef80bbe730d0069ea2bc53751cd9:143208289,7cbea7c4b1a730d0bb33b74f994c213f:-474967810,d98ea740d2e730d00f7c98d018bb4d5e:1479195403,54adafcc25a730d0cecce1fb23a28e6d:998700408,5858abc437a730d009ca7c89f719206f:1608809503,05c5a3c073a730d09fdeb824cc965df9:1212246996,9cd067c0266730d0f3b021170138608f:-893151884,3980a340166730d0c42fc3ee61d80aee:1212246996,a6406b40a66730d054868edd0da363c8:-1313951890,01af5b409c6730d0a010fa262d8edec3:1046312604,3d2edf8cd22730d0556ffa25fc087ba3:-339354001,9bcddfc0102730d0c844c8867c23b013:2140017159,25c41bc02be330d05180decda7a71e24:-1620727994,02845384d2e330d04ff061e150af1f1e:1506883121,b8e3d7846ce330d0d7cbc1b77c70d0dd:-1191909110,54a3d30003e330d00219b87de8259630:-432757430,a623d3442be330d05ba344dc9e59b9f1:-1998107673,81031f0098e330d095b4d73fc7b837c0:-515246144,3a6217ccc7a330d06812f8650ec172e7:-944822537,4122d7c0b0e330d055ad37cf647ed4c4:560752770,b9801f00d1e330d0b934e3c80d1bf79f:-1261788866,f030d30009e330d043eac1b7fc5c4f00:-973378660,15af0b8c9ea330d0f27b14b214912cfa:11537992,358fcfc499a330d06b78691251f40fb4:1448177256,673fc30854a330d04c567d5987113787:87199240,252d8308aca330d0edba79c22419e591:-1649971194,8f4b4700a2a330d0751762c74849b6f3:-891689157,3fa94b80baa330d087a266875c73e590:421507442,d88903c045a330d0fb86646e0136e9c3:-1978647577,789803c0dca330d0b7f18a9249b666ba:1884633449,a948470040a330d049dfe9c3cba63dde:1122253566,67b7838cd56330d0a92516e79368a202:-1451786366,71e6c7c45b6330d017e01138c13ba1d8:-1949741214,7496438c0a6330d091a8b4a15763d2c2:551312136,cd86078c856330d07b3b1463abaf02db:2124397793</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Provide alternate value when fetching Glide property">8bb8bb682fd6dd105dcb59ab2799b6f6</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2022-09-29 19:39:12</sys_created_on>
+        <sys_db_object display_value="" name="scan_linter_check">scan_linter_check</sys_db_object>
+        <sys_id>0cc2a427efe941e081e9e3929dc1a900</sys_id>
+        <sys_metadata>4986078c2f6330d05dcb59ab2799b6d9</sys_metadata>
+        <sys_name>Provide alternate value when fetching Glide property</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_scope_delete display_value="">30a78b9b9290467a96959a65d2b2d304</sys_scope_delete>
+        <sys_update_name>scan_linter_check_4986078c2f6330d05dcb59ab2799b6d9</sys_update_name>
+        <sys_update_version display_value="scan_linter_check_4986078c2f6330d05dcb59ab2799b6d9">2b495cff2f8219105dcb59ab2799b67c</sys_update_version>
+    </sys_metadata_delete>
+</record_update>
