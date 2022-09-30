@@ -2,7 +2,7 @@
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <attributes/>
-        <category>user_experience</category>
+        <category>performance</category>
         <description>Providing an alternate, default value when calling gs.getProperty() helps mitigate risk of errors when property does not exist.</description>
         <documentation_url/>
         <finding_type>scan_finding</finding_type>
