@@ -123,6 +123,10 @@ api.controller = function ($rootScope, $scope) {
 };
 ```
 
+### Provide alternate value when fetching Glide property
+Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
+
+
 ## Category: Security
 
 ### Tables without ACLs
