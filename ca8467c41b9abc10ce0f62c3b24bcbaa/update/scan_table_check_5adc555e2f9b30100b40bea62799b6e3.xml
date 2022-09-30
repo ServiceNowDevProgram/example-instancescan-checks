@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <attributes display_value="">a49d119e2f9b30100b40bea62799b627</attributes>
+        <category>security</category>
+        <conditions table="sys_user_grmember">group.active=false^EQ<item endquery="false" field="group.active" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <documentation_url/>
+        <finding_type/>
+        <name>Users belongs to inactive Group</name>
+        <priority>3</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max/>
+        <score_min/>
+        <score_scale/>
+        <script><![CDATA[(function(finding, current) {
+
+	var grGroup = new GlideRecord("sys_user_group");
+	grGroup.get(current.group);
+
+	finding.setCurrentSource(grGroup);
+	finding.increment();
+
+
+})(finding, current);]]></script>
+        <short_description>List users that still belongs to already inactivated groups</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-21 19:31:07</sys_created_on>
+        <sys_id>5adc555e2f9b30100b40bea62799b6e3</sys_id>
+        <sys_name>Users belongs to inactive Group</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_5adc555e2f9b30100b40bea62799b6e3</sys_update_name>
+        <table>sys_user_grmember</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
