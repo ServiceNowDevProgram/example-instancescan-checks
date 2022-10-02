@@ -154,6 +154,9 @@ For table that store reports definition there is also posibility to assign roles
 ### Scheduled Job with RunAs set as Locked Out user
 Detecting no longer active user with flag Locked Out set to true that is set as a RunAs for Scheduled Job
 
+### Client Scripts should not use GlideRecord() API
+Verify that instance doesn't have GlideRecord() usage in client scripts and instead make use of GlideAjax.
+
 ## Category: User Experience
 
 
