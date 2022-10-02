@@ -17,14 +17,14 @@
 
     var updateSetConfigCount;
     var checkConfisCount = new GlideAggregate('sys_update_xml');
-	checkConfisCount.addEncodedQuery('update_set.state!=ignore');
+	checkConfisCount.addEncodedQuery('update_set.nameNOT LIKEdefault^update_set.state!=ignore^update_set.description!=Automatically created by the system');
     checkConfisCount.addAggregate('COUNT', 'update_set');
     checkConfisCount.orderBy('update_set');
     checkConfisCount.query();
     while (checkConfisCount.next()) {
         updateSetConfigCount = checkConfisCount.getAggregate('COUNT', 'update_set');
         if (updateSetConfigCount >= 1000) {
-			finding.setCurrentSource(checkConfisCount);
+			finding.setCurrentSource(checkConfisCount.update_set.getRefRecord());
             engine.finding.increment();
         }
     }
