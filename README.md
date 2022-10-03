@@ -10,6 +10,21 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### CMDB records with broken references
+Reference fields are a stored reference to a field on another table. This creates a relationship between the two tables.
+
+In some cases, the reference gets broken. Technically the field will still hold a value, though will display a blank value or a sys_id and the reference does not work anymore. The reference is incorrect or worse, the reference does not exist on the target table (also not under an other sys_id). This could occur due to scripting, scripting with hardcoded incorrect values, imported data with incorrect references (for example sys_ids to references might differ between instances when those records were newly created instead of being promoted between the instances).
+
+### Many-to-many records with broken references
+Reference fields are a stored reference to a field on another table. This creates a relationship between the two tables.
+
+In some cases, the reference gets broken. Technically the field will still hold a value, though will display a blanc value or a sys_id and the reference does not work anymore. The reference is incorrect or worse, the reference does not exist on the target table (also not under an other sys_id). This could occur due to scripting, scripting with hardcoded incorrect values, imported data with incorrect references (for example sys_ids to references might differ between instances when those records were newly created instead of being promoted between the instances).
+
+### Task records with broken references
+Reference fields are a stored reference to a field on another table. This creates a relationship between the two tables.
+
+In some cases, the reference gets broken. Technically the field will still hold a value, though will display a blanc value or a sys_id and the reference does not work anymore. The reference is incorrect or worse, the reference does not exist on the target table (also not under an other sys_id). This could occur due to scripting, scripting with hardcoded incorrect values, imported data with incorrect references (for example sys_ids to references might differ between instances when those records were newly created instead of being promoted between the instances).
+
 ### Consider using getXMLAnswer instead of getXML
 getXMLAnswer only retrieves the Answer which we are actually after. getXML retrieves the whole XML document. In most cases, we are not interested in the whole XML document, though only in the Answer.
 For the rare cases where you are interested in the whole XML document, simply mute the generated scan finding.
