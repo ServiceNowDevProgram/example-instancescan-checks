@@ -172,6 +172,9 @@ Detecting no longer active user with flag Locked Out set to true that is set as 
 ### Client Scripts should not use GlideRecord() API
 Verify that instance doesn't have GlideRecord() usage in client scripts and instead make use of GlideAjax.
 
+### Inactive users should be also locked out
+If the user is deactivated he should also be locked out otherwise he could still be able to use Table API.
+
 ## Category: User Experience
 
 
