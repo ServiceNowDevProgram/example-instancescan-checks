@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>Reference fields are a stored reference to a field on another table. This creates a relationship between the two tables.&#13;
+&#13;
+In some cases, the reference gets broken. Technically the field will still hold a value, though will display a blanc value or a sys_id and the reference does not work anymore. The reference is incorrect or worse, the reference does not exist on the target table (also not under an other sys_id). This could occur due to scripting, scripting with hardcoded incorrect values, imported data with incorrect references (for example sys_ids to references might differ between instances when those records were newly created instead of being promoted between the instances).</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Many-to-many records with broken references</name>
+        <priority>3</priority>
+        <resolution_details>Repair the broken references and investigate the cause of the broken references.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Query M2M Definition records
+	var grM2MDefinition = new GlideRecord('sys_m2m');
+	grM2MDefinition.addEncodedQuery('m2m_tableISNOTEMPTY^m2m_to_fieldISNOTEMPTY^m2m_from_fieldISNOTEMPTY');
+	grM2MDefinition._query();
+
+	while(grM2MDefinition._next()) {
+		if(gs.tableExists(grM2MDefinition.getValue('m2m_table')) && gs.tableExists(grM2MDefinition.getValue('from_table')) && gs.tableExists(grM2MDefinition.getValue('to_table'))) {
+			var getRecord = new GlideRecord(grM2MDefinition.getValue('m2m_table'));
+			getRecord.addEncodedQuery(grM2MDefinition.getValue('m2m_to_field') + 'ISNOTEMPTY^' + grM2MDefinition.getValue('m2m_to_field') + '.sys_idISEMPTY^NQ' + grM2MDefinition.getValue('m2m_to_field') + 'ISNOTEMPTY^' + grM2MDefinition.getValue('m2m_to_field') + '.sys_idISEMPTY');
+			getRecord.addActiveQuery();
+			getRecord._query();
+
+			// Create scan finding
+			while(getRecord._next()) {
+				engine.finding.setCurrentSource(getRecord);
+				engine.finding.increment();
+			}
+		}
+	}
+
+})(engine);]]></script>
+        <short_description>Many-to-many records with broken references</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-03 15:00:33</sys_created_on>
+        <sys_id>9c5f1fb52f121110a1803e0ef699b6ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Many-to-many records with broken references</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_9c5f1fb52f121110a1803e0ef699b6ad</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-03 15:00:33</sys_updated_on>
+    </scan_script_only_check>
+</record_update>
