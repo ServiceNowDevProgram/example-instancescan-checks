@@ -77,6 +77,15 @@ Update sets with more than 1000 configuration updates should be broken down into
 ### Updates in wrong update set scope
 The scope for Customer Update [sys_update_xml] records should match the scope of the Update Set in which the Customer Update resides. Having a mismatch may cause Update Sets to generate preview errors meaning you cannot commit them until the errors are resolved.
 
+### Delete orphaned variables
+Variables should be used in  Catalog Item or a Variable Set. Variables not in use should be deleted.
+
+### Delete Orphaned Catalog Client Scripts
+Catalog Client Script should be used in either a Catalog Item or a Variable Set. Catalog Client Scripts not in use should be deleted.
+
+### Update set description should not be empty
+Catalog UI policy should be used in either a Catalog Item or a Variable Set. Catalog UI Policies not in use should be deleted.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
