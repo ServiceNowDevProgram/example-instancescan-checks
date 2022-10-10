@@ -10,6 +10,18 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Don't use new Array()
+In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
+
+### Corrupt CI Relationships
+CI Relationship records without a parent or a child record should not exist. Such CI Relationship records technically won't function. Situations like these are likely to occur due to incorrect manual System Administrative duties or incorrect automated processes.
+
+### Scripts should not contain gs.log statements
+The gs.log() statement can be used to write information to the system log. It is generally used when debugging. Using gs.log() statements will pollute the system log. Prior to promoting artifacts to a production instance, debugging statement should - in most cases - be removed.
+
+### Scripts should not contain gs.info statements
+The gs.info() statement can be used to write information to the system log. It is generally used when debugging. Using gs.info() statements will pollute the system log. Prior to promoting artifacts to a production instance, debugging statement should - in most cases - be removed.
+
 ### CMDB records with broken references
 Reference fields are a stored reference to a field on another table. This creates a relationship between the two tables.
 
@@ -88,6 +100,9 @@ Catalog UI policy should be used in either a Catalog Item or a Variable Set. Cat
 
 ## Category: Upgradability
 
+### Call GlideRecord using new
+Good naming convention and self-descriptive code contain "new" to define GlideRecord. In some versions or for some parts of the Platform leaving "new" off will work, though for other parts of the Platform or after upgrades this can cause unexpected behavior.
+
 ### Incident table should not be extended
 Check if the baseline restriction to extend the Incident table has been removed and at least one child table extending Incident has been created.
 
@@ -153,6 +168,9 @@ Recommendation to provide alternate/default value when calling gs.getProperty() 
 
 ## Category: Security
 
+### Avoid using setBasicAuth for REST messages
+It is possible to script REST messages directly. When doing so, using the .setBasicAuth method is considered a security risk. Doing so, the username and password are entered - unprotected - in server side scripting.
+
 ### Tables without ACLs
 This check searches for any custom table if there exists at least one ACL record. If not a finding is raised.
 
@@ -186,6 +204,8 @@ If the user is deactivated he should also be locked out otherwise he could still
 
 ## Category: User Experience
 
+### Added a Number Prefix which already exists
+Creating new number records does not require uniqueness. Though having duplicate number records causes some ServiceNow core functionality not to behave as expected. For example, the search might return a record from another table the number prefix is also used on.
 
 
 # Additional resources

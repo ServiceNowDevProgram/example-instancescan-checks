@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>The gs.log() statement can be used to write information to the system log. It is generally used when debugging. Using gs.log() statements will pollute the system log. Prior to promoting artifacts to a production instance, debugging statement should - in most cases - be removed.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Scripts should not contain gs.log statements</name>
+        <priority>4</priority>
+        <resolution_details>The best practice is to remove debug statements from scripts or making them conditionally controlled by a property.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Check script field
+	engine.rootNode.visit(function(node) {
+		if(node.getTypeName() === 'GETPROP') {
+			var gs_match = false,
+				method_match = false;
+
+			node.visit(function(childnode) {
+				if(childnode.getTypeName() != 'NAME') {
+					return;
+				}
+
+				if(childnode.getNameIdentifier() === "gs") {
+					gs_match = true;
+					return;
+				}
+
+				if(childnode.getNameIdentifier() === 'log') {
+					method_match = true;
+					return;
+				}
+			});
+
+			// Create scan finding
+			if(gs_match && method_match) {
+				engine.finding.incrementWithNode(node);
+			}
+		}
+	});	
+
+})(engine);]]></script>
+        <short_description>Scripts should not contain gs.log statements</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-08 17:05:17</sys_created_on>
+        <sys_id>90db61672f561110a1803e0ef699b648</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Scripts should not contain gs.log statements</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_90db61672f561110a1803e0ef699b648</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-08 17:05:17</sys_updated_on>
+    </scan_linter_check>
+</record_update>
