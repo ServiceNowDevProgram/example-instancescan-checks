@@ -202,10 +202,15 @@ Verify that instance doesn't have GlideRecord() usage in client scripts and inst
 ### Inactive users should be also locked out
 If the user is deactivated he should also be locked out otherwise he could still be able to use Table API.
 
+## Employee files should not be cloned over to sub production instances.
+Verify that clone exclude table configuration on production contains configuration for sn_hr_ef_employee_document table.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
 Creating new number records does not require uniqueness. Though having duplicate number records causes some ServiceNow core functionality not to behave as expected. For example, the search might return a record from another table the number prefix is also used on.
+
+
 
 
 # Additional resources
