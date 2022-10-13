@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>security</category>
+        <description>EDM ( Employee Document Management) Module table as part of HRSD contains sensitive employee files e.g offer letters, term letters, promotion letter etc . This data should not be cloned from production to sub production instances since sub prod may have many admins which can see this data which will cause security issues.</description>
+        <documentation_url>/api/now/v1/context_doc_url/CSHelp:exclude-table</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>EDM table doesn't have clone exclusion on Prod</name>
+        <priority>3</priority>
+        <resolution_details>1. Verify production instance to check if sn_hr_ef_employee_document Table is configured in clone exclude table.&#13;
+2. Set up exclusion for this table in production instnace if not already present.</resolution_details>
+        <run_condition>gs.getProperty('sn_appclient.instance_type') == 'production'</run_condition>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding) {
+
+    var gr_active = new GlideRecord('v_plugin');
+    gr_active.get('id', 'com.sn_employee_document_management');
+    if (gr_active.active == 'active') {
+        verifyExclusion('sn_hr_ef_employee_document');
+    
+    }
+
+    function verifyExclusion(tableName) {
+        var excludeTable = new GlideRecord('clone_data_exclude');
+        excludeTable.addQuery('name', tableName);
+        excludeTable.query();
+        if (!excludeTable.next()) {
+            finding.increment();
+        }
+    }
+
+})(finding);]]></script>
+        <short_description>EDM table doesn't have clone exclusion on Prod</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-12 15:36:34</sys_created_on>
+        <sys_id>63ddf5782f6691104f07a1fef699b624</sys_id>
+        <sys_name>EDM table doesn't have clone exclusion on Prod</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_63ddf5782f6691104f07a1fef699b624</sys_update_name>
+    </scan_script_only_check>
+</record_update>
