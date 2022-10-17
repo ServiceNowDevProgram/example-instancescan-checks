@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions table="sys_trigger">system_idINALL NODES,ACTIVE NODES^EQ<item display_value="ALL NODES,ACTIVE NODES" endquery="false" field="system_id" goto="false" newquery="false" operator="IN" or="false" value="ALL NODES,ACTIVE NODES"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Schedule records with system ID "all Nodes" or "active nodes", are considered to be parent schedules. Parent schedules that themselves will never run but instead spawn child jobs (of the same name) for each application node required by their definition. Jobs with system ID "all nodes", are typically background maintenance jobs required for general node health and management. Jobs with system ID "active nodes", are typically jobs that need to run the same event processor or other jobs that need increased processing bandwidth across the platform.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Parent All Nodes/Active Nodes without childs</name>
+        <priority>3</priority>
+        <resolution_details>Investigate why the parent schedule has no child schedule records.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Define variables
+	var table_name = 'sys_trigger',
+		encoded_query = 'name=' + engine.current.name;
+	
+	// Query record
+	var getRecord = new GlideRecord(table_name);
+	getRecord.addEncodedQuery(encoded_query);
+	getRecord.setLimit(1);
+	getRecord._query();
+
+	// Create scan finding
+	if(!getRecord.hasNext()) {
+		engine.finding.increment();
+	}
+
+})(engine);]]></script>
+        <short_description>Parent All Nodes/Active Nodes without childs</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>mark.roethof</sys_created_by>
+        <sys_created_on>2021-10-04 14:45:47</sys_created_on>
+        <sys_id>b909b0f02f0330103307235df699b62c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parent All Nodes/Active Nodes without childs</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_b909b0f02f0330103307235df699b62c</sys_update_name>
+        <sys_updated_by>mark.roethof</sys_updated_by>
+        <sys_updated_on>2021-10-04 14:45:47</sys_updated_on>
+        <table>sys_trigger</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

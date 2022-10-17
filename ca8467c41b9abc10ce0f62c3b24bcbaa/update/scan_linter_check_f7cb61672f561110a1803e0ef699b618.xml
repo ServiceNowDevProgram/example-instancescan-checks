@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>upgradability</category>
+        <description>Good naming convention and self-descriptive code contain "new" to define GlideRecord. In some versions or for some parts of the Platform leaving "new" off will work, though for other parts of the Platform or after upgrades this can cause unexpected behavior.
+</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Call GlideRecord using new</name>
+        <priority>4</priority>
+        <resolution_details>When using GlideRecord, always prefix using "new"</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Perform Linter Check
+	engine.rootNode.visit(function(node) {
+		if(node.getTypeName() === "NAME" && node.getNameIdentifier() === "GlideRecord" && node.getParent().getTypeName() === "CALL") {
+			// Create scan finding
+			engine.finding.incrementWithNode(node);
+		}
+	});
+
+})(engine);]]></script>
+        <short_description>Call GlideRecord using new</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-08 17:05:15</sys_created_on>
+        <sys_id>f7cb61672f561110a1803e0ef699b618</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Call GlideRecord using new</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_f7cb61672f561110a1803e0ef699b618</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-08 17:05:15</sys_updated_on>
+    </scan_linter_check>
+</record_update>

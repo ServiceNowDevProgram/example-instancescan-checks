@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions table="sys_update_set_source">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Connection test for the remote instance defined did not result in a positive response. </description>
+        <documentation_url>https://docs.servicenow.com/csh?topicname=t_DefineARemoteInstance.html&amp;version=latest</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Could not verify Remote instance connection</name>
+        <priority>2</priority>
+        <resolution_details>If this occurs for an existing remote instance connection, verify that the user used:&#13;
+- Is active;&#13;
+- Is not locked out;&#13;
+- Has an admin role;&#13;
+- Has a correct password set.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Define variables
+	var instance_url = engine.current.url.replace(/\/$/, ""),
+		user_name = engine.current.username,
+		user_password = new GlideEncrypter().decrypt(engine.current.password);
+	
+	// Execute REST request
+	var request = new sn_ws.RESTMessageV2();
+	request.setEndpoint(instance_url + '/api/now/table/sys_user?sysparm_query=user_name%3D' + user_name + '&sysparm_limit=1');
+	request.setHttpMethod('GET');
+
+	request.setBasicAuth(user_name, user_password);
+	request.setRequestHeader('Accept', 'application/json');
+
+	var response = request.execute(),
+		status = response.getStatusCode();
+
+	// Create scan finding
+	if(status != 200) {
+		engine.finding.increment();
+	}
+
+})(engine);]]></script>
+        <short_description>Could not verify Remote instance connection</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>mark.roethof</sys_created_by>
+        <sys_created_on>2021-10-04 14:50:11</sys_created_on>
+        <sys_id>cc993cf02f0330103307235df699b60d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Could not verify Remote instance connection</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_cc993cf02f0330103307235df699b60d</sys_update_name>
+        <sys_updated_by>mark.roethof</sys_updated_by>
+        <sys_updated_on>2021-10-04 14:50:11</sys_updated_on>
+        <table>sys_update_set_source</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

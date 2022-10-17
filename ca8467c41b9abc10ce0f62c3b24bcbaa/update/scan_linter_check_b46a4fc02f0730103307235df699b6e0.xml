@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>The "gs.log()", "gs.debug()", "console.log()", etc. statements can be used to write information to the system log, while the "gs.print()", etc. statements also sends it as output to the screen. It is generally used when debugging. Using "gs.log()", "gs.debug()", "console.log()", etc. statements on a production instance will pollute the system log, while it is never used as you do not perform debugging on a production instance.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Scripts should not contain debugging statements in production</name>
+        <priority>3</priority>
+        <resolution_details>The best practice is to remove (commented) debug statements from scripts or making them conditionally controlled by a property.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+
+	engine.rootNode.visit(function(node) {
+		// gs.log, gs.info, gs.debug, gs.print
+		if(node.getTypeName() === "GETPROP") {
+			var gs_found = false;
+			var method_found = false;
+
+			node.visit(function(childnode) {
+				if(childnode.getTypeName() != "NAME") {
+					return;
+				}
+
+				if(childnode.getNameIdentifier() === "log" || childnode.getNameIdentifier() === "info" || childnode.getNameIdentifier() === "debug" || childnode.getNameIdentifier() === "print") {
+					method_found = true;
+					return;
+				}
+
+				if(childnode.getNameIdentifier() === "gs") {
+					gs_found = true;
+					return;
+				}
+			});
+
+			// Create scan finding
+			if(gs_found && method_found) {
+				engine.finding.incrementWithNode(node);
+			}
+		}
+		
+		// console.log
+		if(node.getTypeName() === "GETPROP") {
+			var console_found = false;
+			var log_found = false;
+
+			node.visit(function(childnode) {
+				if(childnode.getTypeName() != "NAME") {
+					return;
+				}
+
+				if(childnode.getNameIdentifier() === "log") {
+					log_found = true;
+					return;
+				}
+
+				if(childnode.getNameIdentifier() === "console") {
+					console_found = true;
+					return;
+				}
+			});
+
+			// Create scan finding
+			if(console_found && log_found) {
+				engine.finding.incrementWithNode(node);
+			}
+		}
+		
+		// jslog
+		if(node.getNameIdentifier() && node.getTypeName() === 'NAME' && node.getNameIdentifier() === 'jslog' && node.getParent().getTypeName() === 'CALL') {
+			// Create scan finding
+			engine.finding.incrementWithNode(node);
+		}
+
+	});
+
+})(engine);]]></script>
+        <short_description>Scripts should not contain debugging statements in production</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>mark.roethof</sys_created_by>
+        <sys_created_on>2021-10-02 17:24:32</sys_created_on>
+        <sys_id>b46a4fc02f0730103307235df699b6e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Scripts should not contain debugging statements in production</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_b46a4fc02f0730103307235df699b6e0</sys_update_name>
+        <sys_updated_by>mark.roethof</sys_updated_by>
+        <sys_updated_on>2021-10-02 17:24:32</sys_updated_on>
+    </scan_linter_check>
+</record_update>

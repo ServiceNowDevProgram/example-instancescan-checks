@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>In general, for a single record only a few Workflow context will be running. If a high number of Workflow context are active, this often indicates an issue on the starting conditions of your Workflow. More then 10 active Workflow context is considered being a high number. </description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>High number of workflows running for a single record</name>
+        <priority>2</priority>
+        <resolution_details>Resolve the high number of triggered Workflow context and investigate the starting conditions of your Workflow and correct where necessary.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (finding) {
+
+	// Count record
+	var countRecord = new GlideAggregate('wf_context');
+	countRecord.addEncodedQuery('state=executing');
+	countRecord.groupBy('id');
+	countRecord.addAggregate('COUNT');
+	countRecord._query();
+
+	while(countRecord._next()) {
+		if(countRecord.getAggregate('COUNT') > 10) {
+			// Get record
+			var getRecord = new GlideRecord('wf_context');
+			getRecord.addQuery('id', countRecord.id);
+			getRecord.setLimit(1);
+			getRecord._query();
+
+			if(getRecord._next()) {
+				// Create scan finding
+				var createFinding = new GlideRecord(getRecord.getValue('table'));
+
+				if(createFinding.get(getRecord.getValue('id'))) {
+					finding.setCurrentSource(createFinding);
+					finding.increment();
+				}
+			}
+		}
+	}
+
+})(finding);]]></script>
+        <short_description>High number of workflows running for a single record</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>mark.roethof</sys_created_by>
+        <sys_created_on>2021-10-04 14:52:29</sys_created_on>
+        <sys_id>7f8a38342f0330103307235df699b6b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>High number of workflows running for a single record</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_7f8a38342f0330103307235df699b6b3</sys_update_name>
+        <sys_updated_by>mark.roethof</sys_updated_by>
+        <sys_updated_on>2021-10-04 14:52:29</sys_updated_on>
+    </scan_script_only_check>
+</record_update>
