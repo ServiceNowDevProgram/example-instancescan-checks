@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>manageability</category>
+        <conditions table="sp_widget">templateLIKEdocument.^ORclient_scriptLIKEdocument.^ORclient_scriptLIKEwindow.document^EQ<item endquery="false" field="template" goto="false" newquery="false" operator="LIKE" or="false" value="document."/>
+            <item endquery="false" field="client_script" goto="false" newquery="false" operator="LIKE" or="true" value="document."/>
+            <item endquery="false" field="client_script" goto="false" newquery="false" operator="LIKE" or="true" value="window.document"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equalent capabilities to achieve the same.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid using  javascrip "document" object in Portal</name>
+        <priority>2</priority>
+        <resolution_details>Make sure to utilize the AngularJS capbilities to achive the tasks instead of using the "document" objects.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Avoid using  javascript "document" object in Portal</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-17 17:31:11</sys_created_on>
+        <sys_id>eb1388ea2f2a91108e343e0ef699b6b0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Avoid using  javascrip "document" object in Portal</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_eb1388ea2f2a91108e343e0ef699b6b0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-17 18:03:38</sys_updated_on>
+        <table>sp_widget</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
