@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>performance</category>
+        <conditions table="sys_script_client">scriptLIKEGlideRecord^EQ<item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="false" value="GlideRecord"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Client script should be using GlideAjax if you need to make asyc calls to Server to get data from Server.  GlideRecord() API shouldn't be used to avoid performance issues.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>GlideRecord API in client script</name>
+        <priority>2</priority>
+        <resolution_details>Client scripts run on browser and they uses either data available on the form or data retrieved from the database.&#13;
+Use client data as much as possible to eliminate the need for time-consuming server lookups i.e. GlideRecord.&#13;
+The best ways to get data into form/browser from the database are g_scratchpad, and asynchronous GlideAjax lookup</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Client script with GlideRecord API calls</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-30 21:33:04</sys_created_on>
+        <sys_id>ba0c998d875251106b0f20af8bbb3515</sys_id>
+        <sys_name>GlideRecord API in client script</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_ba0c998d875251106b0f20af8bbb3515</sys_update_name>
+        <table>sys_script_client</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

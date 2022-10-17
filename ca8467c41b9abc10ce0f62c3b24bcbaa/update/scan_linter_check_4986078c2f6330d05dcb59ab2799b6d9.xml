@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <attributes/>
+        <category>performance</category>
+        <description>Providing an alternate, default value when calling gs.getProperty() helps mitigate risk of errors when property does not exist.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Provide alternate value when fetching Glide property</name>
+        <priority>3</priority>
+        <resolution_details>Consider providing an alternate. default  value when using gs.getProperty() in case the property does not exist</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	/** 
+	  * The following to exclude certain tables like sys_script_execution_history 
+	  * from being part of this scan is NOT possible here due to app scoping issues
+	  * (https://github.com/ServiceNowDevProgram/example-instancescan-checks/issues/9)
+	  */
+	//var excludedTablesProp = gs.getProperty(/* custom property name here */);
+	//var excludedTables = excludedTablesProp.split(',');
+	//var tableName = engine.current.getTableName();
+	//if (!new ArrayUtil().contains(excludedTables, tableName)) {
+	
+    engine.rootNode.visit(function(node) {
+		
+		// Find an occurrence of the getProperty function
+		if (node.getNameIdentifier() && node.getNameIdentifier() === 'getProperty') {
+
+			// Walk up the AST tree to check if function is called on GlideSystem 
+			if (node.getParent().getTypeName() === 'GETPROP' 
+				&& node.getParent().toSource() === 'gs.getProperty') {
+				
+				var argsProvided = 0;
+				
+				// Walk up to grandparent to check for the arguments provided
+				node.getParent().getParent().visit(function(childnode) {
+					// Case 1: Finds argument specified as a string, including when 
+					// default value is provided as number or boolean
+					// eg. gs.getProperty('value1', 'value2');
+					if (childnode.getTypeName() === 'STRING' || childnode.getTypeName() === 'NUMBER' 
+						|| childnode.getTypeName() === 'TRUE' || childnode.getTypeName() === 'FALSE') {
+						argsProvided ++;
+					}
+					// Case 2: Find argument specified as a variable
+					// eg. gs.getProperty(propertyName, defaultValue);
+					else if (childnode.getTypeName() === 'NAME' && childnode.getNameIdentifier()
+						&& childnode.getNameIdentifier() !== 'gs' 
+						&& childnode.getNameIdentifier() !== 'getProperty') {
+						argsProvided++;
+					}
+
+				});
+				if (argsProvided != 2) {
+					engine.finding.incrementWithNode(node);
+				}
+			}				
+		}
+	});
+
+})(engine);]]></script>
+        <short_description>Provide alternate value when fetching Glide property</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2021-10-27 13:39:00</sys_created_on>
+        <sys_id>4986078c2f6330d05dcb59ab2799b6d9</sys_id>
+        <sys_name>Provide alternate value when fetching Glide property</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_4986078c2f6330d05dcb59ab2799b6d9</sys_update_name>
+    </scan_linter_check>
+</record_update>

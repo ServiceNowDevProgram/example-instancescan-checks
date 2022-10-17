@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <attributes display_value="">906611642f2330100b40bea62799b6b7</attributes>
+        <category>security</category>
+        <description>It is worthy to check all reports that are with role public - as they can expose data to unauthenticated users via:
+ https : / / &lt;instance&gt;.service-now.com/sys_report_display.do?sysparm_report_id=&lt;sysID&gt;</description>
+        <documentation_url/>
+        <finding_type/>
+        <name>Public reports to be verified </name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max/>
+        <score_min/>
+        <score_scale/>
+        <script><![CDATA[(function(finding) {
+
+    var grSysReport = new GlideRecord('sys_report');
+    grSysReport.addEncodedQuery("roles=public");
+    grSysReport.query();
+    while (grSysReport.next()) {
+        finding.setCurrentSource(grSysReport);
+        finding.increment();
+    }
+
+})(finding);]]></script>
+        <short_description>Candidates of publicly available reports (without needs to authorize) that shoul</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-28 18:46:02</sys_created_on>
+        <sys_id>1e7511642f2330100b40bea62799b6f1</sys_id>
+        <sys_name>Public reports to be verified </sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_1e7511642f2330100b40bea62799b6f1</sys_update_name>
+    </scan_script_only_check>
+</record_update>

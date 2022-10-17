@@ -101,7 +101,6 @@ Catalog UI policy should be used in either a Catalog Item or a Variable Set. Cat
 ### Client Script Business rule or Script Include should not have an empty description or be without comments in the script section
 Comments and description add extra information int he scripts and usally help in long run and during upgrades if an udate has been made so its a best practice to add comments and a description to these platform scripts. 
 
-
 ## Category: Upgradability
 
 ### Call GlideRecord using new
@@ -169,6 +168,14 @@ api.controller = function ($rootScope, $scope) {
 ### Provide alternate value when fetching Glide property
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
+## Category: Security
+
+### Avoid using setBasicAuth for REST messages
+It is possible to script REST messages directly. When doing so, using the .setBasicAuth method is considered a security risk. Doing so, the username and password are entered - unprotected - in server side scripting.
+
+### Tables without ACLs
+This check searches for any custom table if there exists at least one ACL record. If not a finding is raised.
+
 ### Scripted REST API without Authentication
 Scripted REST APIs should be not be public but enforce  access controls and require additional access to data. 
 
@@ -210,9 +217,6 @@ Review the flow contexts that are in waiting, in progress or queued state and ru
 
 ### Added a Number Prefix which already exists
 Creating new number records does not require uniqueness. Though having duplicate number records causes some ServiceNow core functionality not to behave as expected. For example, the search might return a record from another table the number prefix is also used on.
-
-
-
 
 # Additional resources
 

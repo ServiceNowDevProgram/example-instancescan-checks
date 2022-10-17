@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>manageability</category>
+        <conditions table="sys_script_include">descriptionISEMPTY^scriptNOT LIKE//^scriptNOT LIKE/*^EQ<item endquery="false" field="description" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="false" field="script" goto="false" newquery="false" operator="NOT LIKE" or="false" value="//"/>
+            <item endquery="false" field="script" goto="false" newquery="false" operator="NOT LIKE" or="false" value="/*"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Ideally, all scripts should have descriptions or comments added to the code to make it more readable to someone. </description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Check Script Includes without Discription or comment</name>
+        <priority>4</priority>
+        <resolution_details>- Update the Description on the script include record&#13;
+- Add comments on the script either a single line using "//" OR "/*  */"</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Looks at Script Includes which donot have a comment or description added</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-16 15:16:11</sys_created_on>
+        <sys_id>889f5a42976a11108e72fed11153af50</sys_id>
+        <sys_name>Check Script Includes without Discription or comment</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_889f5a42976a11108e72fed11153af50</sys_update_name>
+        <table>sys_script_include</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
