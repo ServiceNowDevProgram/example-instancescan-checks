@@ -104,6 +104,9 @@ Catalog UI policy should be used in either a Catalog Item or a Variable Set. Cat
 ### Client Script Business rule or Script Include should not have an empty description or be without comments in the script section
 Comments and description add extra information int he scripts and usally help in long run and during upgrades if an udate has been made so its a best practice to add comments and a description to these platform scripts. 
 
+### Active groups without active users
+Groups are commonly used in business process for approvals, and notifications. Avoiding groups that are empty, or contain only inactive users, can cause processes to halt or provide unexpected results.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
