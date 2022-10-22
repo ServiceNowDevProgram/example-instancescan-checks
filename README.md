@@ -234,3 +234,7 @@ Please check these additional links for more information and details:
 - [Introduction to ServiceNow HealthScan and Instance Scan](https://nowlearning.service-now.com/lxp?id=overview&sys_id=e4c538231b0d6c505b2699f4bd4bcb6f&type=course)
 - [K21 CCL1062 – Writing custom instance scan checks](https://nowlearning.service-now.com/lxp?id=overview&sys_id=8d9db4921b7fe010a5e699b1b24bcbdd&type=course)
 - [Quebec Instance Scan](https://developer.servicenow.com/blog.do?p=/post/quebec-instancescan/)
+
+#Isolated Script checkbox in client side scripts
+
+For all new client-side scripts that use DOM objects like Client scripts, UI Policies, UI actions, catalog client scripts, and Catalog UI Policies 'Isolated script' is set as TRUE. To make your script run, change the 'Isolated script' to FALSE (Uncheck).
