@@ -219,6 +219,13 @@ If the number of records grows in the Workflow context table, it may slow down t
 ### Flow context table has an active record for more than 6 months
 Review the flow contexts that are in waiting, in progress or queued state and running for more than 6 months might hinder the overall platform, hence regular checks needs to be done on these flows. In progress, queued or waiting flow contexts are not deleted by system jobs which cleanup hence we need this instance scan check. 
 
+#Access controls on UI Pages
+ - When there is no ACL for an UI Page, by default the UI Page can be accessed by all the logged-in internal users. If there is no, script level authorization checks like gs.hasRole('user_admin'), then any logged in user can access this UI Page and change anybody's password by passing the user sys_id and the new password.
+
+##Access controls on Tables
+ - Tables should be secured with access controls, data in the table should be limited access to only necessary audience.
+ - Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
