@@ -175,6 +175,8 @@ api.controller = function ($rootScope, $scope) {
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
 ## Category: Security
+##Check Mandatory fields on incident
+This check is used to find mandatory fields on incident
 
 ### Avoid using setBasicAuth for REST messages
 It is possible to script REST messages directly. When doing so, using the .setBasicAuth method is considered a security risk. Doing so, the username and password are entered - unprotected - in server side scripting.
@@ -223,6 +225,9 @@ Review the flow contexts that are in waiting, in progress or queued state and ru
 
 ### Added a Number Prefix which already exists
 Creating new number records does not require uniqueness. Though having duplicate number records causes some ServiceNow core functionality not to behave as expected. For example, the search might return a record from another table the number prefix is also used on.
+
+## List Inactive users from active group 
+List inactive users that still belongs to activate groups
 
 # Additional resources
 
