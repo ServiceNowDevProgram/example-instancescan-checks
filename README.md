@@ -213,6 +213,9 @@ If the number of records grows in the Workflow context table, it may slow down t
 ### Flow context table has an active record for more than 6 months
 Review the flow contexts that are in waiting, in progress or queued state and running for more than 6 months might hinder the overall platform, hence regular checks needs to be done on these flows. In progress, queued or waiting flow contexts are not deleted by system jobs which cleanup hence we need this instance scan check. 
 
+### Active users with past employment end date
+Review the users whose employement end date is in the past and the user is still active, this is a potential threat to the security of the platform. 
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
