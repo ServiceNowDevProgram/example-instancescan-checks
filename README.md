@@ -10,6 +10,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Avoid using javascrip "document" object in Portal
+Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equivalent capabilities to achieve the same.
+
 ### Don't use new Array()
 In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
 
@@ -101,6 +104,9 @@ Catalog UI policy should be used in either a Catalog Item or a Variable Set. Cat
 ### Client Script Business rule or Script Include should not have an empty description or be without comments in the script section
 Comments and description add extra information int he scripts and usally help in long run and during upgrades if an udate has been made so its a best practice to add comments and a description to these platform scripts. 
 
+### Active groups without active users
+Groups are commonly used in business process for approvals, and notifications. Avoiding groups that are empty, or contain only inactive users, can cause processes to halt or provide unexpected results.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
@@ -169,6 +175,8 @@ api.controller = function ($rootScope, $scope) {
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
 ## Category: Security
+##Check Mandatory fields on incident
+This check is used to find mandatory fields on incident
 
 ### Avoid using setBasicAuth for REST messages
 It is possible to script REST messages directly. When doing so, using the .setBasicAuth method is considered a security risk. Doing so, the username and password are entered - unprotected - in server side scripting.
@@ -216,10 +224,20 @@ Review the flow contexts that are in waiting, in progress or queued state and ru
 ### Active users with past employment end date
 Review the users whose employement end date is in the past and the user is still active, this is a potential threat to the security of the platform. 
 
+#Access controls on UI Pages
+ - When there is no ACL for an UI Page, by default the UI Page can be accessed by all the logged-in internal users. If there is no, script level authorization checks like gs.hasRole('user_admin'), then any logged in user can access this UI Page and change anybody's password by passing the user sys_id and the new password.
+
+##Access controls on Tables
+ - Tables should be secured with access controls, data in the table should be limited access to only necessary audience.
+ - Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
 Creating new number records does not require uniqueness. Though having duplicate number records causes some ServiceNow core functionality not to behave as expected. For example, the search might return a record from another table the number prefix is also used on.
+
+## List Inactive users from active group 
+List inactive users that still belongs to activate groups
 
 # Additional resources
 
