@@ -121,6 +121,9 @@ Check if the Choice [sys_choice] table has been extended. This is not supported 
 ### User table should not be extended
 Check if the User [sys_user] table has been extended. This is not recommended and can cause problems when a user needs to be in more than one user table.
 
+### Store applications on previous version
+This check will provide the list of all the store applications installed in the instance but still on an old version.
+
 ## Category: Performance
 
 ### getMessage() called in Client Script 
