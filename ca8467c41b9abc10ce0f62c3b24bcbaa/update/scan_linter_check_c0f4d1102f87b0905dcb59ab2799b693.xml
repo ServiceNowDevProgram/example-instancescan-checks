@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>security</category>
         <description>The platform is Javascript and a lot of code is run in a global variable scope.&#13;
 &#13;
@@ -46,13 +45,10 @@ When using more than one GlideRecord in your script, you may also accidentally r
         <sys_created_by>nia.mccash</sys_created_by>
         <sys_created_on>2021-10-03 03:31:17</sys_created_on>
         <sys_id>c0f4d1102f87b0905dcb59ab2799b693</sys_id>
-        <sys_mod_count>23</sys_mod_count>
         <sys_name>Do not use gr as a variable name</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_linter_check_c0f4d1102f87b0905dcb59ab2799b693</sys_update_name>
-        <sys_updated_by>nia.mccash</sys_updated_by>
-        <sys_updated_on>2021-10-04 14:05:50</sys_updated_on>
     </scan_linter_check>
 </record_update>

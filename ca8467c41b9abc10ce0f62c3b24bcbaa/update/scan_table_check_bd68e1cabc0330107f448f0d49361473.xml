@@ -36,14 +36,11 @@ In certain exception cases, if you need to use current.update() eg in onAfter sc
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-08 15:25:59</sys_created_on>
         <sys_id>bd68e1cabc0330107f448f0d49361473</sys_id>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Business rules should not use current.update()</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_bd68e1cabc0330107f448f0d49361473</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-08 15:25:59</sys_updated_on>
         <table>sys_script</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>

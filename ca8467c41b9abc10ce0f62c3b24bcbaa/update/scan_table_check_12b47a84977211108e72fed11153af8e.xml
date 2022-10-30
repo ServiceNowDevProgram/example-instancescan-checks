@@ -3,9 +3,7 @@
         <active>true</active>
         <advanced>false</advanced>
         <category>security</category>
-        <conditions table="sn_hr_core_profile">employment_end_date&lt;javascript:gs.beginningOfToday()^user.active=true^EQ<item endquery="false" field="employment_end_date" goto="false" newquery="false" operator="&lt;" or="false" value="javascript:gs.beginningOfToday()"/>
-            <item endquery="false" field="user.active" goto="false" newquery="false" operator="=" or="false" value="true"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        <conditions table="sn_hr_core_profile">employment_end_date&lt;javascript:gs.beginningOfToday()^user.active=true^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description>Shows a list of users still active in the ServiceNow Platform even past their employment end date.</description>
         <documentation_url/>

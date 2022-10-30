@@ -39,14 +39,11 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-08 17:05:24</sys_created_on>
         <sys_id>8adbad272f561110a1803e0ef699b626</sys_id>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Added a Number Prefix which already exists</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_8adbad272f561110a1803e0ef699b626</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-08 17:05:24</sys_updated_on>
         <table>sys_number</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>

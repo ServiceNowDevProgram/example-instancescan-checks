@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>manageability</category>
         <conditions table="sys_update_set">descriptionISEMPTY^state!=ignore^EQ<item endquery="false" field="description" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
             <item display_value="Ignore" endquery="false" field="state" goto="false" newquery="false" operator="!=" or="false" value="ignore"/>

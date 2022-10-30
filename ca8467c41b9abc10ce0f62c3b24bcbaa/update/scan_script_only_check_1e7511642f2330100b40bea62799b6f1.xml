@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
     <scan_script_only_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes display_value="">906611642f2330100b40bea62799b6b7</attributes>
         <category>security</category>
         <description>It is worthy to check all reports that are with role public - as they can expose data to unauthenticated users via:
  https : / / &lt;instance&gt;.service-now.com/sys_report_display.do?sysparm_report_id=&lt;sysID&gt;</description>

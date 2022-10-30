@@ -11,6 +11,7 @@
 &#13;
 Script includes only load when called. </description>
         <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/business_rules_technical_best_practices</documentation_url>
+        <finding_type/>
         <name>Use Script Includes Instead of Global Business Rules</name>
         <priority>2</priority>
         <resolution_details>If you have already written a global Business Rule, move the function definition to a Script Include. The name of the Script Include must match the name of the function for the Script Include to work properly. There is no need to modify any calls to the named function.</resolution_details>
@@ -28,14 +29,11 @@ Script includes only load when called. </description>
         <sys_created_by>nia.mccash</sys_created_by>
         <sys_created_on>2021-09-30 20:18:17</sys_created_on>
         <sys_id>145e91272f367c505dcb59ab2799b6c0</sys_id>
-        <sys_mod_count>1</sys_mod_count>
         <sys_name>Use Script Includes Instead of Global Business Rules</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_145e91272f367c505dcb59ab2799b6c0</sys_update_name>
-        <sys_updated_by>nia.mccash</sys_updated_by>
-        <sys_updated_on>2021-10-04 00:52:01</sys_updated_on>
         <table>sys_script</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>

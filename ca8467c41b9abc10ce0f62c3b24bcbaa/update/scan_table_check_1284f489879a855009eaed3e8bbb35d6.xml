@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>manageability</category>
         <conditions table="item_option_new">cat_itemISEMPTY^variable_setISEMPTY^EQ<item endquery="false" field="cat_item" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
             <item endquery="false" field="variable_set" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>

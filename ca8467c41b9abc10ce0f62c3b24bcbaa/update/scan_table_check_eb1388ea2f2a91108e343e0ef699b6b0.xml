@@ -28,14 +28,11 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-17 17:31:11</sys_created_on>
         <sys_id>eb1388ea2f2a91108e343e0ef699b6b0</sys_id>
-        <sys_mod_count>3</sys_mod_count>
         <sys_name>Avoid using  javascrip "document" object in Portal</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_eb1388ea2f2a91108e343e0ef699b6b0</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-17 18:03:38</sys_updated_on>
         <table>sp_widget</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>

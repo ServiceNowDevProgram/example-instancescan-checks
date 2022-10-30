@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>upgradability</category>
+        <conditions table="sys_store_app">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>This check will provide the list of all the store applications installed in the instance but still on an old version.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Store applications on previous version</name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding, current) {
+	if(current.getValue('version') != current.getValue('latest_version')){
+		finding.setCurrentSource(current);
+		finding.increment();
+	}
+
+})(finding, current);]]></script>
+        <short_description>Store applications installed in instance on previous version</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-30 12:02:27</sys_created_on>
+        <sys_id>e6f739aa073211105a0bf7108c1ed04c</sys_id>
+        <sys_name>Store applications on previous version</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_e6f739aa073211105a0bf7108c1ed04c</sys_update_name>
+        <table>sys_store_app</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

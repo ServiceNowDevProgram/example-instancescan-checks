@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>security</category>
         <conditions table="sys_user">locked_out=false^roles=admin^last_login_timeRELATIVELT@month@ago@1^ORlast_login_timeISEMPTY^EQ<item endquery="false" field="locked_out" goto="false" newquery="false" operator="=" or="false" value="false"/>
             <item endquery="false" field="roles" goto="false" newquery="false" operator="=" or="false" value="admin"/>

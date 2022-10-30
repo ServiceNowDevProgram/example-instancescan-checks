@@ -67,7 +67,7 @@
         <update_guid_history>169615aaf122111071af545cbffcdb5e:1517693554</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="User Roles from Deleted Users">0ac7ddaa07221110e765f9fc7c1ed09b</sys_audit_delete>
+        <sys_audit_delete display_value="">0ac7ddaa07221110e765f9fc7c1ed09b</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-17 23:19:31</sys_created_on>

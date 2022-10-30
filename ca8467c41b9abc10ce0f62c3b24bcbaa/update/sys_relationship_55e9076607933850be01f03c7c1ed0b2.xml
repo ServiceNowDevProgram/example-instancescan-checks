@@ -43,21 +43,18 @@
         <sys_created_by>w.geek6</sys_created_by>
         <sys_created_on>2021-10-22 22:02:53</sys_created_on>
         <sys_id>55e9076607933850be01f03c7c1ed0b2</sys_id>
-        <sys_mod_count>1</sys_mod_count>
         <sys_name>Latest Scan Findings</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>sys_relationship_55e9076607933850be01f03c7c1ed0b2</sys_update_name>
-        <sys_updated_by>w.geek6</sys_updated_by>
-        <sys_updated_on>2021-10-22 22:04:12</sys_updated_on>
     </sys_relationship>
     <sys_translated_text action="delete_multiple" query="documentkey=55e9076607933850be01f03c7c1ed0b2"/>
     <sys_ui_related_list_relationship_entry action="INSERT_OR_UPDATE">
         <filter/>
         <list_id display_value="Update Set - Default view" name="sys_update_set" related_list="NULL" sys_domain="global" view="Default view">13cee3c347231200c17e19fbac9a7139</list_id>
         <order_by/>
-        <position>7</position>
+        <position>6</position>
         <related_list>REL:55e9076607933850be01f03c7c1ed0b2</related_list>
         <sys_class_name>sys_ui_related_list_relationship_entry</sys_class_name>
         <sys_created_by>w.geek6</sys_created_by>

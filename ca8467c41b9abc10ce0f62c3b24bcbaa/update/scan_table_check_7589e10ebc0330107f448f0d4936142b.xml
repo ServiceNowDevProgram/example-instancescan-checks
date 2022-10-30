@@ -28,14 +28,11 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-08 15:32:39</sys_created_on>
         <sys_id>7589e10ebc0330107f448f0d4936142b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Before Business rules should not insert() records on any tables</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_7589e10ebc0330107f448f0d4936142b</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-08 15:32:39</sys_updated_on>
         <table>sys_script</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
