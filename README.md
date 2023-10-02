@@ -107,6 +107,9 @@ Comments and description add extra information int he scripts and usally help in
 ### Active groups without active users
 Groups are commonly used in business process for approvals, and notifications. Avoiding groups that are empty, or contain only inactive users, can cause processes to halt or provide unexpected results.
 
+### Valid Script Include Name - No Spaces
+Script Includes names should not include spaces since it is not possible to call them if there is a space in the name.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
