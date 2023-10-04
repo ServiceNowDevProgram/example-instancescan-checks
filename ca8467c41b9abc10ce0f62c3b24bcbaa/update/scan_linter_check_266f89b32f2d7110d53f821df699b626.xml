@@ -13,14 +13,17 @@
         <score_min>0</score_min>
         <score_scale>1</score_scale>
         <script><![CDATA[(function(engine) {
-
-    // Perform Linter Check
-    engine.rootNode.visit(function(node) {
-        if (node.getTypeName() === "NAME" && node.getNameIdentifier() === "getReference" && node.getParent().getTypeName() === "GETPROP") {
-            // Create scan finding
-            engine.finding.incrementWithNode(node);
-        }
-    });
+    // This check only applicable to Client Scripts and Catalog Client Scripts
+    if (current.getRecordClassName().toString() == 'sys_script_client'
+		|| current.getRecordClassName().toString() == 'catalog_script_client') {
+        engine.rootNode.visit(function(node) {
+            if (node.getTypeName() === "NAME" &&
+                node.getNameIdentifier() === "getReference" &&
+                node.getParent().getTypeName() === "GETPROP") {
+                engine.finding.incrementWithNode(node);
+            }
+        });
+    }
 
 })(engine);]]></script>
         <short_description>Avoid using getReference()</short_description>
