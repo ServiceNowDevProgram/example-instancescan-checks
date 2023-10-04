@@ -179,6 +179,9 @@ api.controller = function ($rootScope, $scope) {
 ### Provide alternate value when fetching Glide property
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
+### Avoid using getReference()
+getReference is no longer considered best practice due to its performance impact and it is recommended to use g_scratchpad or GlideAjax instead.
+
 ## Category: Security
 ##Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
