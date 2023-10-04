@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>security</category>
+        <conditions table="sys_security_acl">scriptISNOTEMPTY^advanced=false^EQ<item endquery="false" field="script" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="false" field="advanced" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Script in ACL executes even if Advanced is unchecked. This may lead to confusion and unexpected behavior, coming from the script being hidden on the form but executed.</description>
+        <documentation_url>https://docs.servicenow.com/bundle/utah-platform-security/page/administer/contextual-security/task/t_CreateAnACLRule.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Script in ACL when Advanced is unchecked</name>
+        <priority>1</priority>
+        <resolution_details>Either check Advanced or Remove the script from the ACL, while making sure to maintain the same ACL result.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Script in ACL executes even if Advanced is unchecked.</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-04 20:36:19</sys_created_on>
+        <sys_id>eb21adf797697110710650081153af9c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Script in ACL when Advanced is unchecked</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_eb21adf797697110710650081153af9c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-04 20:36:19</sys_updated_on>
+        <table>sys_security_acl</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
