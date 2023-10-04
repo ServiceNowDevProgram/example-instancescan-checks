@@ -252,6 +252,9 @@ List inactive users that still belongs to activate groups
 When cloned, records from http_connection table which is extended from sys_connection table is orphaned or cannot be viewed. Even though clone is excluding and preserving sys_connection but not any data on http_connection and hence clone leaves the orphan record on the table sys_connection and this creates issues to view, delete those records. Login to the production instance and check to see if the http_connection table is excluded in the exclude tables module under System Clones.
 Note: It was suggested by ServiceNow support to add table "http_connection" in clone excluder and preserver for one the cases as i faced an similar issue.
 
+### Avoid using alert() in client scripts
+It is recommended to use an OOB library for modals in order to improve the user experience instead of alert().
+
 # Additional resources
 
 Please check these additional links for more information and details:
