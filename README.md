@@ -232,13 +232,6 @@ Review the flow contexts that are in waiting, in progress or queued state and ru
 ### Active users with past employment end date
 Review the users whose employement end date is in the past and the user is still active, this is a potential threat to the security of the platform. 
 
-#Access controls on UI Pages
- - When there is no ACL for an UI Page, by default the UI Page can be accessed by all the logged-in internal users. If there is no, script level authorization checks like gs.hasRole('user_admin'), then any logged in user can access this UI Page and change anybody's password by passing the user sys_id and the new password.
-
-##Access controls on Tables
- - Tables should be secured with access controls, data in the table should be limited access to only necessary audience.
- - Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.
-
 ### Set glide.invalid_query.returns_no_rows to true
 The "glide.invalid_query.returns_no_rows" property provides a safeguard against queries running which could return unintended data which could then be deleted, manipulated or used incorrectly. It is recommended to have this property exist and be set to true. When this property does not exist an invalid query will return all rows. 
 
