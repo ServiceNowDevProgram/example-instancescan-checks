@@ -112,6 +112,9 @@ Groups are commonly used in business process for approvals, and notifications. A
 ### Valid Script Include Name - No Spaces
 Script Includes names should not include spaces since it is not possible to call them if there is a space in the name.
 
+### Roles assigned to non-existing users
+Identify role assignments (sys_user_has_role) for users that do not exists
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
