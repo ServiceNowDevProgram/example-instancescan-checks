@@ -185,6 +185,9 @@ Recommendation to provide alternate/default value when calling gs.getProperty() 
 ### Avoid using getReference()
 getReference is no longer considered best practice due to its performance impact and it is recommended to use g_scratchpad or GlideAjax instead.
 
+### Running Business Rules on Transform Maps 
+Running business rules during transform may cause the transform to take longer than expected, or cause the instance to slow down.Do not run items like business rules, workflows, approval engines, and so on during a transform unless you want all insert and update business rules, notifications, and workflows to run
+
 ## Category: Security
 ##Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
