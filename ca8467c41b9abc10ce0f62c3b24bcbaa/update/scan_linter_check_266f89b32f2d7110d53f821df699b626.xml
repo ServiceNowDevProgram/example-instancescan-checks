@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>performance</category>
+        <description>getReference is no longer considered best practice due to its performance impact and it is recommended to use g_scratchpad or GlideAjax instead</description>
+        <documentation_url>https://docs.servicenow.com/bundle/utah-application-development/page/script/client-scripts/concept/client-script-best-practices.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid using getReference()</name>
+        <priority>3</priority>
+        <resolution_details>If a getReference function is found (either with callback or not), replace it with g_scratchpad or GlideAjax to retrieve the exact information you need</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+    // This check only applicable to Client Scripts and Catalog Client Scripts
+    if (current.getRecordClassName().toString() == 'sys_script_client'
+		|| current.getRecordClassName().toString() == 'catalog_script_client') {
+        engine.rootNode.visit(function(node) {
+            if (node.getTypeName() === "NAME" &&
+                node.getNameIdentifier() === "getReference" &&
+                node.getParent().getTypeName() === "GETPROP") {
+                engine.finding.incrementWithNode(node);
+            }
+        });
+    }
+
+})(engine);]]></script>
+        <short_description>Avoid using getReference()</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-04 19:30:23</sys_created_on>
+        <sys_id>266f89b32f2d7110d53f821df699b626</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Avoid using getReference()</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_266f89b32f2d7110d53f821df699b626</sys_update_name>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2023-10-04 21:16:59</sys_updated_on>
+    </scan_linter_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=266f89b32f2d7110d53f821df699b626"/>
+</record_update>

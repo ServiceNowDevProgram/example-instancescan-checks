@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="DELETE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.</description>
+        <documentation_url>https://www.java67.com/2014/08/difference-between-string-literal-and-new-String-object-Java.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Don't use new Array()</name>
+        <priority>4</priority>
+        <resolution_details>Use [] instead of new Array().</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Perform Linter Check
+	engine.rootNode.visit(function(node) {
+		if(node.getTypeName() === "NAME" && node.getNameIdentifier() === "Array" && node.getParent().getTypeName() === "NEW") {
+			// Create scan finding
+			engine.finding.incrementWithNode(node);
+		}
+	});
+
+})(engine);]]></script>
+        <short_description>Don't use new Array()</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-08 17:05:24</sys_created_on>
+        <sys_id>c2db61672f561110a1803e0ef699b64b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Don't use new Array()</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_c2db61672f561110a1803e0ef699b64b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-08 17:05:24</sys_updated_on>
+    </scan_linter_check>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</application>
+        <file_path/>
+        <instance_id>3b3779331b2d3d101024eb9b2d4bcb61</instance_id>
+        <instance_name>dev181379</instance_name>
+        <name>scan_linter_check_c2db61672f561110a1803e0ef699b64b</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="scan_linter_check"&gt;
+    &lt;scan_linter_check action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;category&gt;manageability&lt;/category&gt;
+        &lt;description&gt;In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.&lt;/description&gt;
+        &lt;documentation_url&gt;https://www.java67.com/2014/08/difference-between-string-literal-and-new-String-object-Java.html&lt;/documentation_url&gt;
+        &lt;finding_type&gt;scan_finding&lt;/finding_type&gt;
+        &lt;name&gt;Don't use new Array()&lt;/name&gt;
+        &lt;priority&gt;4&lt;/priority&gt;
+        &lt;resolution_details&gt;Use [] instead of new Array().&lt;/resolution_details&gt;
+        &lt;run_condition/&gt;
+        &lt;score_max&gt;100&lt;/score_max&gt;
+        &lt;score_min&gt;0&lt;/score_min&gt;
+        &lt;score_scale&gt;1&lt;/score_scale&gt;
+        &lt;script&gt;&lt;![CDATA[(function (engine) {
+
+	// Perform Linter Check
+	engine.rootNode.visit(function(node) {
+		if(node.getTypeName() === "NAME" &amp;&amp; node.getNameIdentifier() === "Array" &amp;&amp; node.getParent().getTypeName() === "NEW") {
+			// Create scan finding
+			engine.finding.incrementWithNode(node);
+		}
+	});
+
+})(engine);]]&gt;&lt;/script&gt;
+        &lt;short_description&gt;Don't use new Array()&lt;/short_description&gt;
+        &lt;sys_class_name&gt;scan_linter_check&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2022-10-08 17:05:24&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;c2db61672f561110a1803e0ef699b64b&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Don't use new Array()&lt;/sys_name&gt;
+        &lt;sys_package display_value="Example Instance Checks" source="x_appe_exa_checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Example Instance Checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;scan_linter_check_c2db61672f561110a1803e0ef699b64b&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2022-10-08 17:05:24&lt;/sys_updated_on&gt;
+    &lt;/scan_linter_check&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-1288508107</payload_hash>
+        <record_name>Don't use new Array()</record_name>
+        <reverted_from/>
+        <source>a33d22c047397110243ff19f016d43fa</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-05 20:43:22</sys_created_on>
+        <sys_id>184d62c047397110243ff19f016d43a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18b0194ac770000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-05 20:43:22</sys_updated_on>
+        <type>Linter Check</type>
+        <update_guid>d44d62c0e739711006b12536250952a4</update_guid>
+        <update_guid_history>d44d62c0e739711006b12536250952a4:-1288508107</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Don't use new Array()">4976874c47797110243ff19f016d43ef</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>smartcarleen</sys_created_by>
+        <sys_created_on>2023-10-05 22:33:28</sys_created_on>
+        <sys_db_object display_value="" name="scan_linter_check">scan_linter_check</sys_db_object>
+        <sys_id>0aa8c028e2c148aa908c575e038de241</sys_id>
+        <sys_metadata>c2db61672f561110a1803e0ef699b64b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Don't use new Array()</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_scope_delete display_value="">30a78b9b9290467a96959a65d2b2d304</sys_scope_delete>
+        <sys_update_name>scan_linter_check_c2db61672f561110a1803e0ef699b64b</sys_update_name>
+        <sys_update_version display_value="scan_linter_check_c2db61672f561110a1803e0ef699b64b">184d62c047397110243ff19f016d43a4</sys_update_version>
+        <sys_updated_by>smartcarleen</sys_updated_by>
+        <sys_updated_on>2023-10-05 22:33:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

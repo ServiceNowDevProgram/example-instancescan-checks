@@ -112,6 +112,9 @@ Groups are commonly used in business process for approvals, and notifications. A
 ### Valid Script Include Name - No Spaces
 Script Includes names should not include spaces since it is not possible to call them if there is a space in the name.
 
+### Roles assigned to non-existing users
+Identify role assignments (sys_user_has_role) for users that do not exists
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
@@ -179,6 +182,13 @@ api.controller = function ($rootScope, $scope) {
 ### Provide alternate value when fetching Glide property
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
+### Running Business Rules on Transform Maps 
+Running business rules during transform may cause the transform to take longer than expected, or cause the instance to slow down.Do not run items like business rules, workflows, approval engines, and so on during a transform unless you want all insert and update business rules, notifications, and workflows to run
+
+### Avoid using getReference()
+getReference is no longer considered best practice due to its performance impact and it is recommended to use g_scratchpad or GlideAjax instead.
+
+
 ## Category: Security
 ##Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
@@ -229,12 +239,8 @@ Review the flow contexts that are in waiting, in progress or queued state and ru
 ### Active users with past employment end date
 Review the users whose employement end date is in the past and the user is still active, this is a potential threat to the security of the platform. 
 
-#Access controls on UI Pages
- - When there is no ACL for an UI Page, by default the UI Page can be accessed by all the logged-in internal users. If there is no, script level authorization checks like gs.hasRole('user_admin'), then any logged in user can access this UI Page and change anybody's password by passing the user sys_id and the new password.
-
-##Access controls on Tables
- - Tables should be secured with access controls, data in the table should be limited access to only necessary audience.
- - Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.
+### Set glide.invalid_query.returns_no_rows to true
+The "glide.invalid_query.returns_no_rows" property provides a safeguard against queries running which could return unintended data which could then be deleted, manipulated or used incorrectly. It is recommended to have this property exist and be set to true. When this property does not exist an invalid query will return all rows. 
 
 ### Use GlideRecordSecure instead of GlideRecord API for Client Callable Script Include
 Use GlideRecordSecure API to ensure the security checks are performed and unauthorized access of data is prevented as it will automatically enforce ACLs.
@@ -251,6 +257,9 @@ List inactive users that still belongs to activate groups
 
 When cloned, records from http_connection table which is extended from sys_connection table is orphaned or cannot be viewed. Even though clone is excluding and preserving sys_connection but not any data on http_connection and hence clone leaves the orphan record on the table sys_connection and this creates issues to view, delete those records. Login to the production instance and check to see if the http_connection table is excluded in the exclude tables module under System Clones.
 Note: It was suggested by ServiceNow support to add table "http_connection" in clone excluder and preserver for one the cases as i faced an similar issue.
+
+### Avoid using alert() in client scripts
+It is recommended to use an OOB library for modals in order to improve the user experience instead of alert().
 
 # Additional resources
 
