@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>security</category>
+        <conditions table="sys_script_include">active=true^client_callable=true^scriptLIKEnew GlideRecord(^ORscriptLIKEnew GlideRecord (^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="client_callable" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="false" value="new GlideRecord("/>
+            <item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="true" value="new GlideRecord ("/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Using GlideRecord API in Client Callable Script Include for database query exposes data security risk</description>
+        <documentation_url>https://docs.servicenow.com/bundle/utah-api-reference/page/script/server-scripting/concept/c_ScriptIncludes.html#title_client-callable-script-includes</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Use GlideRecordSecure instead of GlideRecord API for CCSI</name>
+        <priority>2</priority>
+        <resolution_details>Use GlideRecordSecure API to ensure the security checks are performed and unauthorized access of data is prevented as it will automatically enforce ACLs.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Use GlideRecordSecure instead of GlideRecord API for Client Callable Script Inc</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-10 19:52:19</sys_created_on>
+        <sys_id>076448b12ffd311002eb2ca62799b628</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Use GlideRecordSecure instead of GlideRecord API for CCSI</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_076448b12ffd311002eb2ca62799b628</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-11 13:38:32</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

@@ -242,6 +242,9 @@ Review the users whose employement end date is in the past and the user is still
 ### Set glide.invalid_query.returns_no_rows to true
 The "glide.invalid_query.returns_no_rows" property provides a safeguard against queries running which could return unintended data which could then be deleted, manipulated or used incorrectly. It is recommended to have this property exist and be set to true. When this property does not exist an invalid query will return all rows. 
 
+### Use GlideRecordSecure instead of GlideRecord API for Client Callable Script Include
+Use GlideRecordSecure API to ensure the security checks are performed and unauthorized access of data is prevented as it will automatically enforce ACLs.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
