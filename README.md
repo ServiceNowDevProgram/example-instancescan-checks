@@ -236,7 +236,7 @@ Review the users whose employement end date is in the past and the user is still
  - Tables should be secured with access controls, data in the table should be limited access to only necessary audience.
  - Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.
 
-### Use GlideRecordSecure instead of GlideRecord API for CCSI
+### Use GlideRecordSecure instead of GlideRecord API for Client Callable Script Include
 Use GlideRecordSecure API to ensure the security checks are performed and unauthorized access of data is prevented as it will automatically enforce ACLs.
 
 ## Category: User Experience
