@@ -203,7 +203,7 @@ This check searches for any custom table if there exists at least one ACL record
 Scripted REST APIs should be not be public but enforce  access controls and require additional access to data. 
 
 ### Avoid the eval function
-Improper use of eval() opens up your code for injection attacks and difficulties with debugging.
+The eval() function evaluates or executes an argument. Improper use of eval() opens up your code for injection attacks and debugging can be more challenging, as no line numbers are displayed with an error, for example.
 
 ### Do not use gr as a variable name
 The platform is Javascript and a lot of code is run in a global variable scope. A "gr" defined in one business rule can clobber another "gr" defined in some other script.
