@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="DELETE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>security</category>
+        <conditions/>
+        <description>Tables should be secured with access controls, data in the table should be limited access to only necessary audience.</description>
+        <documentation_url>https://docs.servicenow.com/bundle/tokyo-platform-security/page/administer/contextual-security/concept/access-control-rules.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Access controls on Tables</name>
+        <priority>2</priority>
+        <resolution_details>Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+	
+    var g_acl = new GlideRecord('sys_security_acl');
+		g_acl.addQuery('name','CONTAINS',current.name);
+		g_acl.query();
+		if(!g_acl.next()){
+			finding.setCurrentSource(current);
+			finding.increment();
+		}
+
+})(engine);]]></script>
+        <short_description>Access controls on Tables</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-22 19:16:54</sys_created_on>
+        <sys_id>d44f0a4097b29510dd0178300153af7e</sys_id>
+        <sys_name>Access controls on Tables</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_d44f0a4097b29510dd0178300153af7e</sys_update_name>
+        <table>sys_db_object</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</application>
+        <file_path/>
+        <instance_id>3b3779331b2d3d101024eb9b2d4bcb61</instance_id>
+        <instance_name>dev181379</instance_name>
+        <name>scan_table_check_d44f0a4097b29510dd0178300153af7e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="scan_table_check"&gt;
+    &lt;scan_table_check action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;advanced&gt;true&lt;/advanced&gt;
+        &lt;category&gt;security&lt;/category&gt;
+        &lt;conditions/&gt;
+        &lt;description&gt;Tables should be secured with access controls, data in the table should be limited access to only necessary audience.&lt;/description&gt;
+        &lt;documentation_url&gt;https://docs.servicenow.com/bundle/tokyo-platform-security/page/administer/contextual-security/concept/access-control-rules.html&lt;/documentation_url&gt;
+        &lt;finding_type&gt;scan_finding&lt;/finding_type&gt;
+        &lt;name&gt;Access controls on Tables&lt;/name&gt;
+        &lt;priority&gt;2&lt;/priority&gt;
+        &lt;resolution_details&gt;Make sure that all tables should have ACL's. Rules for access control lists (ACLs) restrict access to data by requiring users to pass a set of requirements before they can interact with it.&lt;/resolution_details&gt;
+        &lt;run_condition/&gt;
+        &lt;score_max&gt;100&lt;/score_max&gt;
+        &lt;score_min&gt;0&lt;/score_min&gt;
+        &lt;score_scale&gt;1&lt;/score_scale&gt;
+        &lt;script&gt;&lt;![CDATA[(function (engine) {
+	
+    var g_acl = new GlideRecord('sys_security_acl');
+		g_acl.addQuery('name','CONTAINS',current.name);
+		g_acl.query();
+		if(!g_acl.next()){
+			finding.setCurrentSource(current);
+			finding.increment();
+		}
+
+})(engine);]]&gt;&lt;/script&gt;
+        &lt;short_description&gt;Access controls on Tables&lt;/short_description&gt;
+        &lt;sys_class_name&gt;scan_table_check&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2022-10-22 19:16:54&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;d44f0a4097b29510dd0178300153af7e&lt;/sys_id&gt;
+        &lt;sys_name&gt;Access controls on Tables&lt;/sys_name&gt;
+        &lt;sys_package display_value="Example Instance Checks" source="x_appe_exa_checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Example Instance Checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;scan_table_check_d44f0a4097b29510dd0178300153af7e&lt;/sys_update_name&gt;
+        &lt;table&gt;sys_db_object&lt;/table&gt;
+        &lt;use_manifest&gt;false&lt;/use_manifest&gt;
+    &lt;/scan_table_check&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-932205653</payload_hash>
+        <record_name>Access controls on Tables</record_name>
+        <reverted_from/>
+        <source>a33d22c047397110243ff19f016d43fa</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-05 20:43:24</sys_created_on>
+        <sys_id>f04da2c047397110243ff19f016d43e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18b0194b43a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-05 20:43:24</sys_updated_on>
+        <type>Table Check</type>
+        <update_guid>b04da2c075397110e824409ae7478ee2</update_guid>
+        <update_guid_history>b04da2c075397110e824409ae7478ee2:-932205653</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Access controls on Tables">0176830047b97110243ff19f016d43e4</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>smartcarleen</sys_created_by>
+        <sys_created_on>2023-10-05 22:33:28</sys_created_on>
+        <sys_db_object display_value="" name="scan_table_check">scan_table_check</sys_db_object>
+        <sys_id>0ccb3497598e47ec81a093c820f51f11</sys_id>
+        <sys_metadata>d44f0a4097b29510dd0178300153af7e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Access controls on Tables</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_scope_delete display_value="">30a78b9b9290467a96959a65d2b2d304</sys_scope_delete>
+        <sys_update_name>scan_table_check_d44f0a4097b29510dd0178300153af7e</sys_update_name>
+        <sys_update_version display_value="scan_table_check_d44f0a4097b29510dd0178300153af7e">f04da2c047397110243ff19f016d43e2</sys_update_version>
+        <sys_updated_by>smartcarleen</sys_updated_by>
+        <sys_updated_on>2023-10-05 22:33:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
