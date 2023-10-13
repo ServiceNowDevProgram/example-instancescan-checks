@@ -118,11 +118,6 @@ Identify role assignments (sys_user_has_role) for users that do not exists
 ### Check the incidents that are closed or canceled but still active
 This is a table check on the incidents table that verifies if there are closed or canceled incidents in the active state, which would be a sign that the close_states are not set correctly on the incident table. This check can be done on any table, especially there where the State model was changed from OOTB or for custom extended tables. The problem with this kind of records is that they can influence the reports on active records on the respective table.
 
-### Integration users shouldn't be admin
-Finds integration users that have assigned admin role - there are two types:
-- webapi with a flag: Web service access only | web_service_access_only
-- internal with a flag: Internal Integration User ! internal_integration_user
-
 ### Update set In Progress previously completed
 Already completed Update Set shouldn't be set back to In Pogress
 There is risk that even for a moment completed update set were retrieved to higher environment and won't be retrieved once again after more modifications are done on lower environment
