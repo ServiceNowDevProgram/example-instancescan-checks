@@ -261,6 +261,9 @@ Note: It was suggested by ServiceNow support to add table "http_connection" in c
 ### Avoid using alert() in client scripts
 It is recommended to use an OOB library for modals in order to improve the user experience instead of alert().
 
+### Check the incidents that are closed or canceled but still active
+This is a table check on the incidents table that verifies if there are closed or canceled incidents in the active state, which would be a sign that the close_states are not set correctly on the incident table. This check can be done on any table, especially there where the State model was changed from OOTB or for custom extended tables. The problem with this kind of records is that they can influence the reports on active records on the respective table.
+
 # Additional resources
 
 Please check these additional links for more information and details:
