@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2023-10-13 23:15:24">
+<scan_table_check action="INSERT_OR_UPDATE">
+<active>true</active>
+<advanced>true</advanced>
+<category>manageability</category>
+<conditions table="sys_user">internal_integration_user=true^ORweb_service_access_only=true^EQ<item goto="false" or="false" field="internal_integration_user" endquery="false" value="true" operator="=" newquery="false"/>
+<item goto="false" or="true" field="web_service_access_only" endquery="false" value="true" operator="=" newquery="false"/>
+<item goto="false" or="false" field="" endquery="true" value="" operator="=" newquery="false"/>
+</conditions>
+<description/>
+<documentation_url/>
+<finding_type>scan_finding</finding_type>
+<name>Integration users shouldn't be admin</name>
+<priority>3</priority>
+<resolution_details/>
+<run_condition/>
+<score_max>100</score_max>
+<score_min>0</score_min>
+<score_scale>1</score_scale>
+<script><![CDATA[(function (finding, current) {
+
+	var userSysId = current.getUniqueValue();
+	var userRoles = new GlideRecord('sys_user_has_role');
+	userRoles.addQuery('role.name','admin');
+	userRoles.addQuery('user', userSysId);
+	userRoles.query();
+	
+	if(userRoles.hasNext()){
+		finding.increment();
+	}
+
+})(finding, current);]]></script>
+<short_description>Finds integration users that have assigned admin role</short_description>
+<sys_class_name>scan_table_check</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-10-13 22:59:50</sys_created_on>
+<sys_id>1d39dcb22ff9b110b0b62d5df699b6a2</sys_id>
+<sys_mod_count>5</sys_mod_count>
+<sys_name>Integration users shouldn't be admin</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>scan_table_check_1d39dcb22ff9b110b0b62d5df699b6a2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-10-13 23:15:12</sys_updated_on>
+<table>sys_user</table>
+<use_manifest>false</use_manifest>
+</scan_table_check>
+</unload>
