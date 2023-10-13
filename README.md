@@ -179,6 +179,9 @@ api.controller = function ($rootScope, $scope) {
 ### Provide alternate value when fetching Glide property
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
+### Using setValue()'s displayValue Parameter with Reference Fields
+When using setValue() on a reference field, be sure to include the display value with the value (sys_id). If you set the value without the display value, ServiceNow does a synchronous Ajax call to retrieve the display value for the record you specified. This extra round trip to the server can leave you at risk of performance issues.
+
 ## Category: Security
 ##Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
