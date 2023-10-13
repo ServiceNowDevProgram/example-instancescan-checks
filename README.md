@@ -123,6 +123,10 @@ Finds integration users that have assigned admin role - there are two types:
 - webapi with a flag: Web service access only | web_service_access_only
 - internal with a flag: Internal Integration User ! internal_integration_user
 
+### Update set In Progress previously completed
+Already completed Update Set shouldn't be set back to In Pogress
+There is risk that even for a moment completed update set were retrieved to higher environment and won't be retrieved once again after more modifications are done on lower environment
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
