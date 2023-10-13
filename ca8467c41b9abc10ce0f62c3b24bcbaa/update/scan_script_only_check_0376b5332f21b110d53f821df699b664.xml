@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>security</category>
+        <description>The "glide.invalid_query.returns_no_rows" property provides a safeguard against queries running which could return unintended data which could then be deleted, manipulated or used incorrectly. It is recommended to have this property exist and be set to true. When this property does not exist an invalid query will return all rows.</description>
+        <documentation_url>https://www.servicenow.com/community/developer-blog/protect-custom-scripts-from-unwanted-behavior-using-this-system/ba-p/2291471</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Set glide.invalid_query.returns_no_rows to true</name>
+        <priority>2</priority>
+        <resolution_details>If it does not exist, create a system property with the name "glide.invalid_query.returns_no_rows" and set the value to true.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    var targetProperty = 'glide.invalid_query.returns_no_rows';
+    var expectedValue = 'true';
+	var defaultValue = 'true';
+
+    var property = gs.getProperty(targetProperty);
+	var propertyValue = gs.getProperty(targetProperty, defaultValue);
+
+	// If the property does not exist we need to log the finding
+	if (!property) {
+		logFinding();
+	} else if (propertyValue.toLowerCase() != expectedValue.toLowerCase()) { // Check if the property is not true
+		logFinding();
+	}
+
+	function logFinding() {
+		var grProperties = new GlideRecord('sys_properties');
+        grProperties.get('name', targetProperty);
+		engine.finding.setCurrentSource(grProperties);
+		engine.finding.increment();
+	}
+
+})(engine);]]></script>
+        <short_description>Set glide.invalid_query.returns_no_rows to true</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-04 22:18:37</sys_created_on>
+        <sys_id>0376b5332f21b110d53f821df699b664</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set glide.invalid_query.returns_no_rows to true</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_0376b5332f21b110d53f821df699b664</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-04 22:18:37</sys_updated_on>
+    </scan_script_only_check>
+</record_update>

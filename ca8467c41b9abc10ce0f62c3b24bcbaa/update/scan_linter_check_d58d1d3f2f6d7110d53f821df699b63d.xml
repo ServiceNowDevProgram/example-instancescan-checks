@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>user_experience</category>
+        <description>It is recommended to use an OOB library for modals in order to improve the user experience&#13;
+&#13;
+Special thanks to Bhupinder Singh and his article:&#13;
+https://www.servicenow.com/community/now-platform-articles/demystifying-instance-scan-linter-check/ta-p/2312466</description>
+        <documentation_url>https://sn-nerd.com/2023/09/05/why-you-should-stop-using-alert-in-your-client-scripts-now/</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid using alert() in client scripts</name>
+        <priority>4</priority>
+        <resolution_details>Review the documentation for GlideModal to find an appropiate replacement: https://docs.servicenow.com/bundle/vancouver-api-reference/page/app-store/dev_portal/API_reference/GlideModalClientSideV3/concept/c_GlideModalV3API.html</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Perform Linter check
+    engine.rootNode.visit(function(node) {
+        if (node.getNameIdentifier() &&
+            node.getTypeName() === 'NAME' &&
+            node.getParent().getTypeName() === 'CALL' &&
+            (node.getNameIdentifier() === 'alert')) {
+            engine.finding.incrementWithNode(node);
+        }
+    });
+
+})(engine);]]></script>
+        <short_description>Avoid using alert() in client scripts</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-04 20:23:03</sys_created_on>
+        <sys_id>d58d1d3f2f6d7110d53f821df699b63d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Avoid using alert() in client scripts</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_d58d1d3f2f6d7110d53f821df699b63d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-04 20:23:03</sys_updated_on>
+    </scan_linter_check>
+</record_update>
