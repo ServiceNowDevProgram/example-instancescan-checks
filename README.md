@@ -267,6 +267,9 @@ Note: It was suggested by ServiceNow support to add table "http_connection" in c
 ### Avoid using alert() in client scripts
 It is recommended to use an OOB library for modals in order to improve the user experience instead of alert().
 
+### Use "last run datetime" for JDBC data loads
+In your JDBC data load configuration, ensure that the 'last run datetime' option is set to true and configure the target database field to serve as a timestamp, as this best practice enables incremental data loading and improves performance in data integration processes using JDBC.
+
 # Additional resources
 
 Please check these additional links for more information and details:
