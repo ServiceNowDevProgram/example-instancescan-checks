@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_column_type_check">
+    <scan_column_type_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>security</category>
+        <column_type>script</column_type>
+        <description>Variable declaration defines the scope of the variable, ensuring it's accessible only within the intended block. This prevents unintended variable pollution and conflicts. </description>
+        <documentation_url>https://www.servicenow.com/community/developer-forum/why-declaration-of-variables-is-essential-in-servicenow/m-p/2379013</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>For loop iterators "i" should be declared</name>
+        <priority>3</priority>
+        <resolution_details>Rather than using a construction like "for (i=0; i&lt;10; i++)," it's advisable to explicitly declare the iterator "i" within the for loop by using the "var" keyword, like this: "for (var i=0; i&lt;10; i++)". This ensures proper variable scoping and avoids unintended issues in your code.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+    var search_regex = /for\s*\(\s*i\s*=\s*[^;]+/;//This regex detects for loops with an uninitialized i iterator.
+    if (search_regex.test(engine.columnValue)) {
+        engine.finding.increment();
+    }
+})(engine);]]></script>
+        <short_description>Declare the iterator "i" in for loops to avoid variable pollution and conflicts</short_description>
+        <sys_class_name>scan_column_type_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-14 09:00:00</sys_created_on>
+        <sys_id>ee62ee7e97b131106c7cfed11153af4f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>For loop iterators "i" should be declared</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_column_type_check_ee62ee7e97b131106c7cfed11153af4f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-14 09:05:26</sys_updated_on>
+    </scan_column_type_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=ee62ee7e97b131106c7cfed11153af4f"/>
+</record_update>
