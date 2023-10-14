@@ -256,6 +256,9 @@ The "glide.invalid_query.returns_no_rows" property provides a safeguard against 
 ### Use GlideRecordSecure instead of GlideRecord API for Client Callable Script Include
 Use GlideRecordSecure API to ensure the security checks are performed and unauthorized access of data is prevented as it will automatically enforce ACLs.
 
+### For loop iterators "i" should be declared
+In general, variables in JavaScript should be properly declared (e.g. using “var”). The declaration defines the scope of the variable, ensuring it's accessible only within the intended block. This prevents unintended variable pollution and conflicts. Especially in for loops, often an iterator “i” is used and not properly declared. For example “for (i=0; i<10; i++)” instead of “for (var i=0; i<10; i++)”.  As a result, this could unintentionally alter the value of other 'i' iterators in different for loops.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
