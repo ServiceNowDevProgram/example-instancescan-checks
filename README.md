@@ -127,6 +127,14 @@ Finds integration users that have assigned admin role - there are two types:
 Already completed Update Set shouldn't be set back to In Pogress
 There is risk that even for a moment completed update set were retrieved to higher environment and won't be retrieved once again after more modifications are done on lower environment
 
+### Active notifications with empty any recipients class
+For notification records there are condition to be met, active flag - they indicates that some notificaton should reach recipients
+It happens from time to time that after development or conifguration all the three classes of recpients can be empty:
+- Users | recipient_users
+- Users/Groups in fields | recipient_fields
+- Groups | recipient_groups
+It can cause except issue with manageability also some performance impact - to verify active notification against some conditions and at the end no notification produced
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
