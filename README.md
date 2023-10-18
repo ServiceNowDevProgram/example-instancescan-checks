@@ -135,6 +135,10 @@ It happens from time to time that after development or conifguration all the thr
 - Groups | recipient_groups
 It can cause except issue with manageability also some performance impact - to verify active notification against some conditions and at the end no notification produced
 
+### Dashboard Onwer no longer active
+For the dashboard there should be an active owner who can administer/customize/adjust dashboards.
+During the time it can be a situation that person is no longer active in the system. It can be discovered and fixed with new person.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
