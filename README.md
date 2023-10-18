@@ -115,6 +115,10 @@ Script Includes names should not include spaces since it is not possible to call
 ### Roles assigned to non-existing users
 Identify role assignments (sys_user_has_role) for users that do not exists
 
+### Child group does not contain all parent roles
+Review Identified groups to understand why the roles have not been inherited from the parent group. This could happen when the Business Rules did not execute. Another potential cause could be a clone where the Group Role [sys_group_has_role] table has been excluded. This could also occur when the roles have been deleted directly from the Group Role [sys_group_has_role] table. Removing the parent from this group, saving, and then adding the parent back should resolve this issue.
+
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
