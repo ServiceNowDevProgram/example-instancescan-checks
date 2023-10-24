@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions table="sc_request">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>If all the requested items in a request are closed, the request should close automatically. If the request does not close automatically, probably the flows of the items do not set the stages correctly, or the default Stages for requested items were changed and the Completed Stage does not have the correct value. This can show wrongly in reports active requests that actually are closed and also can cause confusion for users who will see their requests still open.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Open Requests with closed requested items</name>
+        <priority>4</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+   var grReqItem = new GlideRecord('sc_req_item');
+	grReqItem.addActiveQuery();
+	grReqItem.addQuery('request', current.getUniqueValue());
+	grReqItem.query();
+	if (!grReqItem.hasNext()) {
+		engine.finding.increment();
+		engine.finding.setCurrentSource(current);
+	}
+
+})(engine);]]></script>
+        <short_description>Check that finds open Requests for which all the requested items are closed</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-23 20:54:58</sys_created_on>
+        <sys_id>df3c9331470271103899fa37536d43ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Open Requests with closed requested items</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_df3c9331470271103899fa37536d43ca</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-23 20:54:58</sys_updated_on>
+        <table>sc_request</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=df3c9331470271103899fa37536d43ca"/>
+</record_update>

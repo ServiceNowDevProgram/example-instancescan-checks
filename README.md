@@ -118,6 +118,10 @@ Identify role assignments (sys_user_has_role) for users that do not exists
 ### Check the incidents that are closed or canceled but still active
 This is a table check on the incidents table that verifies if there are closed or canceled incidents in the active state, which would be a sign that the close_states are not set correctly on the incident table. This check can be done on any table, especially there where the State model was changed from OOTB or for custom extended tables. The problem with this kind of records is that they can influence the reports on active records on the respective table.
 
+
+### Open Requests with closed requested items
+If all the requested items in a request are closed, the request should close automatically. If the request does not close automatically, probably the flows of the items do not set the stages correctly, or the default Stages for requested items were changed and the Completed Stage does not have the correct value. This can display the active requests that actually are closed in reports and also can cause confusion for users who will see their requests still open.
+
 ### Integration users shouldn't be admin
 Finds integration users that have assigned admin role - there are two types:
 - webapi with a flag: Web service access only | web_service_access_only
@@ -138,6 +142,7 @@ It can cause except issue with manageability also some performance impact - to v
 ### Dashboard Onwer no longer active
 For the dashboard there should be an active owner who can administer/customize/adjust dashboards.
 During the time it can be a situation that person is no longer active in the system. It can be discovered and fixed with new person.
+
 
 ## Category: Upgradability
 
