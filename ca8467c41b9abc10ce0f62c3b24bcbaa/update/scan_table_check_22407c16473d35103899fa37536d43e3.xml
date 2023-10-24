@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>manageability</category>
+        <conditions table="incident">active=true^state=7^ORstate=8^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item display_value="Closed" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="7"/>
+            <item display_value="Canceled" endquery="false" field="state" goto="false" newquery="false" operator="=" or="true" value="8"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>If records closed or canceled are still active, it can influence the state of the reports on the table. The close_states/work_states may not be set correctly in the column attributes.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Check incidents that are closed or cancelled but still active</name>
+        <priority>3</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Verify that closed or canceled records are not active anymore</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-12 11:23:44</sys_created_on>
+        <sys_id>22407c16473d35103899fa37536d43e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Check incidents that are closed or cancelled but still active</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_22407c16473d35103899fa37536d43e3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-12 11:23:44</sys_updated_on>
+        <table>incident</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=22407c16473d35103899fa37536d43e3"/>
+</record_update>

@@ -118,8 +118,31 @@ Identify role assignments (sys_user_has_role) for users that do not exists
 ### Check the incidents that are closed or canceled but still active
 This is a table check on the incidents table that verifies if there are closed or canceled incidents in the active state, which would be a sign that the close_states are not set correctly on the incident table. This check can be done on any table, especially there where the State model was changed from OOTB or for custom extended tables. The problem with this kind of records is that they can influence the reports on active records on the respective table.
 
+
 ### Open Requests with closed requested items
 If all the requested items in a request are closed, the request should close automatically. If the request does not close automatically, probably the flows of the items do not set the stages correctly, or the default Stages for requested items were changed and the Completed Stage does not have the correct value. This can display the active requests that actually are closed in reports and also can cause confusion for users who will see their requests still open.
+
+### Integration users shouldn't be admin
+Finds integration users that have assigned admin role - there are two types:
+- webapi with a flag: Web service access only | web_service_access_only
+- internal with a flag: Internal Integration User ! internal_integration_user
+  
+### Update set In Progress previously completed
+Already completed Update Set shouldn't be set back to In Pogress
+There is risk that even for a moment completed update set were retrieved to higher environment and won't be retrieved once again after more modifications are done on lower environment
+
+### Active notifications with empty any recipients class
+For notification records there are condition to be met, active flag - they indicates that some notificaton should reach recipients
+It happens from time to time that after development or conifguration all the three classes of recpients can be empty:
+- Users | recipient_users
+- Users/Groups in fields | recipient_fields
+- Groups | recipient_groups
+It can cause except issue with manageability also some performance impact - to verify active notification against some conditions and at the end no notification produced
+
+### Dashboard Onwer no longer active
+For the dashboard there should be an active owner who can administer/customize/adjust dashboards.
+During the time it can be a situation that person is no longer active in the system. It can be discovered and fixed with new person.
+
 
 ## Category: Upgradability
 
@@ -188,6 +211,9 @@ api.controller = function ($rootScope, $scope) {
 ### Provide alternate value when fetching Glide property
 Recommendation to provide alternate/default value when calling gs.getProperty() to avoid errors if the property is not set. 
 
+### Using setValue()'s displayValue Parameter with Reference Fields
+When using setValue() on a reference field, be sure to include the display value with the value (sys_id). If you set the value without the display value, ServiceNow does a synchronous Ajax call to retrieve the display value for the record you specified. This extra round trip to the server can leave you at risk of performance issues.
+
 ### Running Business Rules on Transform Maps 
 Running business rules during transform may cause the transform to take longer than expected, or cause the instance to slow down.Do not run items like business rules, workflows, approval engines, and so on during a transform unless you want all insert and update business rules, notifications, and workflows to run
 
@@ -251,6 +277,9 @@ The "glide.invalid_query.returns_no_rows" property provides a safeguard against 
 ### Use GlideRecordSecure instead of GlideRecord API for Client Callable Script Include
 Use GlideRecordSecure API to ensure the security checks are performed and unauthorized access of data is prevented as it will automatically enforce ACLs.
 
+### For loop iterators "i" should be declared
+In general, variables in JavaScript should be properly declared (e.g. using “var”). The declaration defines the scope of the variable, ensuring it's accessible only within the intended block. This prevents unintended variable pollution and conflicts. Especially in for loops, often an iterator “i” is used and not properly declared. For example “for (i=0; i<10; i++)” instead of “for (var i=0; i<10; i++)”.  As a result, this could unintentionally alter the value of other 'i' iterators in different for loops.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
@@ -266,6 +295,9 @@ Note: It was suggested by ServiceNow support to add table "http_connection" in c
 
 ### Avoid using alert() in client scripts
 It is recommended to use an OOB library for modals in order to improve the user experience instead of alert().
+
+### Use "last run datetime" for JDBC data loads
+In your JDBC data load configuration, ensure that the 'last run datetime' option is set to true and configure the target database field to serve as a timestamp, as this best practice enables incremental data loading and improves performance in data integration processes using JDBC.
 
 # Additional resources
 

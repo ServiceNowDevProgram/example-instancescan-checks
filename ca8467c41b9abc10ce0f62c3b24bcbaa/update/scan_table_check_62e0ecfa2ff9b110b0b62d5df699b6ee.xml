@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2023-10-17 07:07:27">
+<scan_table_check action="INSERT_OR_UPDATE">
+<active>true</active>
+<advanced>true</advanced>
+<category>manageability</category>
+<conditions table="sys_update_set">state=in progress^EQ<item goto="false" or="false" field="state" endquery="false" value="in progress" operator="=" newquery="false"/>
+<item goto="false" or="false" field="" endquery="true" value="" operator="=" newquery="false"/>
+</conditions>
+<description/>
+<documentation_url/>
+<finding_type>scan_finding</finding_type>
+<name>Update set In Progress previously completed</name>
+<priority>3</priority>
+<resolution_details/>
+<run_condition/>
+<score_max>100</score_max>
+<score_min>0</score_min>
+<score_scale>1</score_scale>
+<script><![CDATA[(function (finding, current) {
+
+	var usSysId = current.getUniqueValue();
+	var audit = new GlideRecord('sys_audit');
+	audit.addEncodedQuery('fieldname=state^tablename=sys_update_set^oldvalue=complete^newvalue=in progress');
+	audit.addQuery('documentkey', usSysId);
+	audit.setLimit(1);
+	audit.query();
+	
+	if(audit.hasNext()){
+		finding.increment();
+	}
+
+})(finding, current);]]></script>
+<short_description>Already completed Update Set shouldn't be set back to In Pogress</short_description>
+<sys_class_name>scan_table_check</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-10-13 23:33:30</sys_created_on>
+<sys_id>62e0ecfa2ff9b110b0b62d5df699b6ee</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>Update set In Progress previously completed</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>scan_table_check_62e0ecfa2ff9b110b0b62d5df699b6ee</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-10-17 06:49:47</sys_updated_on>
+<table>sys_update_set</table>
+<use_manifest>false</use_manifest>
+</scan_table_check>
+</unload>
