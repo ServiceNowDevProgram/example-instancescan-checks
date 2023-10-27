@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>performance</category>
+        <conditions table="sys_user_preference">user.nameLIKErowcount^value&lt;=50^EQ<item endquery="false" field="user.name" goto="false" newquery="false" operator="LIKE" or="false" value="rowcount"/>
+            <item endquery="false" field="value" goto="false" newquery="false" operator="&lt;=" or="false" value="50"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Restict the number of row counts ma x to 10,20,50 instaed of higher limit as 100 and 1000 to tune the performance on different table when user interact. This is increase the user experience and platform performance as well. Since it is exposed to potentially slower performance due to having query, process ACL and then render more records.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Limit rowcount to 50 max for users</name>
+        <priority>3</priority>
+        <resolution_details>Restict the number of row counts ma x to 10,20,50 instaed of higher limit as 100 and 1000 to tune the performance on different table when user interact. This is increase the user experience and platform performance as well. Since it is exposed to potentially slower performance due to having query, process ACL and then render more records.&#13;
+&#13;
+Navigate to user preference &lt;sys_user_preference&gt; table and search by 'rowcount'. Set the value to 50 max.&#13;
+Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 only</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Restrict  rowcount to 10,20,50 max from user preference table</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>a.pandey</sys_created_by>
+        <sys_created_on>2023-10-27 20:15:19</sys_created_on>
+        <sys_id>d3f47b4b97823110dd0178300153af08</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Limit rowcount to 50 max for users</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_d3f47b4b97823110dd0178300153af08</sys_update_name>
+        <sys_updated_by>a.pandey</sys_updated_by>
+        <sys_updated_on>2023-10-27 20:15:19</sys_updated_on>
+        <table>sys_user_preference</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
