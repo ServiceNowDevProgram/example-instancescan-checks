@@ -220,6 +220,12 @@ Running business rules during transform may cause the transform to take longer t
 ### Avoid using getReference()
 getReference is no longer considered best practice due to its performance impact and it is recommended to use g_scratchpad or GlideAjax instead.
 
+### Restrict  rowcount to 10,20,50 max from user preference table
+Restrict the number of row counts ma x to 10,20,50 instead of higher limits such as 100 and 1000 to tune the performance on different tables when users interact. This increases the user experience and platform performance as well. Since it is exposed to potentially slower performance due to having query, process ACL, and then render more records.
+
+Navigate to the user preference <sys_user_preference> table and search by 'rowcount'. Set the value to 50 max.
+Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 only
+
 
 ## Category: Security
 ##Check Mandatory fields on incident
