@@ -33,5 +33,4 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-10-14 09:05:26</sys_updated_on>
     </scan_column_type_check>
-    <sys_translated_text action="delete_multiple" query="documentkey=ee62ee7e97b131106c7cfed11153af4f"/>
 </record_update>

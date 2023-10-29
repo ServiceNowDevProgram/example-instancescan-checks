@@ -11,6 +11,7 @@
 Models are specific versions or various configurations of an asset. &#13;
 Models are used for managing and tracking assets through various ServiceNow platform asset applications, including Product Catalog, Asset Management, and Procurement.</description>
         <documentation_url>http://docs.servicenow.com/csh?topicname=c_ManagingProductCatalogItems.html</documentation_url>
+        <finding_type/>
         <name>Product Catalog without Product Models</name>
         <priority>3</priority>
         <resolution_details>An Item in the Product Catalog should always be linked to a Product Model. </resolution_details>

@@ -4,6 +4,7 @@
         <category>performance</category>
         <description>Synchronous usage of AJAX calls (getXMLWait) pauses the browser interaction until data is retrieved from the server side and thereby reducing user experience. Using them in an onLoad or onChange client side scripts is not a best practice recommendation and can create performance issues for your users</description>
         <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0517273</documentation_url>
+        <finding_type/>
         <name>Using Synchronous AJAX calls in client script</name>
         <priority>2</priority>
         <resolution_details>Relpace getXMLWait with Asynchronous GlideAjax calls ie use getXML or getXMLAnswer with a callback function</resolution_details>

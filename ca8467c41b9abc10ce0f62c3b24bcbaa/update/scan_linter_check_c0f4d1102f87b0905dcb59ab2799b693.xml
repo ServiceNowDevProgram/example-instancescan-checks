@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>security</category>
         <description>The platform is Javascript and a lot of code is run in a global variable scope.&#13;
 &#13;

@@ -39,5 +39,4 @@
         <table>incident</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
-    <sys_translated_text action="delete_multiple" query="documentkey=22407c16473d35103899fa37536d43e3"/>
 </record_update>

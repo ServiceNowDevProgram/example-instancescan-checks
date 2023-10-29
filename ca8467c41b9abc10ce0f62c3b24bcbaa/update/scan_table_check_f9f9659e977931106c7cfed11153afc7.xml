@@ -38,5 +38,4 @@
         <table>sys_data_source</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
-    <sys_translated_text action="delete_multiple" query="documentkey=f9f9659e977931106c7cfed11153afc7"/>
 </record_update>

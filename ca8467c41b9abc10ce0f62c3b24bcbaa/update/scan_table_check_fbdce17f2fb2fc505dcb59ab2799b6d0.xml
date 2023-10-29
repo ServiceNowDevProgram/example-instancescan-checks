@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>upgradability</category>
         <conditions table="sys_db_object">super_class.name=sys_user^EQ<item endquery="false" field="super_class.name" goto="false" newquery="false" operator="=" or="false" value="sys_user"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>

@@ -44,5 +44,4 @@
         <table>sc_request</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
-    <sys_translated_text action="delete_multiple" query="documentkey=df3c9331470271103899fa37536d43ca"/>
 </record_update>

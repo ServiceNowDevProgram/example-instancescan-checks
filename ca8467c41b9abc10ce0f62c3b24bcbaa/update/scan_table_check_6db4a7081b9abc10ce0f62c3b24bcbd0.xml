@@ -6,6 +6,7 @@
         <conditions/>
         <description>When two Script Includes exist with the same name in the same scope, when those script includes are called it is unreliable as to which Script Include will actually be instantiated.</description>
         <documentation_url>http://docs.servicenow.com/csh?topicname=c_ScriptIncludes.html</documentation_url>
+        <finding_type/>
         <name>Duplicate Script Include Name</name>
         <priority>2</priority>
         <resolution_details>Ensure all your Script Includes have unique names. Rename any script include with a duplicate name with a unique name.d</resolution_details>

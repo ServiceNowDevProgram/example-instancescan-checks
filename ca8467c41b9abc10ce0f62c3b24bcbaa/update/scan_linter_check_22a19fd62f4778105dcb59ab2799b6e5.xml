@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>performance</category>
         <description>The value of a reference field is a sys_id. When you dot-walk to the sys_id, the system does an additional database query to retrieve the caller_id record, then retrieves the sys_id. This can lead to performance issues. </description>
         <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/scripting_technical_best_practices#avoid-dot-walking-to-the-sys-id-of-a-reference-field</documentation_url>

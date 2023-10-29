@@ -91,7 +91,7 @@
         <reverted_from/>
         <source>a33d22c047397110243ff19f016d43fa</source>
         <source_table>sys_upgrade_history</source_table>
-        <state>current</state>
+        <state>previous</state>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-10-05 20:43:24</sys_created_on>
         <sys_id>f04da2c047397110243ff19f016d43e2</sys_id>
@@ -104,7 +104,7 @@
         <update_guid_history>b04da2c075397110e824409ae7478ee2:-932205653</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Access controls on Tables">0176830047b97110243ff19f016d43e4</sys_audit_delete>
+        <sys_audit_delete display_value="">0176830047b97110243ff19f016d43e4</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>smartcarleen</sys_created_by>
         <sys_created_on>2023-10-05 22:33:28</sys_created_on>

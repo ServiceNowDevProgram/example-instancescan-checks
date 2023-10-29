@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>manageability</category>
         <conditions table="catalog_ui_policy">catalog_itemISEMPTY^variable_setISEMPTY^EQ<item endquery="false" field="catalog_item" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
             <item endquery="false" field="variable_set" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
@@ -28,11 +27,14 @@
         <sys_created_by>nia.mccash</sys_created_by>
         <sys_created_on>2022-03-15 22:31:33</sys_created_on>
         <sys_id>4b353cc9879a855009eaed3e8bbb35ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Delete Orphaned Catalog UI Policies</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_4b353cc9879a855009eaed3e8bbb35ed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-01 19:23:21</sys_updated_on>
         <table>catalog_ui_policy</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>

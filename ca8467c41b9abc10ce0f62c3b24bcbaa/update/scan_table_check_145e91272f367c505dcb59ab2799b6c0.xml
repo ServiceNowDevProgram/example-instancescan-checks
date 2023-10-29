@@ -11,6 +11,7 @@
 &#13;
 Script includes only load when called. </description>
         <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/business_rules_technical_best_practices</documentation_url>
+        <finding_type/>
         <name>Use Script Includes Instead of Global Business Rules</name>
         <priority>2</priority>
         <resolution_details>If you have already written a global Business Rule, move the function definition to a Script Include. The name of the Script Include must match the name of the function for the Script Include to work properly. There is no need to modify any calls to the named function.</resolution_details>

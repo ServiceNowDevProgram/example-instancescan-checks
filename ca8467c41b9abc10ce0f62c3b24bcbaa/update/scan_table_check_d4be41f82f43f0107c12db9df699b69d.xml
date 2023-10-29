@@ -11,6 +11,7 @@
         </conditions>
         <description>A business rule is triggered whenever a user opens a list or form view or when a user inserts/updates or deletes a record. Without any conditions added, it will always evaluate to true and triggerred at all times. This can add to the performance increasing server processing time and hence it is recommended to restrict business rule execution by either adding a condition or filter condition or a role condition and preventing its execution unless it is necessary.</description>
         <documentation_url/>
+        <finding_type/>
         <name>Business Rule without any conditions</name>
         <priority>3</priority>
         <resolution_details>Define a condition on the Condition field or the Filter Condition or the Role Condition, the system will first evaluate these conditions and only then proceed to the execution of business rule script. If the condition fails, then the script wont execute. This will improve system performance and user experience.</resolution_details>
