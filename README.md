@@ -305,6 +305,9 @@ It is recommended to use an OOB library for modals in order to improve the user 
 ### Use "last run datetime" for JDBC data loads
 In your JDBC data load configuration, ensure that the 'last run datetime' option is set to true and configure the target database field to serve as a timestamp, as this best practice enables incremental data loading and improves performance in data integration processes using JDBC.
 
+###GlideLDAP API usage should be avoided
+GlideLDAP API is undocumented and an unsupported API method to query the LDAP with reliance on VPN / Direct connectivity to LDAP between ServiceNow and Customer Network to query the LDAP. Rather use Data Sources with or without MID Server to query the LDAP where needed.
+
 # Additional resources
 
 Please check these additional links for more information and details:
