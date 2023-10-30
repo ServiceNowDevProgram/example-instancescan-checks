@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_column_type_check">
+    <scan_column_type_check action="DELETE">
+        <active>true</active>
+        <category>manageability</category>
+        <column_type>script</column_type>
+        <description>GlideLDAP API is Unsupported and should be avoided to query the LDAP server</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0961314</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Unsupported API: GlideLDAP</name>
+        <priority>3</priority>
+        <resolution_details>GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+    //avoid the skip tables
+    var skip_tables = "sys_script_execution_history";
+    if (skip_tables.indexOf(engine.current.getTableName()) > -1)
+        return;
+
+    //check glide ldap usage at least once
+    var search_regex = /new\s*GlideLDAP\s*\(/;
+    if (!search_regex.test(engine.columnValue))
+        return;
+
+    //remove code comments
+    var code_comments_regex = /\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/gm;
+    var commentsRemovedValue = engine.columnValue.replace(code_comments_regex, '');
+
+    //raise finding if no comments found or usage found in commentsRemovedValue
+    if (commentsRemovedValue.length == engine.columnValue.length || search_regex.test(commentsRemovedValue))
+        engine.finding.increment();
+
+})(engine);]]></script>
+        <short_description>GlideLDAP API is Unsupported and should be avoided to query the LDAP server</short_description>
+        <sys_class_name>scan_column_type_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-30 18:21:03</sys_created_on>
+        <sys_id>176c32c097123110839d76021153aff4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Unsupported API: GlideLDAP</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_column_type_check_176c32c097123110839d76021153aff4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-30 18:21:03</sys_updated_on>
+    </scan_column_type_check>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</application>
+        <file_path/>
+        <instance_id>37d7e11adb7cd5988aea21c405961949</instance_id>
+        <instance_name>dev129498</instance_name>
+        <name>scan_column_type_check_176c32c097123110839d76021153aff4</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="scan_column_type_check"&gt;&lt;scan_column_type_check action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;category&gt;manageability&lt;/category&gt;&lt;column_type&gt;script&lt;/column_type&gt;&lt;description&gt;GlideLDAP API is Unsupported and should be avoided to query the LDAP server&lt;/description&gt;&lt;documentation_url&gt;https://support.servicenow.com/kb?id=kb_article_view&amp;amp;sysparm_article=KB0961314&lt;/documentation_url&gt;&lt;finding_type&gt;scan_finding&lt;/finding_type&gt;&lt;name&gt;Unsupported API: GlideLDAP&lt;/name&gt;&lt;priority&gt;3&lt;/priority&gt;&lt;resolution_details&gt;GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server.&lt;/resolution_details&gt;&lt;run_condition/&gt;&lt;score_max&gt;100&lt;/score_max&gt;&lt;score_min&gt;0&lt;/score_min&gt;&lt;score_scale&gt;1&lt;/score_scale&gt;&lt;script&gt;&lt;![CDATA[(function(engine) {
+    //avoid the skip tables
+    var skip_tables = "sys_script_execution_history";
+    if (skip_tables.indexOf(engine.current.getTableName()) &gt; -1)
+        return;
+
+    //check glide ldap usage at least once
+    var search_regex = /new\s*GlideLDAP\s*\(/;
+    if (!search_regex.test(engine.columnValue))
+        return;
+
+    //remove code comments
+    var code_comments_regex = /\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/gm;
+    var commentsRemovedValue = engine.columnValue.replace(code_comments_regex, '');
+
+    //raise finding if no comments found or usage found in commentsRemovedValue
+    if (commentsRemovedValue.length == engine.columnValue.length || search_regex.test(commentsRemovedValue))
+        engine.finding.increment();
+
+})(engine);]]&gt;&lt;/script&gt;&lt;short_description&gt;GlideLDAP API is Unsupported and should be avoided to query the LDAP server&lt;/short_description&gt;&lt;sys_class_name&gt;scan_column_type_check&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-10-30 18:21:03&lt;/sys_created_on&gt;&lt;sys_id&gt;176c32c097123110839d76021153aff4&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Unsupported API: GlideLDAP&lt;/sys_name&gt;&lt;sys_package display_value="Example Instance Checks" source="x_appe_exa_checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Example Instance Checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_scope&gt;&lt;sys_update_name&gt;scan_column_type_check_176c32c097123110839d76021153aff4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-10-30 18:21:03&lt;/sys_updated_on&gt;&lt;/scan_column_type_check&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1676391484</payload_hash>
+        <record_name>Unsupported API: GlideLDAP</record_name>
+        <reverted_from/>
+        <source>f55df28497123110839d76021153afaf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-30 18:25:04</sys_created_on>
+        <sys_id>425d368497123110839d76021153af06</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18b81d508040000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-30 18:25:04</sys_updated_on>
+        <type>Column Type Check</type>
+        <update_guid>5f6c32c0bc1231101eac88f3849f86f5</update_guid>
+        <update_guid_history>5f6c32c0bc1231101eac88f3849f86f5:1676391484,8a2d7e4485123110dc9491625f403320:-678467768,5f6c32c0bc1231101eac88f3849f86f5:1676391484,19ac7e042b1231101dfec6ff5687fb41:-678467768,5f6c32c0bc1231101eac88f3849f86f5:1676391484</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Unsupported API: GlideLDAP">337d7a8497123110839d76021153af66</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-30 18:25:44</sys_created_on>
+        <sys_db_object display_value="" name="scan_column_type_check">scan_column_type_check</sys_db_object>
+        <sys_id>86e8846aca514c20ab421930b445b369</sys_id>
+        <sys_metadata>176c32c097123110839d76021153aff4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Unsupported API: GlideLDAP</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_scope_delete display_value="">30a78b9b9290467a96959a65d2b2d304</sys_scope_delete>
+        <sys_update_name>scan_column_type_check_176c32c097123110839d76021153aff4</sys_update_name>
+        <sys_update_version display_value="scan_column_type_check_176c32c097123110839d76021153aff4">425d368497123110839d76021153af06</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-30 18:25:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
