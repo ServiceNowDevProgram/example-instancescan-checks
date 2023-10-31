@@ -143,6 +143,9 @@ It can cause except issue with manageability also some performance impact - to v
 For the dashboard there should be an active owner who can administer/customize/adjust dashboards.
 During the time it can be a situation that person is no longer active in the system. It can be discovered and fixed with new person.
 
+### Unsupported API GlideLDAP
+GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server or directly through an internet facing LDAP.
+
 
 ## Category: Upgradability
 

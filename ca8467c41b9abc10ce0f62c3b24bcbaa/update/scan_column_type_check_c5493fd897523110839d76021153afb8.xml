@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_column_type_check">
+    <scan_column_type_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <column_type>script</column_type>
+        <description>GlideLDAP API is Unsupported and should be avoided to query the LDAP server</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0961314</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Unsupported API :  GlideLDAP</name>
+        <priority>3</priority>
+        <resolution_details>GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server or directly through an internet facing LDAP</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+    //avoid the skip tables
+    var skip_tables = "sys_script_execution_history";
+    if (skip_tables.indexOf(engine.current.getTableName()) > -1)
+        return;
+
+    //check glide ldap usage at least once
+    var search_regex = /new\s*GlideLDAP\s*\(/;
+    if (!search_regex.test(engine.columnValue))
+        return;
+
+    //remove code comments
+    var code_comments_regex = /\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/gm;
+    var commentsRemovedValue = engine.columnValue.replace(code_comments_regex, '');
+
+    //raise finding if no comments found or usage found in commentsRemovedValue
+    if (commentsRemovedValue.length == engine.columnValue.length || search_regex.test(commentsRemovedValue))
+        engine.finding.increment();
+
+})(engine);]]></script>
+        <short_description>GlideLDAP API is Unsupported and should be avoided to query the LDAP server</short_description>
+        <sys_class_name>scan_column_type_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-31 17:25:20</sys_created_on>
+        <sys_id>c5493fd897523110839d76021153afb8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Unsupported API :  GlideLDAP</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_column_type_check_c5493fd897523110839d76021153afb8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-31 17:25:20</sys_updated_on>
+    </scan_column_type_check>
+</record_update>
