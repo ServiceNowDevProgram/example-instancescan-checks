@@ -161,6 +161,9 @@ Check if the Choice [sys_choice] table has been extended. This is not supported 
 ### User table should not be extended
 Check if the User [sys_user] table has been extended. This is not recommended and can cause problems when a user needs to be in more than one user table.
 
+### Do not reference sys_choice table
+The Choice table should not be used as the reference table for a Reference type field. Reference fields store the sys_id of the corresponding record in the reference table and show the specified display value. For example: the caller_id field stores the sys_id of a record from the user table and displays the corresponding name value. This presents a problem when using the sys_choice table, because existing records are deleted and replaced when choices are modified. This causes a new sys_id to be generated for each record in the choice list. So the sys_id stored in the Reference field is no longer a valid value and the reference is broken.
+
 ## Category: Performance
 
 ### getMessage() called in Client Script 
