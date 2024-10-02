@@ -1,0 +1,11 @@
+Best Practice: Stick to Consistent Naming Conventions for Variables, Functions, and Files to Ensure Readability and Ease of Future Modifications may be Camel notation or _ notation.
+Why important: In ServiceNow development, adopting consistent naming conventions is crucial to maintaining code that is both readable and easily modifiable in the future. Whether you're writing scripts, creating workflows, developing UI actions, or configuring integrations, standardized naming
+Ecample with out naming convensions:
+    var sD = rec.getValue('planned_start_date');
+    var eD = rec.getValue('planned_end_date');
+    return 'Start Date: ' + sD + ', End Date: ' + eD;
+Example with naming convensions:
+   var plannedStartDate = changeRequestRecord.getValue('planned_start_date');
+   var plannedEndDate = changeRequestRecord.getValue('planned_end_date');
+   return 'Start Date: ' + plannedStartDate + ', End Date: ' + plannedEndDate;
+Conclution:Following Naming conventions increase Readability,Maintainability and Scalability of out script.
