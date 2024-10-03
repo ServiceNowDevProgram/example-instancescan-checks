@@ -300,6 +300,9 @@ Use GlideRecordSecure API to ensure the security checks are performed and unauth
 ### For loop iterators "i" should be declared
 In general, variables in JavaScript should be properly declared (e.g. using “var”). The declaration defines the scope of the variable, ensuring it's accessible only within the intended block. This prevents unintended variable pollution and conflicts. Especially in for loops, often an iterator “i” is used and not properly declared. For example “for (i=0; i<10; i++)” instead of “for (var i=0; i<10; i++)”.  As a result, this could unintentionally alter the value of other 'i' iterators in different for loops.
 
+### Don't show unpublished knowledge articles
+Unpublished knowledge articles may contain sensitive information that should not be visible to anyone with read access. By preventing access to unpublished articles, reviewers are given the opportunity to verify the content before it is made accessible. This ensures that only properly reviewed and approved information is available to users with read access.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
