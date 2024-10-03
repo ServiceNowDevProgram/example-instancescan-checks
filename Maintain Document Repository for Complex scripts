@@ -1,0 +1,4 @@
+Why document and maintain complex logics? 
+Documenting the logic, usage, and setup instructions for complex scripts in a shared repository or within the ServiceNow system (such as knowledge base articles) is essential for ensuring clarity, consistency, and collaboration among team members. 
+How to document them?
+Document complex scripts by selecting a platform like GitHub for version control or ServiceNow Knowledge Base for accessibility. Structure the documentation with an overview, prerequisites, usage instructions, logic explanations, and include troubleshooting tips and version history for updates.
