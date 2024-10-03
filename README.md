@@ -232,6 +232,14 @@ Restrict the number of row counts ma x to 10,20,50 instead of higher limits such
 Navigate to the user preference <sys_user_preference> table and search by 'rowcount'. Set the value to 50 max.
 Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 only
 
+### Check System Property with 'Ignore cache' = False
+Ignore Cache is a Glide Properties (records in the sys_properties table) field that impacts system performance.When it’s not handled carefully it can cause a system-wide cache flush leading to potentially severe performance degradation for anywhere from 5 to 30 minutes.
+
+[Ignore cache = False: This will trigger a full cache flush, which might result in performance issues, slowness, and in some cases outage of 5 to 30 mins.]
+
+Select the check box to ignore flushing some server-side caches, thus flushing only the cache for the sys_properties table and preserving the prior property value in all other caches. This option avoids the performance cost of flushing all caches and retrieving new property values. Unless you have some very good reason that the entire system cache needs to be flushed when a Property is changed.
+
+[ Ignore cache = True: An update or insert of a system property will rebuild ONLY for that particular sys_property cache (yes, it is not a full ignore) ]
 
 ## Category: Security
 ##Check Mandatory fields on incident
