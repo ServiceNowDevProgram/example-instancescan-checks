@@ -147,7 +147,7 @@ During the time it can be a situation that person is no longer active in the sys
 GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server or directly through an internet facing LDAP.
 
 ### Check for Orphaned Tickets
-Tickets from tables such as Incident, Change Request, Problem, and other task-related tables should always have an Assignment Group specified. These tickets represent issues or requests that require attention and action. Leaving the Assignment Group field empty can result in unresolved issues or delays in implementing fixes, as no team will be accountable for the resolution. Since the Assignment Group is meant to designate the responsible team for managing these tickets, it should never be left blank.
+Tickets from tables such as Incident, Change Request, Problem, and other task-related tables should always have an Assignment Group specified. These tickets represent issues or requests that require attention and action. Leaving the Assignment Group field empty can result in unresolved issues or delays in implementing fixes, as no team will be accountable for the resolution. Since the Assignment Group is meant to designate the responsible team for managing these tickets, it should not be left blank.
 
 
 ## Category: Upgradability
