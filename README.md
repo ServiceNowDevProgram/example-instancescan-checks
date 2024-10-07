@@ -100,7 +100,7 @@ Variables should be used in  Catalog Item or a Variable Set. Variables not in us
 ### Delete Orphaned Catalog Client Scripts
 Catalog Client Script should be used in either a Catalog Item or a Variable Set. Catalog Client Scripts not in use should be deleted.
 
-### Update set description should not be empty
+### Delete Orphaned Catalog UI Policies
 Catalog UI policy should be used in either a Catalog Item or a Variable Set. Catalog UI Policies not in use should be deleted.
 
 ### Client Script Business rule or Script Include should not have an empty description or be without comments in the script section
