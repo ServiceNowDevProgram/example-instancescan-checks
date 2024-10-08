@@ -306,6 +306,9 @@ In general, variables in JavaScript should be properly declared (e.g. using “v
 ### Don't show unpublished knowledge articles
 Unpublished knowledge articles may contain sensitive information that should not be visible to anyone with read access. By preventing access to unpublished articles, reviewers are given the opportunity to verify the content before it is made accessible. This ensures that only properly reviewed and approved information is available to users with read access.
 
+### Scripts in ACLs should be cleared when Advanced is not checked
+Scripts in ACLs ARE executed regardless of whether or not the Advanced checked box is checked off. As such, unnecessary scripts should be cleared from the field OR the Advanced checkbox should be checked in cases where scripts are required to provide better visibility to admins for troubleshooting purposes.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
