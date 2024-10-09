@@ -1,7 +1,7 @@
 ![instance-scan-check-banner](https://github.com/Lacah/example-instancescan-checks/assets/47461634/2dc8c308-a249-41ca-89f6-26bc68749f7c)
 
 # example-instancescan-checks
-
+ 
 Open-Sourced community contributed and owned repository for Instance Scan Definitions. [ServiceNow Instance Scan](https://docs.servicenow.com/csh?topicname=hs-landing-page&version=latest) The checks contained in this repository are therefore considered "use at your own risk" and will rely on the open-source community to help drive fixes and feature enhancements via Issues and community members issuing and reviewing PRs. ServiceNow is not providing or authenticating these definitions. Occasionally, ServiceNow employees may choose to contribute to the open-source project as members of the community as they see fit, this does not constitute a service or product from ServiceNow.
 
 🔔🔔🔔<br>
@@ -233,6 +233,9 @@ Restrict the number of row counts ma x to 10,20,50 instead of higher limits such
 
 Navigate to the user preference <sys_user_preference> table and search by 'rowcount'. Set the value to 50 max.
 Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 only
+
+### Instance scan check to identify slow jobs in transaction logs.
+The Instance Scan Check is a table check scan that allows administrators to investigate transaction logs in ServiceNow to diagnose performance issues reported by users. This check specifically identifies transactions with a **Response Time** greater than **120 seconds**, helping to uncover performance bottlenecks, understand user behavior, and track down issues within a specific time frame.
 
 ### Check System Property with 'Ignore cache' = False
 Ignore Cache is a Glide Properties (records in the sys_properties table) field that impacts system performance.When it’s not handled carefully it can cause a system-wide cache flush leading to potentially severe performance degradation for anywhere from 5 to 30 minutes.
