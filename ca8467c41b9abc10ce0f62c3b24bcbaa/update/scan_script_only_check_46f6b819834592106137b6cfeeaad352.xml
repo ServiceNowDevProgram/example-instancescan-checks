@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>security</category>
+        <description>Unpublished knowledge articles may contain sensitive information that should not be visible to anyone with read access. By preventing access to unpublished articles, reviewers are given the opportunity to verify the content before it is made accessible. This ensures that only properly reviewed and approved information is available to users with read access.</description>
+        <documentation_url>https://docs.servicenow.com/bundle/vancouver-servicenow-platform/page/product/knowledge-management/reference/r_KnowledgeProperties.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Don't show unpublished knowledge articles</name>
+        <priority>2</priority>
+        <resolution_details>Set the glide.knowman.show_unpublished property to false.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding) {
+    var targetProperty = 'glide.knowman.show_unpublished';
+    var expectedValue = 'false';
+    var defaultValue = 'true';
+
+    var propertyValue = gs.getProperty(targetProperty, defaultValue);
+
+    if (propertyValue.toLowerCase() != expectedValue.toLowerCase()) {
+        var gr = new GlideRecord('sys_properties');
+        gr.get('name', targetProperty);
+        finding.setCurrentSource(gr);
+        finding.increment();
+    }
+})(finding);]]></script>
+        <short_description>Don't show unpublished knowledge articles</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>daniel.aagren.seehartrai.madsen</sys_created_by>
+        <sys_created_on>2024-10-03 18:56:04</sys_created_on>
+        <sys_id>46f6b819834592106137b6cfeeaad352</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Don't show unpublished knowledge articles</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_46f6b819834592106137b6cfeeaad352</sys_update_name>
+        <sys_updated_by>daniel.aagren.seehartrai.madsen</sys_updated_by>
+        <sys_updated_on>2024-10-03 18:56:04</sys_updated_on>
+    </scan_script_only_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=46f6b819834592106137b6cfeeaad352"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>46f6b819834592106137b6cfeeaad352</id>
+        <sys_created_by>daniel.aagren.seehartrai.madsen</sys_created_by>
+        <sys_created_on>2024-10-03 18:56:04</sys_created_on>
+        <sys_id>6d677855834592106137b6cfeeaad3d3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>daniel.aagren.seehartrai.madsen</sys_updated_by>
+        <sys_updated_on>2024-10-03 18:56:04</sys_updated_on>
+        <table>scan_script_only_check</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

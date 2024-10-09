@@ -100,7 +100,7 @@ Variables should be used in  Catalog Item or a Variable Set. Variables not in us
 ### Delete Orphaned Catalog Client Scripts
 Catalog Client Script should be used in either a Catalog Item or a Variable Set. Catalog Client Scripts not in use should be deleted.
 
-### Update set description should not be empty
+### Delete Orphaned Catalog UI Policies
 Catalog UI policy should be used in either a Catalog Item or a Variable Set. Catalog UI Policies not in use should be deleted.
 
 ### Client Script Business rule or Script Include should not have an empty description or be without comments in the script section
@@ -146,6 +146,8 @@ During the time it can be a situation that person is no longer active in the sys
 ### Unsupported API GlideLDAP
 GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server or directly through an internet facing LDAP.
 
+### Check for Orphaned Tickets
+Tickets from tables such as Incident, Change Request, Problem, and other task-related tables should always have an Assignment Group specified. These tickets represent issues or requests that require attention and action. Leaving the Assignment Group field empty can result in unresolved issues or delays in implementing fixes, as no team will be accountable for the resolution. Since the Assignment Group is meant to designate the responsible team for managing these tickets, it should never be left blank.
 
 ## Category: Upgradability
 
@@ -160,6 +162,9 @@ Check if the Choice [sys_choice] table has been extended. This is not supported 
 
 ### User table should not be extended
 Check if the User [sys_user] table has been extended. This is not recommended and can cause problems when a user needs to be in more than one user table.
+
+### Do not reference sys_choice table
+The Choice table should not be used as the reference table for a Reference type field. Reference fields store the sys_id of the corresponding record in the reference table and show the specified display value. For example: the caller_id field stores the sys_id of a record from the user table and displays the corresponding name value. This presents a problem when using the sys_choice table, because existing records are deleted and replaced when choices are modified. This causes a new sys_id to be generated for each record in the choice list. So the sys_id stored in the Reference field is no longer a valid value and the reference is broken.
 
 ## Category: Performance
 
@@ -229,8 +234,20 @@ Restrict the number of row counts ma x to 10,20,50 instead of higher limits such
 Navigate to the user preference <sys_user_preference> table and search by 'rowcount'. Set the value to 50 max.
 Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 only
 
- ### Instance scan check to identify slow jobs in transaction logs.
+### Instance scan check to identify slow jobs in transaction logs.
 The Instance Scan Check is a table check scan that allows administrators to investigate transaction logs in ServiceNow to diagnose performance issues reported by users. This check specifically identifies transactions with a **Response Time** greater than **120 seconds**, helping to uncover performance bottlenecks, understand user behavior, and track down issues within a specific time frame.
+
+### Check System Property with 'Ignore cache' = False
+Ignore Cache is a Glide Properties (records in the sys_properties table) field that impacts system performance.When it’s not handled carefully it can cause a system-wide cache flush leading to potentially severe performance degradation for anywhere from 5 to 30 minutes.
+
+[Ignore cache = False: This will trigger a full cache flush, which might result in performance issues, slowness, and in some cases outage of 5 to 30 mins.]
+
+Select the check box to ignore flushing some server-side caches, thus flushing only the cache for the sys_properties table and preserving the prior property value in all other caches. This option avoids the performance cost of flushing all caches and retrieving new property values. Unless you have some very good reason that the entire system cache needs to be flushed when a Property is changed.
+
+[ Ignore cache = True: An update or insert of a system property will rebuild ONLY for that particular sys_property cache (yes, it is not a full ignore) ]
+
+### Avoid using gs.sleep() in any server-side script
+Avoid using gs.sleep() in any script because it does not release session and will cause delays, and add logs to the script whenever gs.sleep() has to be used.
 
 ## Category: Security
 ##Check Mandatory fields on incident
@@ -291,6 +308,12 @@ Use GlideRecordSecure API to ensure the security checks are performed and unauth
 ### For loop iterators "i" should be declared
 In general, variables in JavaScript should be properly declared (e.g. using “var”). The declaration defines the scope of the variable, ensuring it's accessible only within the intended block. This prevents unintended variable pollution and conflicts. Especially in for loops, often an iterator “i” is used and not properly declared. For example “for (i=0; i<10; i++)” instead of “for (var i=0; i<10; i++)”.  As a result, this could unintentionally alter the value of other 'i' iterators in different for loops.
 
+### Don't show unpublished knowledge articles
+Unpublished knowledge articles may contain sensitive information that should not be visible to anyone with read access. By preventing access to unpublished articles, reviewers are given the opportunity to verify the content before it is made accessible. This ensures that only properly reviewed and approved information is available to users with read access.
+
+### Scripts in ACLs should be cleared when Advanced is not checked
+Scripts in ACLs ARE executed regardless of whether or not the Advanced checked box is checked off. As such, unnecessary scripts should be cleared from the field OR the Advanced checkbox should be checked in cases where scripts are required to provide better visibility to admins for troubleshooting purposes.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
@@ -309,6 +332,9 @@ It is recommended to use an OOB library for modals in order to improve the user 
 
 ### Use "last run datetime" for JDBC data loads
 In your JDBC data load configuration, ensure that the 'last run datetime' option is set to true and configure the target database field to serve as a timestamp, as this best practice enables incremental data loading and improves performance in data integration processes using JDBC.
+
+### Use of setWorkflow(false) in business rules will cause unexpected issues
+As setWorkflow(false) method will stop the execution of business rules on that particular GlideRecord object, this will result in unexpected behaviour where the execution of business rules skipped. Maintain caution while using this method and perform regression testing to avoid possible risk. It can have noticeable impact on Audit, Journal fields, notifications, SLA engine, workflow, flow engine etc.,
 
 # Additional resources
 
