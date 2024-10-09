@@ -241,6 +241,9 @@ Select the check box to ignore flushing some server-side caches, thus flushing o
 
 [ Ignore cache = True: An update or insert of a system property will rebuild ONLY for that particular sys_property cache (yes, it is not a full ignore) ]
 
+### Avoid using gs.sleep() in any server-side script
+Avoid using gs.sleep() in any script because it does not release session and will cause delays, and add logs to the script whenever gs.sleep() has to be used.
+
 ## Category: Security
 ##Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
