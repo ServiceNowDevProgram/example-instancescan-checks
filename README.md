@@ -149,7 +149,6 @@ GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, ra
 ### Check for Orphaned Tickets
 Tickets from tables such as Incident, Change Request, Problem, and other task-related tables should always have an Assignment Group specified. These tickets represent issues or requests that require attention and action. Leaving the Assignment Group field empty can result in unresolved issues or delays in implementing fixes, as no team will be accountable for the resolution. Since the Assignment Group is meant to designate the responsible team for managing these tickets, it should never be left blank.
 
-
 ## Category: Upgradability
 
 ### Call GlideRecord using new
@@ -305,6 +304,9 @@ In general, variables in JavaScript should be properly declared (e.g. using “v
 
 ### Don't show unpublished knowledge articles
 Unpublished knowledge articles may contain sensitive information that should not be visible to anyone with read access. By preventing access to unpublished articles, reviewers are given the opportunity to verify the content before it is made accessible. This ensures that only properly reviewed and approved information is available to users with read access.
+
+### Scripts in ACLs should be cleared when Advanced is not checked
+Scripts in ACLs ARE executed regardless of whether or not the Advanced checked box is checked off. As such, unnecessary scripts should be cleared from the field OR the Advanced checkbox should be checked in cases where scripts are required to provide better visibility to admins for troubleshooting purposes.
 
 ## Category: User Experience
 
