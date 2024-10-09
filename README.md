@@ -229,6 +229,8 @@ Restrict the number of row counts ma x to 10,20,50 instead of higher limits such
 Navigate to the user preference <sys_user_preference> table and search by 'rowcount'. Set the value to 50 max.
 Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 only
 
+ ### Instance scan check to identify slow jobs in transaction logs.
+The Instance Scan Check is a table check scan that allows administrators to investigate transaction logs in ServiceNow to diagnose performance issues reported by users. This check specifically identifies transactions with a **Response Time** greater than **120 seconds**, helping to uncover performance bottlenecks, understand user behavior, and track down issues within a specific time frame.
 
 ## Category: Security
 ##Check Mandatory fields on incident
