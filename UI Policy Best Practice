@@ -1,0 +1,14 @@
+7. UI Policy Best Practices
+Description: This check ensures that UI policies are used effectively, including hiding fields rather than disabling them when applicable.
+
+Example: Check if UI Policy uses disabled instead of hidden.
+Best Practice: It's often better to hide fields instead of disabling them for better user experience.
+Scan: Identify UI policies that disable fields instead of hiding them.
+javascript
+Copy code
+function(uiPolicyCheck) {
+    var script = uiPolicyCheck.getFieldValue('script');
+    if (script.indexOf('g_form.setDisabled') > -1 && script.indexOf('g_form.setVisible') === -1) {
+        uiPolicyCheck.addViolation('UI Policy uses "setDisabled" instead of "setVisible", which may lead to a poor user experience.');
+    }
+}
