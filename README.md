@@ -100,7 +100,7 @@ Variables should be used in  Catalog Item or a Variable Set. Variables not in us
 ### Delete Orphaned Catalog Client Scripts
 Catalog Client Script should be used in either a Catalog Item or a Variable Set. Catalog Client Scripts not in use should be deleted.
 
-### Update set description should not be empty
+### Delete Orphaned Catalog UI Policies
 Catalog UI policy should be used in either a Catalog Item or a Variable Set. Catalog UI Policies not in use should be deleted.
 
 ### Client Script Business rule or Script Include should not have an empty description or be without comments in the script section
@@ -145,6 +145,9 @@ During the time it can be a situation that person is no longer active in the sys
 
 ### Unsupported API GlideLDAP
 GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, rather use LDAP Server Data Sources to pull data from LDAP via MID Server or directly through an internet facing LDAP.
+
+### Check for Orphaned Tickets
+Tickets from tables such as Incident, Change Request, Problem, and other task-related tables should always have an Assignment Group specified. These tickets represent issues or requests that require attention and action. Leaving the Assignment Group field empty can result in unresolved issues or delays in implementing fixes, as no team will be accountable for the resolution. Since the Assignment Group is meant to designate the responsible team for managing these tickets, it should not be left blank.
 
 
 ## Category: Upgradability
@@ -306,6 +309,9 @@ In general, variables in JavaScript should be properly declared (e.g. using “v
 ### Don't show unpublished knowledge articles
 Unpublished knowledge articles may contain sensitive information that should not be visible to anyone with read access. By preventing access to unpublished articles, reviewers are given the opportunity to verify the content before it is made accessible. This ensures that only properly reviewed and approved information is available to users with read access.
 
+### Scripts in ACLs should be cleared when Advanced is not checked
+Scripts in ACLs ARE executed regardless of whether or not the Advanced checked box is checked off. As such, unnecessary scripts should be cleared from the field OR the Advanced checkbox should be checked in cases where scripts are required to provide better visibility to admins for troubleshooting purposes.
+
 ## Category: User Experience
 
 ### Added a Number Prefix which already exists
@@ -324,6 +330,9 @@ It is recommended to use an OOB library for modals in order to improve the user 
 
 ### Use "last run datetime" for JDBC data loads
 In your JDBC data load configuration, ensure that the 'last run datetime' option is set to true and configure the target database field to serve as a timestamp, as this best practice enables incremental data loading and improves performance in data integration processes using JDBC.
+
+### Use of setWorkflow(false) in business rules will cause unexpected issues
+As setWorkflow(false) method will stop the execution of business rules on that particular GlideRecord object, this will result in unexpected behaviour where the execution of business rules skipped. Maintain caution while using this method and perform regression testing to avoid possible risk. It can have noticeable impact on Audit, Journal fields, notifications, SLA engine, workflow, flow engine etc.,
 
 # Additional resources
 
