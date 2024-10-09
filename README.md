@@ -329,7 +329,10 @@ It is recommended to use an OOB library for modals in order to improve the user 
 In your JDBC data load configuration, ensure that the 'last run datetime' option is set to true and configure the target database field to serve as a timestamp, as this best practice enables incremental data loading and improves performance in data integration processes using JDBC.
 
 ### Use of setWorkflow(false) in business rules will cause unexpected issues
-As setWorkflow(false) method will stop the execution of business rules on that particular GlideRecord object, this will result in unexpected behaviour where the execution of business rules skipped. Maintain caution while using this method and perform regression testing to avoid possible risk. It can have noticeable impact on Audit, Journal fields, notifications, SLA engine, workflow, flow engine etc.,
+As setWorkflow(false) method will stop the execution of business rules on that particular GlideRecord object, this will result in unexpected behaviour where the execution of business rules skipped. Maintain caution while using this method and perform regression testing to avoid possible risk. It can have noticeable impact on Audit, Journal fields, notifications, SLA engine, workflow, flow engine etc.
+
+### Use of autoSysField(false) in scripts - backgound
+Using autoSysField(false) allows the admin to perform a mass update of records to true up some of the data while retaining the original system audited fields. This is useful to prevent inaccuracy in reporting time critical metrics/performance.
 
 # Additional resources
 
