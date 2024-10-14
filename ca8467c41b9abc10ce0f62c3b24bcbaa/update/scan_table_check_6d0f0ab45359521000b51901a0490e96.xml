@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions table="sys_properties">name=sn_atf.runner.enabled^value=false^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="=" or="false" value="sn_atf.runner.enabled"/>
+            <item endquery="false" field="value" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Automate your testing with ServiceNow's Automated Test Framework to ensure functionality after updates and deployments Considering as instance scan best practices.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Encourage ATF</name>
+        <priority>2</priority>
+        <resolution_details>https://docs.servicenow.com/bundle/xanadu-application-development/page/administer/auto-test-framework/task/atf-enable-tests.html&#13;
+&#13;
+https://www.servicenow.com/community/developer-forum/how-to-get-type-of-instance-via-script/m-p/2029442</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (finding, current) {
+     // Checks if we are in a non-production instance
+	if (gs.getProperty("glide.installation.production") === "false")
+		finding.increment();
+	
+})(finding, current);]]></script>
+        <short_description>Validate ATFs are enabled in sub production instances</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-14 22:19:17</sys_created_on>
+        <sys_id>6d0f0ab45359521000b51901a0490e96</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Encourage ATF</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_6d0f0ab45359521000b51901a0490e96</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-14 22:19:17</sys_updated_on>
+        <table>sys_properties</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=6d0f0ab45359521000b51901a0490e96"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>6d0f0ab45359521000b51901a0490e96</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-14 22:19:17</sys_created_on>
+        <sys_id>656fc6b45359521000b51901a0490ed1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-14 22:19:17</sys_updated_on>
+        <table>scan_table_check</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
