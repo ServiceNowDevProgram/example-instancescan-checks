@@ -7,7 +7,7 @@
             <item endquery="false" field="value" goto="false" newquery="false" operator="=" or="false" value="false"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
-        <description>Automate your testing with ServiceNow's Automated Test Framework to ensure functionality after updates and deployments.</description>
+        <description>Automate your testing with ServiceNow's Automated Test Framework to ensure functionality after updates and deployments Considering as instance scan best practices.</description>
         <documentation_url/>
         <finding_type>scan_finding</finding_type>
         <name>Encourage ATFs</name>
@@ -30,14 +30,14 @@ https://www.servicenow.com/community/developer-forum/how-to-get-type-of-instance
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-14 16:09:20</sys_created_on>
         <sys_id>357638f05391521000b51901a0490e6e</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Encourage ATFs</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_357638f05391521000b51901a0490e6e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-14 16:26:20</sys_updated_on>
+        <sys_updated_on>2024-10-14 22:08:53</sys_updated_on>
         <table>sys_properties</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
