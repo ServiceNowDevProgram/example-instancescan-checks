@@ -2,7 +2,7 @@
     <scan_script_only_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <category>manageability</category>
-        <description>The gs.info() statement can be used to write information to the system log. It is generally used when debugging. Using gs.info() statements will pollute the system log. Prior to promoting artifacts to a production instance, debugging statement should - in most cases - be removed.</description>
+        <description>The gs.info() statement can be used to write information to the system log. It is generally used when debugging. Using gs.info() statements will pollute the system log. Prior to promoting artifacts to a production instance, debugging statement should - in most cases - be removed</description>
         <documentation_url/>
         <finding_type>scan_finding</finding_type>
         <name>Check gs.info in scripts</name>
@@ -55,14 +55,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-14 23:06:12</sys_created_on>
         <sys_id>dcb996785399521000b51901a0490edb</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Check gs.info in scripts</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_script_only_check_dcb996785399521000b51901a0490edb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-14 23:06:12</sys_updated_on>
+        <sys_updated_on>2024-10-15 17:25:45</sys_updated_on>
     </scan_script_only_check>
     <sys_translated_text action="delete_multiple" query="documentkey=dcb996785399521000b51901a0490edb"/>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
