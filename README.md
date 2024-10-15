@@ -168,6 +168,9 @@ The Choice table should not be used as the reference table for a Reference type 
 
 ## Category: Performance
 
+### Identifies string fields with max_length exceeding recommended limits
+This scan checks for string fields where the max_length value is set above a recommended limit. Setting a very high max_length can result in unnecessary database storage consumption and may degrade query performance. It is important to use reasonable max_length values based on actual data requirements.
+
 ### getMessage() called in Client Script 
 This is a simple table check to find client scripts with use the getMessage function but do not preload messages using the Messages field. As the check does a simple contains query it could produce false-positives if the getMessage is either commented or from another library.
 
