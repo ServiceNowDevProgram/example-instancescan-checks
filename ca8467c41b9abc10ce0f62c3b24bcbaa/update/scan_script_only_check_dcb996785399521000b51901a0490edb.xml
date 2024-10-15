@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>The gs.info() statement can be used to write information to the system log. It is generally used when debugging. Using gs.info() statements will pollute the system log. Prior to promoting artifacts to a production instance, debugging statement should - in most cases - be removed.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Check gs.info in scripts</name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding, current) {
+
+	var pattern = /gs\.info\((.*)\)/g;//gs.info() pattern
+
+    var grBr = new GlideRecord('sys_script'); //Business rule
+    grBr.addActiveQuery();
+    grBr.query();
+    while (grBr.next()) {
+        var scriptContent = grBr.getValue('script');           
+        if (pattern.test(scriptContent)) {
+            finding.increment();
+        }
+
+    }
+
+    var grCl = new GlideRecord('sys_script_client'); //Client script
+    grCl.addActiveQuery();
+    grCl.query();
+    while (grCl.next()) {
+        var scriptContent1 = grCl.getValue('script');
+          if (pattern.test(scriptContent1)) {
+            finding.increment();
+        }
+
+    }
+
+    var grSi = new GlideRecord('sys_script_include'); //Script Include
+    grSi.addActiveQuery();
+    grSi.query();
+    while (grSi.next()) {
+        var scriptContent2 = grSi.getValue('script');
+        if (pattern.test(scriptContent2)) {
+            finding.increment();
+        }
+
+    }
+
+})(finding, current);]]></script>
+        <short_description>Check gs.info in scripts</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-14 23:06:12</sys_created_on>
+        <sys_id>dcb996785399521000b51901a0490edb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Check gs.info in scripts</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_dcb996785399521000b51901a0490edb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-14 23:06:12</sys_updated_on>
+    </scan_script_only_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=dcb996785399521000b51901a0490edb"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>dcb996785399521000b51901a0490edb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-14 23:06:12</sys_created_on>
+        <sys_id>fc2a12b85399521000b51901a0490e9f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-14 23:06:12</sys_updated_on>
+        <table>scan_script_only_check</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
