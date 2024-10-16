@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_column_type_check">
+    <scan_column_type_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>performance</category>
+        <column_type>script</column_type>
+        <description>Avoid using gs.sleep() in any script because it does not release session and will cause delays, and add logs to the script whenever gs.sleep() has to be used.</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0747610</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid Use of gs.sleep() in Server-side scripts</name>
+        <priority>2</priority>
+        <resolution_details>Use gs.eventQueueScheduled() or wait timers in workflow/flow as an altrenative approach based on the use case</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	if (engine.columnValue.indexOf("gs.sleep()") > -1)
+		engine.finding.increment();
+
+})(engine);]]></script>
+        <short_description>Avoid Use of gs.sleep() in Server-side scripts</short_description>
+        <sys_class_name>scan_column_type_check</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2024-10-16 14:13:00</sys_created_on>
+        <sys_id>57d17e91c3dd56108dbc32f1b4013125</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Avoid Use of gs.sleep() in Server-side scripts</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_column_type_check_57d17e91c3dd56108dbc32f1b4013125</sys_update_name>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2024-10-16 15:00:47</sys_updated_on>
+    </scan_column_type_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=57d17e91c3dd56108dbc32f1b4013125"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>57d17e91c3dd56108dbc32f1b4013125</id>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2024-10-16 14:13:00</sys_created_on>
+        <sys_id>3d4376d1c3dd56108dbc32f1b4013112</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2024-10-16 14:13:00</sys_updated_on>
+        <table>scan_column_type_check</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
