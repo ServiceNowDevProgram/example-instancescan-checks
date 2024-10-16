@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions table="sys_properties">name=sn_atf.runner^value=false^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="=" or="false" value="sn_atf.runner"/>
+            <item endquery="false" field="value" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>ATF usage instance</name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (finding, current) {
+     // Checks if we are in a non-production instance
+	if (gs.getProperty("glide.installation.production") === "false")
+		finding.increment();
+	
+})(finding, current);]]></script>
+        <short_description>Checking ATFs are using in  Non production instances.</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-16 14:19:07</sys_created_on>
+        <sys_id>6f14fe555359161000b51901a0490ef9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ATF usage instance</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_6f14fe555359161000b51901a0490ef9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-16 14:19:07</sys_updated_on>
+        <table>sys_properties</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=6f14fe555359161000b51901a0490ef9"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>6f14fe555359161000b51901a0490ef9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-16 14:19:06</sys_created_on>
+        <sys_id>57a4ba915359161000b51901a0490e13</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-16 14:19:06</sys_updated_on>
+        <table>scan_table_check</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
