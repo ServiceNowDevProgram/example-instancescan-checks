@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>performance</category>
+        <conditions table="sys_dictionary">internal_type=string^ORinternal_type=string_full_utf8^max_length&gt;4000^nameNOT LIKEsys_hub^EQ<item display_table="sys_glide_object" display_value="String" endquery="false" field="internal_type" goto="false" newquery="false" operator="=" or="false" value="string"/>
+            <item endquery="false" field="internal_type" goto="false" newquery="false" operator="=" or="true" value="string_full_utf8"/>
+            <item endquery="false" field="max_length" goto="false" newquery="false" operator="&gt;" or="false" value="4000"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="NOT LIKE" or="false" value="sys_hub"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>This scan checks for string fields where the max_length value is set above a recommended limit. Setting a very high max_length can result in unnecessary database storage consumption and may degrade query performance. It is important to use reasonable max_length values based on actual data requirements.</description>
+        <documentation_url>https://support.servicenow.com/kb?id=kb_article_view&amp;sysparm_article=KB0685779</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>String Fields with Excessive Max Length</name>
+        <priority>3</priority>
+        <resolution_details>Review the identified string fields and adjust the max_length to a value that matches the actual data requirements.&#13;
+&#13;
+Use lower values for fields that only need to store short text. For fields that may contain longer content, consider using appropriate max_length values, such as 255 for typical text fields. &#13;
+&#13;
+Avoid setting max_length values unnecessarily high to reduce the impact on storage and performance.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding) {
+
+})(finding);
+]]></script>
+        <short_description>Identifies string fields with max_length exceeding recommended limits</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-15 21:43:15</sys_created_on>
+        <sys_id>8b90df49839112107b681390ceaad3be</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>String Fields with Excessive Max Length</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_8b90df49839112107b681390ceaad3be</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-15 22:11:06</sys_updated_on>
+        <table>sys_dictionary</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=8b90df49839112107b681390ceaad3be"/>
+</record_update>
