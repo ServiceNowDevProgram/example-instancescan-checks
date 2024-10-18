@@ -12,6 +12,12 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+###Avoid gs.log()Statement
+Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
+gs.info() for informative messages.
+gs.warn() for warnings that don’t break functionality but may need attention.
+gs.error() for logging errors that require investigation.
+
 ### Avoid using javascript "document" object in Portal
 Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equivalent capabilities to achieve the same.
 
