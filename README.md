@@ -62,6 +62,9 @@ Update sets with more than 1000 configuration updates should be broken down into
 ### Updates in wrong update set scope
 The scope for Customer Update [sys_update_xml] records should match the scope of the Update Set in which the Customer Update resides. Having a mismatch may cause Update Sets to generate preview errors meaning you cannot commit them until the errors are resolved.
 
+## Duplicate Updat Set Name
+Maintain unique names for update set names it will help to track the updates easyly and also very useful to debug any issues.
+
 ## Category: Upgradability
 
 ### Incident table should not be extended
