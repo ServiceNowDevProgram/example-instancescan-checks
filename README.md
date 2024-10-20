@@ -12,6 +12,12 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+###Avoid gs.log()Statement
+Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
+gs.info() for informative messages.
+gs.warn() for warnings that don’t break functionality but may need attention.
+gs.error() for logging errors that require investigation.
+
 ### Create ATFs in sub production instance
 Highly recommended practice to use ATFs for regression testing on instance upgrade and releases.
 
