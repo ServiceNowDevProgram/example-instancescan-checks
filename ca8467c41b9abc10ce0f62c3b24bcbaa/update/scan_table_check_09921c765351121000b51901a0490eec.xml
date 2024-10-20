@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>manageability</category>
+        <conditions table="sysevent_email_action">active=false^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Inactive User Check : Notifications</name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Check Email recipient as inactive user</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-20 18:27:05</sys_created_on>
+        <sys_id>09921c765351121000b51901a0490eec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Inactive User Check : Notifications</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_09921c765351121000b51901a0490eec</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-20 18:27:05</sys_updated_on>
+        <table>sysevent_email_action</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=09921c765351121000b51901a0490eec"/>
+</record_update>
