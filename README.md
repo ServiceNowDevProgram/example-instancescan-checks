@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Check Email recipient as inactive user
+Check inactive users added in any of the email notifications.
+
 ### Avoid using javascript "document" object in Portal
 Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equivalent capabilities to achieve the same.
 
