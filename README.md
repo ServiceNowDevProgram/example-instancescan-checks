@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Check inactive Service Owners.
+We should ensure that inactive users are removed from being assigned as Service owners.
+
 ### Avoid using javascript "document" object in Portal
 Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equivalent capabilities to achieve the same.
 
