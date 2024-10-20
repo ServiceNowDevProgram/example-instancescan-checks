@@ -6,7 +6,7 @@
         <conditions table="sc_cat_item">owner.active=false^EQ<item endquery="false" field="owner.active" goto="false" newquery="false" operator="=" or="false" value="false"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
-        <description>We should ensure that inactive users are removed from being assigned as Catalog item owners.</description>
+        <description>We should ensure that inactive users are removed from being assigned as Catalog item owners</description>
         <documentation_url/>
         <finding_type>scan_finding</finding_type>
         <name>Inactive User Check : Catalog Iem</name>
@@ -26,14 +26,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-20 17:30:07</sys_created_on>
         <sys_id>25a5c4b65311121000b51901a0490e4f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Inactive User Check : Catalog Iem</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_25a5c4b65311121000b51901a0490e4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-20 17:30:07</sys_updated_on>
+        <sys_updated_on>2024-10-20 20:31:56</sys_updated_on>
         <table>sc_cat_item</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
