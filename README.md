@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Check any Catalog Tasks Assigned to an Inactive User
+Check for any tasks assigned to inactive users to ensure proper task reassignment. This helps avoid workflow disruptions and ensures tasks are managed by active users.
+
 ### Avoid using javascript "document" object in Portal
 Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equivalent capabilities to achieve the same.
 
