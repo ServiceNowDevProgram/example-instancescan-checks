@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>performance</category>
+        <description>When using setValue() on a reference field, be sure to include the display value with the value (sys_id). If you set the value without the display value, ServiceNow does a synchronous Ajax call to retrieve the display value for the record you specified. This extra round trip to the server can leave you at risk of performance issues.&#13;
+</description>
+        <documentation_url>https://developer.servicenow.com/dev.do#!/guides/tokyo/now-platform/tpb-guide/client_scripting_technical_best_practices#use-setvalues-displayvalue-parameter-with-reference-fields</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Use setValue()'s displayValue Parameter with Reference Fields</name>
+        <priority>3</priority>
+        <resolution_details>Using the third parameter, where display name of the reference record can be passed.&#13;
+&#13;
+Example: &#13;
+&#13;
+Instead of &#13;
+// Client needs to go back to the server to&#13;
+// fetch the name that goes with this ID&#13;
+g_form.setValue('assigned_to', id); &#13;
+&#13;
+Use&#13;
+// No server call required&#13;
+g_form.setValue('assigned_to', id, name); </resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(engine) {
+
+    engine.rootNode.visit(function(node) {
+
+        // Find an occurrence of the setValue function
+        if (node.getNameIdentifier() && node.getNameIdentifier() === 'setValue') {
+
+            // Walk up the AST tree to check if function is called on g_form
+			// We want to ignore other uses like setValue on GlideRecord 
+            if (node.getParent().getTypeName() === 'GETPROP' &&
+                node.getParent().toSource() === 'g_form.setValue') {
+
+                var argsProvided = 0;
+
+                // Walk up to grandparent to check for the arguments provided
+                node.getParent().getParent().visit(function(childnode) {
+                    // Case 1: Finds argument specified as a string, number, or boolean
+                    // eg. g_form.setValue('field', 'value');
+                    if (childnode.getTypeName() === 'STRING' || childnode.getTypeName() === 'NUMBER' ||
+                        childnode.getTypeName() === 'TRUE' || childnode.getTypeName() === 'FALSE') {
+                        argsProvided++;
+                    }
+                    // Case 2: Find argument specified as a variable
+                    // eg. g_form.setValue('field', valueVariable);
+                    else if (childnode.getTypeName() === 'NAME' && childnode.getNameIdentifier() &&
+                        childnode.getNameIdentifier() !== 'g_form' &&
+                        childnode.getNameIdentifier() !== 'setValue') {
+                        argsProvided++;
+                    }
+
+                });
+                // Check to make sure the g_form.setValue call has exactly 3 arguments
+                // eg. g_form.setValue('field', 'value', 'displayValue')
+                if (argsProvided != 3) {
+                    engine.finding.incrementWithNode(node);
+                }
+            }
+        }
+    });
+
+})(engine);]]></script>
+        <short_description>Use setValue()'s displayValue Parameter with Reference Fields</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-13 13:18:39</sys_created_on>
+        <sys_id>85c352ae2f3db11002eb2ca62799b68e</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Use setValue()'s displayValue Parameter with Reference Fields</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_85c352ae2f3db11002eb2ca62799b68e</sys_update_name>
+        <sys_updated_by>nia.mccash</sys_updated_by>
+        <sys_updated_on>2023-10-13 16:36:09</sys_updated_on>
+    </scan_linter_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=85c352ae2f3db11002eb2ca62799b68e"/>
+</record_update>

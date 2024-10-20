@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
+    <scan_script_only_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>When cloned, records from http_connection table which is extended from sys_connection table is orphaned or cannot be viewed. Even though clone is excluding and preserving sys_connection but not any data on http_connection and hence clone leaves the orphan record on the table sys_connection and this creates issues to view, delete those records. Login to the production instance and check to see if the http_connection table is excluded in the exclude tables module under System Clones.&#13;
+&#13;
+Note: It was suggested by ServiceNow support to add table "http_connection" in clone excluder and preserver for one the cases as i faced an similar issue.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>HTTP connection records not excluded on clones from Prod</name>
+        <priority>3</priority>
+        <resolution_details>1. Check Production to see if http_connection table is excluded in the exclude tables module under System Clones.&#13;
+2. Set up exclusions.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding) {
+
+
+    var tableName = 'http_connection';
+    var excludeTable = new GlideRecord('clone_data_exclude');
+    excludeTable.addQuery('name', tableName);
+    excludeTable.query();
+    if (!excludeTable.next()) {
+        finding.increment();
+    }
+
+})(finding);]]></script>
+        <short_description>HTTP connection records not excluded on clones from Prod</short_description>
+        <sys_class_name>scan_script_only_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-30 07:13:38</sys_created_on>
+        <sys_id>fb01f46edb7a9190c4ebc5860596190b</sys_id>
+        <sys_name>HTTP connection records not excluded on clones from Prod</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_script_only_check_fb01f46edb7a9190c4ebc5860596190b</sys_update_name>
+    </scan_script_only_check>
+</record_update>

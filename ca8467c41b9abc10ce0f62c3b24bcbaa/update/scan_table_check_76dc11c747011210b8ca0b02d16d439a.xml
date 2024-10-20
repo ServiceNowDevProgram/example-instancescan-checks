@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>performance</category>
+        <conditions table="sysevent_in_email_action">scriptLIKEgs.sleep^EQ<item endquery="false" field="script" goto="false" newquery="false" operator="LIKE" or="false" value="gs.sleep"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Avoid using gs.sleep() in any script because it does not release session and will cause delays, and add logs to the script whenever gs.sleep() has to be used.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid use of gs.sleep() in server-side scripts</name>
+        <priority>1</priority>
+        <resolution_details>Use gs.eventQueueScheduled() or wait timers in workflow/flow as an altrenative approach based on the use case</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Avoid using gs.sleep() in any server-side script</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-09 08:18:54</sys_created_on>
+        <sys_id>76dc11c747011210b8ca0b02d16d439a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Avoid use of gs.sleep() in server-side scripts</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_76dc11c747011210b8ca0b02d16d439a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-09 08:18:54</sys_updated_on>
+        <table>sysevent_in_email_action</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=76dc11c747011210b8ca0b02d16d439a"/>
+</record_update>

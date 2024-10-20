@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <attributes/>
+        <category>manageability</category>
+        <conditions table="item_option_new">cat_itemISEMPTY^variable_setISEMPTY^EQ<item endquery="false" field="cat_item" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="false" field="variable_set" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Variables should be used in  Catalog Item or a Variable Set. </description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Delete orphaned variables</name>
+        <priority>3</priority>
+        <resolution_details>If variable is not in use, it should be deleted</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Delete orphaned variables</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>nia.mccash</sys_created_by>
+        <sys_created_on>2022-03-15 22:30:47</sys_created_on>
+        <sys_id>1284f489879a855009eaed3e8bbb35d6</sys_id>
+        <sys_name>Delete orphaned variables</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_1284f489879a855009eaed3e8bbb35d6</sys_update_name>
+        <table>item_option_new</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

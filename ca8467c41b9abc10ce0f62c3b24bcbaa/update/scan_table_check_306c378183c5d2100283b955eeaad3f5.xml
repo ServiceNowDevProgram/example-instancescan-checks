@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>upgradability</category>
+        <conditions table="sys_properties">ignore_cache=false^EQ<item endquery="false" field="ignore_cache" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Ignore Cache is a Glide Properties (records in the sys_properties table) field that impacts system performance.When it’s not handled carefully it can cause a system-wide cache flush leading to potentially severe performance degradation for anywhere from 5 to 30 minutes. In some very rare cases, the cache flush can even bring nodes down hard enough that the load balancer takes them offline, thus resulting in temporary session imbalance and causing hours of impact.&#13;
+&#13;
+[Ignore cache = False: This will trigger a full cache flush, which might result in performance issues, slowness, and in some cases outage of 5 to 30 mins.]</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Ignore Cache - System Property</name>
+        <priority>2</priority>
+        <resolution_details>Select the check box to ignore flushing some server-side caches, thus flushing only the cache for the sys_properties table and preserving the prior property value in all other caches. This option avoids the performance cost of flushing all caches and retrieving new property values. Unless you have some very good reason that the entire system cache needs to be flushed when a Property is changed&#13;
+&#13;
+Typically, you should only select the check box and enable ignoring the cache when you have a system property that changes more frequently than once a month.&#13;
+&#13;
+[ Ignore cache = True: An update or insert of a system property will rebuild ONLY for that particular sys_property cache (yes, it is not a full ignore) ]</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Check System Properties as 'Ignroecache'   = False </short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>a.pandey</sys_created_by>
+        <sys_created_on>2024-10-03 14:40:05</sys_created_on>
+        <sys_id>306c378183c5d2100283b955eeaad3f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Ignore Cache - System Property</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_306c378183c5d2100283b955eeaad3f5</sys_update_name>
+        <sys_updated_by>a.pandey</sys_updated_by>
+        <sys_updated_on>2024-10-03 14:40:05</sys_updated_on>
+        <table>sys_properties</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=306c378183c5d2100283b955eeaad3f5"/>
+</record_update>

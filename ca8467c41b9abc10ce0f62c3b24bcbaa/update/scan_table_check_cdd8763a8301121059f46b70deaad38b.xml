@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>performance</category>
+        <conditions table="syslog_transaction">response_time&gt;120000^sys_created_onONYesterday@javascript:gs.beginningOfYesterday()@javascript:gs.endOfYesterday()^EQ<item endquery="false" field="response_time" goto="false" newquery="false" operator="&gt;" or="false" value="120000"/>
+            <item endquery="false" field="sys_created_on" goto="false" newquery="false" operator="ON" or="false" value="Yesterday@javascript:gs.beginningOfYesterday()@javascript:gs.endOfYesterday()"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>This check monitors and analyzes transaction logs to identify jobs and transactions that are taking longer than expected to complete. By tracking slow or stuck jobs, this check aims to uncover performance bottlenecks that may hinder the overall efficiency of the ServiceNow instance. It provides insights into long-running transactions, helping administrators diagnose and resolve performance issues affecting user experience.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Transaction Log Performance Check</name>
+        <priority>2</priority>
+        <resolution_details>If slow jobs are detected, the following steps should be taken to address the issues:&#13;
+&#13;
+Identify Long-Running Transactions:&#13;
+&#13;
+Review the transaction logs for entries with a response time exceeding predefined thresholds (e.g., 120 seconds).&#13;
+Analyze the Context:&#13;
+&#13;
+Examine the affected job's details, including:&#13;
+User ID&#13;
+Session ID&#13;
+System ID&#13;
+Transaction start and end times&#13;
+Associated business rules and background jobs&#13;
+Evaluate Dependencies:&#13;
+&#13;
+Investigate any dependencies or blocking issues that may be causing delays, such as resource contention, database locks, or network issues.&#13;
+Optimize Performance:&#13;
+&#13;
+Consider optimizing any identified business rules, scripts, or scheduled jobs that are causing delays. This may involve code optimization, reducing complexity, or adjusting scheduling.&#13;
+Document Findings:&#13;
+&#13;
+Keep a record of identified issues and resolutions for future reference and continuous improvement.&#13;
+Monitor Regularly:&#13;
+&#13;
+Set up regular monitoring to proactively catch slow jobs before they impact user experience.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Tracks transaction logs to identify long-running jobs impacting performance.</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-08 21:10:28</sys_created_on>
+        <sys_id>cdd8763a8301121059f46b70deaad38b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Transaction Log Performance Check</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_cdd8763a8301121059f46b70deaad38b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-08 21:10:28</sys_updated_on>
+        <table>syslog_transaction</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=cdd8763a8301121059f46b70deaad38b"/>
+</record_update>

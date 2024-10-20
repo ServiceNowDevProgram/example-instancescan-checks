@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>user_experience</category>
+        <conditions table="incident">short_descriptionISNOTEMPTY^assignment_groupISNOTEMPTY^EQ<item endquery="false" field="short_description" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="false" field="assignment_group" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Check Mandatory fields on incident</name>
+        <priority>2</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Check Mandatoey fields on incident</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-23 17:47:18</sys_created_on>
+        <sys_id>31a4075807f61110ce33f61d7c1ed0e9</sys_id>
+        <sys_name>Check Mandatory fields on incident</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_31a4075807f61110ce33f61d7c1ed0e9</sys_update_name>
+        <table>incident</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>

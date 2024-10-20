@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="DELETE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>security</category>
+        <conditions/>
+        <description>When there is no ACL for an UI Page, by default the UI Page can be accessed by all the logged-in internal users. If there is no, script level authorization checks like gs.hasRole('user_admin'), then any logged in user can access this UI Page and change anybody's password by passing the user sys_id and the new password.</description>
+        <documentation_url>https://docs.servicenow.com/bundle/sandiego-platform-security/page/administer/contextual-security/concept/acl-rule-types.html</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Access controls on UI Pages</name>
+        <priority>2</priority>
+        <resolution_details>UI Pages making call to server side code should have ACL's implemented.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+	
+    var gr_acl = new GlideRecord('sys_security_acl');
+		gr_acl.addQuery('type','ui_page');
+		gr_acl.addQuery('name','CONTAINS',current.name);
+		gr_acl.query();
+		if(!gr_acl.next()){
+			finding.setCurrentSource(current);
+			finding.increment();
+		}
+})(engine);]]></script>
+        <short_description>Access controls on UI Pages</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-22 19:21:50</sys_created_on>
+        <sys_id>e660164097b29510dd0178300153af2e</sys_id>
+        <sys_name>Access controls on UI Pages</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_e660164097b29510dd0178300153af2e</sys_update_name>
+        <table>sys_ui_page</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</application>
+        <file_path/>
+        <instance_id>3b3779331b2d3d101024eb9b2d4bcb61</instance_id>
+        <instance_name>dev181379</instance_name>
+        <name>scan_table_check_e660164097b29510dd0178300153af2e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="scan_table_check"&gt;
+    &lt;scan_table_check action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;advanced&gt;true&lt;/advanced&gt;
+        &lt;category&gt;security&lt;/category&gt;
+        &lt;conditions/&gt;
+        &lt;description&gt;When there is no ACL for an UI Page, by default the UI Page can be accessed by all the logged-in internal users. If there is no, script level authorization checks like gs.hasRole('user_admin'), then any logged in user can access this UI Page and change anybody's password by passing the user sys_id and the new password.&lt;/description&gt;
+        &lt;documentation_url&gt;https://docs.servicenow.com/bundle/sandiego-platform-security/page/administer/contextual-security/concept/acl-rule-types.html&lt;/documentation_url&gt;
+        &lt;finding_type&gt;scan_finding&lt;/finding_type&gt;
+        &lt;name&gt;Access controls on UI Pages&lt;/name&gt;
+        &lt;priority&gt;2&lt;/priority&gt;
+        &lt;resolution_details&gt;UI Pages making call to server side code should have ACL's implemented.&lt;/resolution_details&gt;
+        &lt;run_condition/&gt;
+        &lt;score_max&gt;100&lt;/score_max&gt;
+        &lt;score_min&gt;0&lt;/score_min&gt;
+        &lt;score_scale&gt;1&lt;/score_scale&gt;
+        &lt;script&gt;&lt;![CDATA[(function (engine) {
+	
+    var gr_acl = new GlideRecord('sys_security_acl');
+		gr_acl.addQuery('type','ui_page');
+		gr_acl.addQuery('name','CONTAINS',current.name);
+		gr_acl.query();
+		if(!gr_acl.next()){
+			finding.setCurrentSource(current);
+			finding.increment();
+		}
+})(engine);]]&gt;&lt;/script&gt;
+        &lt;short_description&gt;Access controls on UI Pages&lt;/short_description&gt;
+        &lt;sys_class_name&gt;scan_table_check&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2022-10-22 19:21:50&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;e660164097b29510dd0178300153af2e&lt;/sys_id&gt;
+        &lt;sys_name&gt;Access controls on UI Pages&lt;/sys_name&gt;
+        &lt;sys_package display_value="Example Instance Checks" source="x_appe_exa_checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Example Instance Checks"&gt;ca8467c41b9abc10ce0f62c3b24bcbaa&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;scan_table_check_e660164097b29510dd0178300153af2e&lt;/sys_update_name&gt;
+        &lt;table&gt;sys_ui_page&lt;/table&gt;
+        &lt;use_manifest&gt;false&lt;/use_manifest&gt;
+    &lt;/scan_table_check&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-1513497005</payload_hash>
+        <record_name>Access controls on UI Pages</record_name>
+        <reverted_from/>
+        <source>a33d22c047397110243ff19f016d43fa</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-05 20:43:24</sys_created_on>
+        <sys_id>784da2c047397110243ff19f016d43e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18b0194b4780000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-05 20:43:24</sys_updated_on>
+        <type>Table Check</type>
+        <update_guid>384da2c05a397110be15161e1fd2b8e8</update_guid>
+        <update_guid_history>384da2c05a397110be15161e1fd2b8e8:-1513497005</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Access controls on UI Pages">4976830047b97110243ff19f016d43ea</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>smartcarleen</sys_created_by>
+        <sys_created_on>2023-10-05 22:33:28</sys_created_on>
+        <sys_db_object display_value="" name="scan_table_check">scan_table_check</sys_db_object>
+        <sys_id>ad2b88264a3843c195541d3b3b8847d1</sys_id>
+        <sys_metadata>e660164097b29510dd0178300153af2e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Access controls on UI Pages</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_scope_delete display_value="">30a78b9b9290467a96959a65d2b2d304</sys_scope_delete>
+        <sys_update_name>scan_table_check_e660164097b29510dd0178300153af2e</sys_update_name>
+        <sys_update_version display_value="scan_table_check_e660164097b29510dd0178300153af2e">784da2c047397110243ff19f016d43e8</sys_update_version>
+        <sys_updated_by>smartcarleen</sys_updated_by>
+        <sys_updated_on>2023-10-05 22:33:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

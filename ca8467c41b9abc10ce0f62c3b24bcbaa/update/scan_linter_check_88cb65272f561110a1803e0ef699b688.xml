@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>security</category>
+        <description>It is possible to script REST messages directly. When doing so, using the .setBasicAuth method is considered a security risk. Doing so, the username and password are entered - unprotected - in server side scripting.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Avoid using setBasicAuth for REST messages</name>
+        <priority>1</priority>
+        <resolution_details>Apply methods like using a credentials record, or setup a REST message record and call this scripted.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+	// Perform Linter Check
+	engine.rootNode.visit(function(node) {
+		if(node.getTypeName() === "NAME" && node.getNameIdentifier() === "setBasicAuth" && node.getParent().getTypeName() === "GETPROP") {
+			// Create scan finding
+			engine.finding.incrementWithNode(node);
+		}
+	});
+
+})(engine);]]></script>
+        <short_description>Avoid using setBasicAuth for REST messages</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-08 17:05:00</sys_created_on>
+        <sys_id>88cb65272f561110a1803e0ef699b688</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Avoid using setBasicAuth for REST messages</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_88cb65272f561110a1803e0ef699b688</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-08 17:05:00</sys_updated_on>
+    </scan_linter_check>
+</record_update>
