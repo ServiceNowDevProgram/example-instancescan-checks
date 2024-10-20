@@ -348,6 +348,11 @@ In your JDBC data load configuration, ensure that the 'last run datetime' option
 ### Use of setWorkflow(false) in business rules will cause unexpected issues
 As setWorkflow(false) method will stop the execution of business rules on that particular GlideRecord object, this will result in unexpected behaviour where the execution of business rules skipped. Maintain caution while using this method and perform regression testing to avoid possible risk. It can have noticeable impact on Audit, Journal fields, notifications, SLA engine, workflow, flow engine etc.,
 
+### Make use of  isLoading Check (onChange Client Scripts Only)
+
+The isLoading flag is the simplest way to prevent unnecessary code from taking up browser time. The isLoading flag should be used at the beginning of any script which is not required to run when the form is loading. There is no need to run this script on a form load because the logic would have already run when the field was last changed
+
+
 # Additional resources
 
 Please check these additional links for more information and details:
