@@ -61,9 +61,6 @@ Connection test for the remote instance defined did not result in a positive res
 ### Duplicate Script Include Name
 This uses a table check to find other Script Includes having the same API name. Technically this is possible, but causes issues as there is no way to control which Script Include will be instantiated when being called.
 
-### Don't use new Array()
-In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
-
 ### Don't use new Object()
 In general, you should use the object literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
 
