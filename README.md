@@ -265,7 +265,7 @@ Select the check box to ignore flushing some server-side caches, thus flushing o
 Avoid using gs.sleep() in any script because it does not release session and will cause delays, and add logs to the script whenever gs.sleep() has to be used.
 
 ## Category: Security
-##Check Mandatory fields on incident
+## Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
 
 ### Avoid using setBasicAuth for REST messages
