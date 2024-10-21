@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>This utility script helps in finding the various log statements which are against the bad practices such as gs.log,gs.info,console.log etc should bot be used in production environment. The script returns the line numbers where such statements are used which can help identify such statements.</description>
+        <name>Scan for log statements</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var tableName = 'sys_script';
+var sysId = '3b59c70d47441210788164f2e16d4386';
+var gr = new GlideRecord(tableName);
+gr.addQuery('sys_id',sysId);
+gr.query();
+var script = "";
+if(gr.next()){
+	script = gr.getValue('script');
+}
+
+var logStatements = ['gs.log', 'gs.info', 'gs.debug', 'console.log', 'gs.print'];
+
+// Split the script into lines
+var lines = script.split("\n");
+
+// Array to store line numbers where log statements are found
+var logLineNumbers = [];
+
+// Iterate over each line and check for log statements
+for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+    // Check if the line contains any of the log statements
+    for (var j = 0; j < logStatements.length; j++) {
+        if (line.includes(logStatements[j])) {
+            logLineNumbers.push(i + 1);  // Line numbers are 1-based, so we add 1
+            break;  // No need to check further for this line
+        }
+    }
+}
+
+// Output the line numbers with log statements
+gs.print('Log statements found at line numbers: ' + logLineNumbers.join(', '));
+]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-21 13:49:57</sys_created_on>
+        <sys_id>5c5dd84747d95210788164f2e16d43b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Scan for log statements</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>sys_script_fix_5c5dd84747d95210788164f2e16d43b8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-21 13:49:57</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>5c5dd84747d95210788164f2e16d43b8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-21 13:49:56</sys_created_on>
+        <sys_id>3cfd1c4747d95210788164f2e16d434f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-21 13:49:56</sys_updated_on>
+        <table>sys_script_fix</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
