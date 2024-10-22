@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>user_experience</category>
+        <conditions table="sys_documentation">hintISEMPTY^EQ<item endquery="false" field="hint" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Having hit for a field will provide additional information for users and it will provide better user experence</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Check for fields without hints</name>
+        <priority>4</priority>
+        <resolution_details>- Update the hint for the field</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Provide hints for fields for better user experence</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-22 04:54:46</sys_created_on>
+        <sys_id>cf0d6b87c3951610eb11ba2ed4013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Check for fields without hints</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_cf0d6b87c3951610eb11ba2ed4013162</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-22 04:54:46</sys_updated_on>
+        <table>sys_documentation</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=cf0d6b87c3951610eb11ba2ed4013162"/>
+</record_update>
