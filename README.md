@@ -352,6 +352,9 @@ As setWorkflow(false) method will stop the execution of business rules on that p
 
 The isLoading flag is the simplest way to prevent unnecessary code from taking up browser time. The isLoading flag should be used at the beginning of any script which is not required to run when the form is loading. There is no need to run this script on a form load because the logic would have already run when the field was last changed
 
+## Make sure columans are selected in list type reports
+
+It is recommended to select columans in List type report to provide better user experence.
 
 # Additional resources
 
