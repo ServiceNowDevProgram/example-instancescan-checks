@@ -12,6 +12,12 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+###Avoid gs.log()Statement
+Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
+gs.info() for informative messages.
+gs.warn() for warnings that don’t break functionality but may need attention.
+gs.error() for logging errors that require investigation.
+
 ### Create ATFs in sub production instance
 Highly recommended practice to use ATFs for regression testing on instance upgrade and releases.
 
@@ -55,9 +61,6 @@ Connection test for the remote instance defined did not result in a positive res
 ### Duplicate Script Include Name
 This uses a table check to find other Script Includes having the same API name. Technically this is possible, but causes issues as there is no way to control which Script Include will be instantiated when being called.
 
-### Don't use new Array()
-In general, you should use the array literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
-
 ### Don't use new Object()
 In general, you should use the object literal notation when possible. It is easier to read, it gives the compiler a chance to optimize your code, and it's mostly faster too.
 
@@ -96,6 +99,9 @@ Update sets with more than 1000 configuration updates should be broken down into
 
 ### Updates in wrong update set scope
 The scope for Customer Update [sys_update_xml] records should match the scope of the Update Set in which the Customer Update resides. Having a mismatch may cause Update Sets to generate preview errors meaning you cannot commit them until the errors are resolved.
+
+## Duplicate Updat Set Name
+Maintain unique names for update set names it will help to track the updates easyly and also very useful to debug any issues.
 
 ### Delete orphaned variables
 Variables should be used in  Catalog Item or a Variable Set. Variables not in use should be deleted.
@@ -344,6 +350,14 @@ In your JDBC data load configuration, ensure that the 'last run datetime' option
 
 ### Use of setWorkflow(false) in business rules will cause unexpected issues
 As setWorkflow(false) method will stop the execution of business rules on that particular GlideRecord object, this will result in unexpected behaviour where the execution of business rules skipped. Maintain caution while using this method and perform regression testing to avoid possible risk. It can have noticeable impact on Audit, Journal fields, notifications, SLA engine, workflow, flow engine etc.,
+
+### Make use of  isLoading Check (onChange Client Scripts Only)
+
+The isLoading flag is the simplest way to prevent unnecessary code from taking up browser time. The isLoading flag should be used at the beginning of any script which is not required to run when the form is loading. There is no need to run this script on a form load because the logic would have already run when the field was last changed
+
+## Make sure columans are selected in list type reports
+
+It is recommended to select columans in List type report to provide better user experence.
 
 # Additional resources
 

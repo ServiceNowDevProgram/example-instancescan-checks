@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions/>
+        <description>Having two Update Sets with the same name in ServiceNow makes it hard to debug and track changes.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Duplicate Updat Set Name</name>
+        <priority>3</priority>
+        <resolution_details>Ensure all your Update sets have unique names. Rename any update set with a duplicate name with a unique name</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function(finding, current) {
+
+//	gs.info(current.api_name);
+//	gs.info('Checking script Include name: ' + current.api_name);
+    var ga = new GlideAggregate('sys_update_set');
+    ga.addQuery('name', current.name);
+	ga.addQuery('sys_id', '!=', current.sys_id);
+    ga.addAggregate('COUNT');
+    ga.query();
+    ga.next();
+
+    if (ga.getAggregate('COUNT') >= 1) {
+        finding.increment();
+		finding.count = ga.getAggregate('COUNT');
+	}
+})(finding, current);]]></script>
+        <short_description>Duplicate Updateset Names</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-19 11:29:09</sys_created_on>
+        <sys_id>b68a2d5ac3111210eb11ba2ed40131fa</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Duplicate Updat Set Name</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_b68a2d5ac3111210eb11ba2ed40131fa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-19 11:33:53</sys_updated_on>
+        <table>sys_update_set</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=b68a2d5ac3111210eb11ba2ed40131fa"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>b68a2d5ac3111210eb11ba2ed40131fa</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-19 11:32:10</sys_created_on>
+        <sys_id>033b619ac3111210eb11ba2ed40131d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-19 11:32:10</sys_updated_on>
+        <table>scan_table_check</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
