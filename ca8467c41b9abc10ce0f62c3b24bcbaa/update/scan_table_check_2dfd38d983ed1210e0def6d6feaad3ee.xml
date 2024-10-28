@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <category>manageability</category>
+        <conditions table="sys_script">active=false^sys_updated_on&lt;javascript:gs.beginningOfLast90Days()^sys_created_by!=glide.maint^sys_updated_by!=admin^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="false" field="sys_updated_on" goto="false" newquery="false" operator="&lt;" or="false" value="javascript:gs.beginningOfLast90Days()"/>
+            <item endquery="false" field="sys_created_by" goto="false" newquery="false" operator="!=" or="false" value="glide.maint"/>
+            <item endquery="false" field="sys_updated_by" goto="false" newquery="false" operator="!=" or="false" value="admin"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>If the business rule is inactive for more than 90 days and not created by glide.maint and updated by admin</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Check Inactive Business Rules over 90 days</name>
+        <priority>4</priority>
+        <resolution_details/>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (engine) {
+
+    // Add your code here
+
+})(engine);]]></script>
+        <short_description>Looks at Business Rules which is inactive for more than 90 days</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-28 16:07:29</sys_created_on>
+        <sys_id>2dfd38d983ed1210e0def6d6feaad3ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Check Inactive Business Rules over 90 days</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_2dfd38d983ed1210e0def6d6feaad3ee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-28 16:07:29</sys_updated_on>
+        <table>sys_script</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=2dfd38d983ed1210e0def6d6feaad3ee"/>
+</record_update>
