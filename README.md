@@ -158,6 +158,9 @@ GlideLDAP API usage is unsupported by ServiceNow and hence should be avoided, ra
 ### Check for Orphaned Tickets
 Tickets from tables such as Incident, Change Request, Problem, and other task-related tables should always have an Assignment Group specified. These tickets represent issues or requests that require attention and action. Leaving the Assignment Group field empty can result in unresolved issues or delays in implementing fixes, as no team will be accountable for the resolution. Since the Assignment Group is meant to designate the responsible team for managing these tickets, it should never be left blank.
 
+### Check Inactive Business Rules over 90 days
+Inactive Business Rules which are not updated for more than 90 days and not created by glide.maint and not updated by admin should be identified to remove unnecessary overhead.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
