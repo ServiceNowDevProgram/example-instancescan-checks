@@ -124,6 +124,9 @@ Script Includes names should not include spaces since it is not possible to call
 ### Roles assigned to non-existing users
 Identify role assignments (sys_user_has_role) for users that do not exists
 
+### Assign roles to Group
+Assign Roles to sys_user_group , Rather than assigning roles to sys_user , It becomes difficult while adding lot of roles 
+
 ### Check the incidents that are closed or canceled but still active
 This is a table check on the incidents table that verifies if there are closed or canceled incidents in the active state, which would be a sign that the close_states are not set correctly on the incident table. This check can be done on any table, especially there where the State model was changed from OOTB or for custom extended tables. The problem with this kind of records is that they can influence the reports on active records on the respective table.
 
