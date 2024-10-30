@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+###  Ensure Inactive Users Are Not Assigned as Catalog Item Owners
+Ensure inactive users are not assigned as catalog item owners, maintaining accountability and system accuracy. Regular instance checks should validate active ownership for all catalog items.
+
 ### Avoid using javascript "document" object in Portal
 Always avoid using native js "document" object for DOM manipulation in service portal. Instead we should use AngularJS equivalent capabilities to achieve the same.
 
