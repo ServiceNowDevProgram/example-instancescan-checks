@@ -11,6 +11,7 @@
         </conditions>
         <description>Read and Delete ACLs are frequently executed. Having complex database lookups can harm performance.</description>
         <documentation_url>https://docs.servicenow.com/csh?topicname=acl-advanced-config.html</documentation_url>
+        <finding_type/>
         <name>Glide-API in ACL</name>
         <priority>2</priority>
         <resolution_details>Avoid database lookups in Access Control rules, as this can significantly impact performance.</resolution_details>
@@ -39,4 +40,5 @@
         <table>sys_security_acl</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=952af3c81bdabc10ce0f62c3b24bcbb6"/>
 </record_update>

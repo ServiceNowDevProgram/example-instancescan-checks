@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_script_only_check">
     <scan_script_only_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>manageability</category>
         <description>Update set should not have more than 1000 updates as it makes it difficult for the release team to analyze, also could potentially bring in environment slowness while committing</description>
         <documentation_url/>
@@ -35,10 +34,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-09 18:01:53</sys_created_on>
         <sys_id>0dfff25a2f83301002f0ffecf699b649</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Update set should not have more than 1000 updates</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_script_only_check_0dfff25a2f83301002f0ffecf699b649</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 10:37:20</sys_updated_on>
     </scan_script_only_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=0dfff25a2f83301002f0ffecf699b649"/>
 </record_update>

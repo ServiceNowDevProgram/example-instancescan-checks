@@ -39,4 +39,5 @@
         <table>sys_script</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=7589e10ebc0330107f448f0d4936142b"/>
 </record_update>

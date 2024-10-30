@@ -38,4 +38,5 @@
         <table>sys_transform_map</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=e19656212ff1311002eb2ca62799b639"/>
 </record_update>

@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>upgradability</category>
         <conditions table="sys_db_object">super_class.name=sys_user^EQ<item endquery="false" field="super_class.name" goto="false" newquery="false" operator="=" or="false" value="sys_user"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
@@ -48,4 +47,5 @@ To make Bob both a contract_user and a subsidiary_user, Bob must have 2 accounts
         <table>sys_db_object</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=fbdce17f2fb2fc505dcb59ab2799b6d0"/>
 </record_update>

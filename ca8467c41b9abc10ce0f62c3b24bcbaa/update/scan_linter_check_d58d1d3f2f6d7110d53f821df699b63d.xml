@@ -42,4 +42,5 @@ https://www.servicenow.com/community/now-platform-articles/demystifying-instance
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-10-04 20:23:03</sys_updated_on>
     </scan_linter_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=d58d1d3f2f6d7110d53f821df699b63d"/>
 </record_update>

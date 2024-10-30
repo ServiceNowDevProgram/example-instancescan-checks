@@ -38,4 +38,5 @@
         <table>cmdb_rel_ci</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=8ddb61672f561110a1803e0ef699b68b"/>
 </record_update>

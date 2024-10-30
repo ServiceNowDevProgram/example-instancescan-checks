@@ -2,7 +2,6 @@
     <scan_table_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <advanced>false</advanced>
-        <attributes/>
         <category>manageability</category>
         <conditions table="sys_update_xml">applicationNSAMEASupdate_set.application^EQ<item endquery="false" field="application" goto="false" newquery="false" operator="NSAMEAS" or="false" value="update_set.application"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
@@ -40,4 +39,5 @@ Cannot commit Update Set 'UPDATE_SET_NAME' because: Update scope id 'x' is diffe
         <table>sys_update_xml</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=3b163adc2f9bb4505dcb59ab2799b616"/>
 </record_update>

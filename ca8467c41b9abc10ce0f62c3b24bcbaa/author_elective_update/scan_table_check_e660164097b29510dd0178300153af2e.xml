@@ -91,7 +91,7 @@
         <reverted_from/>
         <source>a33d22c047397110243ff19f016d43fa</source>
         <source_table>sys_upgrade_history</source_table>
-        <state>current</state>
+        <state>previous</state>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-10-05 20:43:24</sys_created_on>
         <sys_id>784da2c047397110243ff19f016d43e8</sys_id>
@@ -104,7 +104,7 @@
         <update_guid_history>384da2c05a397110be15161e1fd2b8e8:-1513497005</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Access controls on UI Pages">4976830047b97110243ff19f016d43ea</sys_audit_delete>
+        <sys_audit_delete display_value="">4976830047b97110243ff19f016d43ea</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>smartcarleen</sys_created_by>
         <sys_created_on>2023-10-05 22:33:28</sys_created_on>

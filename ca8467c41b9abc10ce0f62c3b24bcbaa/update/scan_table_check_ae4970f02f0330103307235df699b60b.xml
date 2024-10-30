@@ -53,4 +53,5 @@
         <table>sys_trigger</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=ae4970f02f0330103307235df699b60b"/>
 </record_update>

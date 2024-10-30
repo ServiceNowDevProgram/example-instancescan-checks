@@ -9,6 +9,7 @@
         </conditions>
         <description>Enforce existing access controls and require additional access to data. In addition to requiring authentication to access the API, require authorization to access data. </description>
         <documentation_url>https://docs.servicenow.com/csh?topicname=scripted-rest-good-practices.html</documentation_url>
+        <finding_type/>
         <name>Scripted REST API without Authentication</name>
         <priority>2</priority>
         <resolution_details>Scripted REST APIs should be not be public but enforce  access controls and require additional access to data. &#13;
@@ -39,4 +40,5 @@ Configure these API resources to require a more strict ACL.</resolution_details>
         <table>sys_ws_operation</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=77a6af2f1b363c10b32c642aab4bcb36"/>
 </record_update>

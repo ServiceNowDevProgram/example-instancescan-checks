@@ -31,12 +31,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-23 18:15:44</sys_created_on>
         <sys_id>e6cb0310073a1110ce33f61d7c1ed052</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>List Inactive users from active group</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_e6cb0310073a1110ce33f61d7c1ed052</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 10:37:24</sys_updated_on>
         <table>sys_user_grmember</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=e6cb0310073a1110ce33f61d7c1ed052"/>
 </record_update>

@@ -45,4 +45,5 @@ This will result in the business rule calling itself again, which would then cal
         <table>sys_script</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=552c3f3a400330107f44dbb3b15cf2f8"/>
 </record_update>

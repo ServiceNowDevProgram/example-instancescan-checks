@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>security</category>
         <description>The platform is Javascript and a lot of code is run in a global variable scope.&#13;
 &#13;
@@ -55,4 +54,5 @@ When using more than one GlideRecord in your script, you may also accidentally r
         <sys_updated_by>nia.mccash</sys_updated_by>
         <sys_updated_on>2021-10-04 14:05:50</sys_updated_on>
     </scan_linter_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=c0f4d1102f87b0905dcb59ab2799b693"/>
 </record_update>

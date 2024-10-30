@@ -6,6 +6,7 @@
         <conditions/>
         <description>Every table should be secured by ACLs</description>
         <documentation_url>http://docs.servicenow.com/csh?topicname=acl-rule-types.html</documentation_url>
+        <finding_type/>
         <name>Tables without ACLs</name>
         <priority>2</priority>
         <resolution_details>For tables that have no ACLs defined, the default deny property can be used to make the wildcard table ACL rules restrict the read, write, create, and delete operations on all tables unless the user has the admin role or meets the requirements of another table ACL rule. This means that custom tables without ACLs will not be accessible by any other user beside admin.</resolution_details>
@@ -44,4 +45,5 @@
         <table>sys_db_object</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=88fbb74c1bdabc10ce0f62c3b24bcb22"/>
 </record_update>

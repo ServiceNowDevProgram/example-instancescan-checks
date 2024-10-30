@@ -104,7 +104,7 @@
         <update_guid_history>2f87514b95dd1250d8d7157d4a5955fd:0,e267d9c752dd1250e0ae7bf3aa17e665:-2023533997,eea83dedc1c5de50dcb00ddc90e599ae:1356454248</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Script in ACL when Advanced is unchecked">1379110bc3dd1250faa4bd33e4013183</sys_audit_delete>
+        <sys_audit_delete display_value="">1379110bc3dd1250faa4bd33e4013183</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-21 18:10:05</sys_created_on>

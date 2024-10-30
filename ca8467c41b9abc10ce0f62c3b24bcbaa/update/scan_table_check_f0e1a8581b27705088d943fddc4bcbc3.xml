@@ -48,4 +48,5 @@
         <table>sp_widget</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=f0e1a8581b27705088d943fddc4bcbc3"/>
 </record_update>

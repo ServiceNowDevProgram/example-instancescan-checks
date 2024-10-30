@@ -28,12 +28,16 @@ The best ways to get data into form/browser from the database are g_scratchpad, 
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-30 21:33:04</sys_created_on>
         <sys_id>ba0c998d875251106b0f20af8bbb3515</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>GlideRecord API in client script</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_table_check_ba0c998d875251106b0f20af8bbb3515</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 10:37:23</sys_updated_on>
         <table>sys_script_client</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=ba0c998d875251106b0f20af8bbb3515"/>
 </record_update>

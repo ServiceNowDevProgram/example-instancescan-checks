@@ -60,4 +60,5 @@ In some cases, the reference gets broken. Technically the field will still hold 
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2022-10-03 15:00:59</sys_updated_on>
     </scan_script_only_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=266f17f52f121110a1803e0ef699b6a1"/>
 </record_update>

@@ -60,4 +60,5 @@
         <table>sys_update_set_source</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=cc993cf02f0330103307235df699b60d"/>
 </record_update>

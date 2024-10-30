@@ -10,6 +10,7 @@
 - To support a custom Incident table a high amount of customization to the other ITSM processes is required&#13;
 - New functionality in future releases might not work on extended tables or would require further customization.</description>
         <documentation_url/>
+        <finding_type/>
         <name>Incident table should not be extended</name>
         <priority>1</priority>
         <resolution_details>Reevaluate the requirements behind this and remove the extended tables:&#13;
@@ -40,4 +41,5 @@
         <table>sys_db_object</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=bb3bf7a31bf63c10b32c642aab4bcb75"/>
 </record_update>

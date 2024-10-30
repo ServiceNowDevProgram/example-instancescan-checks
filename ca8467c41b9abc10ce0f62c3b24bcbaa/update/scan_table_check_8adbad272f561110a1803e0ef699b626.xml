@@ -50,4 +50,5 @@
         <table>sys_number</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=8adbad272f561110a1803e0ef699b626"/>
 </record_update>

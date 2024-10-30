@@ -57,7 +57,7 @@
         <filter/>
         <list_id display_value="Update Set - Default view" name="sys_update_set" related_list="NULL" sys_domain="global" view="Default view">13cee3c347231200c17e19fbac9a7139</list_id>
         <order_by/>
-        <position>7</position>
+        <position>6</position>
         <related_list>REL:55e9076607933850be01f03c7c1ed0b2</related_list>
         <sys_class_name>sys_ui_related_list_relationship_entry</sys_class_name>
         <sys_created_by>w.geek6</sys_created_by>

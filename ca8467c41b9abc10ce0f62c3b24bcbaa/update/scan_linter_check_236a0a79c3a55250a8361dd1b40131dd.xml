@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
+    <scan_linter_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>manageability</category>
+        <description>Avoid using hard-coded values in scripts, as they can lead to unpredictable results and can be difficult to track down later. Hard coding sys_ids is not recommended, as they may not be the same between instances. </description>
+        <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/scripting_technical_best_practices#do-not-use-hard-coded-values</documentation_url>
+        <finding_type>scan_finding</finding_type>
+        <name>Do not use hard-coded sys_ids Contri</name>
+        <priority>3</priority>
+        <resolution_details>Instead, try looking up a value by reference or by creating a property and retrieving the value with gs.getProperty().</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[function findHardcodedSysIDs(code) {
+    var pattern = /("|'|=|h|H|n|N|f|F|,)[a-z0-9]{32}("|'|\^|,|@)/gm;
+    var matches = [];
+    
+    // Split the code into individual lines or chunks to simulate node traversal
+    var lines = code.split('\n');
+    
+    lines.forEach(function(line, index) {
+        // Check each line against the sys_id pattern
+        if (pattern.test(line)) {
+            matches.push({
+                line: index + 1,
+                content: line.trim()
+            });
+        }
+    });
+
+    if (matches.length > 0) {
+        gs.print("Hardcoded sys_ids found at:");
+        matches.forEach(function(match) {
+            gs.print("Line " + match.line + ": " + match.content);
+        });
+    } else {
+        gs.print("No hardcoded sys_ids found.");
+    }
+
+    return matches;
+}
+]]></script>
+        <short_description>Do not use hard-coded sys_ids</short_description>
+        <sys_class_name>scan_linter_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-30 10:47:12</sys_created_on>
+        <sys_id>236a0a79c3a55250a8361dd1b40131dd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Do not use hard-coded sys_ids Contri</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_linter_check_236a0a79c3a55250a8361dd1b40131dd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 10:47:12</sys_updated_on>
+    </scan_linter_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=236a0a79c3a55250a8361dd1b40131dd"/>
+</record_update>

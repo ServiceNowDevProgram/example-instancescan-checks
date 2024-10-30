@@ -38,4 +38,5 @@
         <table>ecc_queue</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=33687cb02f0330103307235df699b685"/>
 </record_update>

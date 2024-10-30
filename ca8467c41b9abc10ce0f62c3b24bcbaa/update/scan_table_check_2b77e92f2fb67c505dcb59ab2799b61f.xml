@@ -9,6 +9,7 @@
         </conditions>
         <description>A global client script is any client script where the selected Table is Global. Global client scripts have no table restrictions; therefore they will load on every page in the system introducing browser load delay in the process. There is no benefit to loading this kind of scripts on every page.</description>
         <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/client_scripting_technical_best_practices#client-scripting-practices-to-avoid-</documentation_url>
+        <finding_type/>
         <name>Avoid Global Client Scripts</name>
         <priority>2</priority>
         <resolution_details>As an alternative, and for a more modular and scalable approach, consider moving client scripts to a base table (such as Task [task] or Configuration Item [cmdb_ci]) that can be inherited for all the child/extending tables. This eliminates the system loading the scripts on every form in the UI - such as home pages or Service Catalog where they are rarely (if ever) needed.</resolution_details>
@@ -37,4 +38,5 @@
         <table>sys_script_client</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=2b77e92f2fb67c505dcb59ab2799b61f"/>
 </record_update>

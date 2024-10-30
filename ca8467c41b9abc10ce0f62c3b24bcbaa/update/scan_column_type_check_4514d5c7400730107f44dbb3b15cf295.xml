@@ -35,4 +35,5 @@
         <sys_updated_by>ali.abdulrazak</sys_updated_by>
         <sys_updated_on>2021-10-11 17:02:49</sys_updated_on>
     </scan_column_type_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=4514d5c7400730107f44dbb3b15cf295"/>
 </record_update>

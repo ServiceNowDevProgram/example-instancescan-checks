@@ -67,13 +67,14 @@
         <update_guid_history>169615aaf122111071af545cbffcdb5e:1517693554</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="User Roles from Deleted Users">0ac7ddaa07221110e765f9fc7c1ed09b</sys_audit_delete>
+        <sys_audit_delete display_value="">0ac7ddaa07221110e765f9fc7c1ed09b</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-17 23:19:31</sys_created_on>
         <sys_db_object display_value="" name="scan_table_check">scan_table_check</sys_db_object>
         <sys_id>17859954039f4abebc7d0e2289a8edc4</sys_id>
         <sys_metadata>0306196a07221110e765f9fc7c1ed07b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>User Roles from Deleted Users</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_parent/>
@@ -82,5 +83,7 @@
         <sys_scope_delete display_value="">30a78b9b9290467a96959a65d2b2d304</sys_scope_delete>
         <sys_update_name>scan_table_check_0306196a07221110e765f9fc7c1ed07b</sys_update_name>
         <sys_update_version display_value="scan_table_check_0306196a07221110e765f9fc7c1ed07b">da9615aa07221110e765f9fc7c1ed05e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 10:37:25</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

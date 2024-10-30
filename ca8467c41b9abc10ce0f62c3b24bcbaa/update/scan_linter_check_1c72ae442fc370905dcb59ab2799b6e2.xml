@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scan_linter_check">
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes/>
         <category>manageability</category>
         <description>Avoid using hard-coded values in scripts, as they can lead to unpredictable results and can be difficult to track down later. Hard coding sys_ids is not recommended, as they may not be the same between instances. </description>
         <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/scripting_technical_best_practices#do-not-use-hard-coded-values</documentation_url>
@@ -46,4 +45,16 @@
         <sys_updated_by>nia.mccash</sys_updated_by>
         <sys_updated_on>2021-10-04 14:07:43</sys_updated_on>
     </scan_linter_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=1c72ae442fc370905dcb59ab2799b6e2"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>1c72ae442fc370905dcb59ab2799b6e2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-30 10:47:11</sys_created_on>
+        <sys_id>576a8631c3e55250a8361dd1b40131e6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 10:47:11</sys_updated_on>
+        <table>scan_linter_check</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

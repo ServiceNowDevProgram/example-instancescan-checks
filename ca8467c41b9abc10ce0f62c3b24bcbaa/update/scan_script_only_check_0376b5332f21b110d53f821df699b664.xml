@@ -50,4 +50,5 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-10-04 22:18:37</sys_updated_on>
     </scan_script_only_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=0376b5332f21b110d53f821df699b664"/>
 </record_update>

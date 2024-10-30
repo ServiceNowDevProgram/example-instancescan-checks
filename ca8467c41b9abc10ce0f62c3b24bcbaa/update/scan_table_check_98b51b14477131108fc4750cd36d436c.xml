@@ -37,4 +37,5 @@
         <table>sys_user_has_role</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=98b51b14477131108fc4750cd36d436c"/>
 </record_update>

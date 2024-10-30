@@ -41,4 +41,5 @@ Also, can set the property 'glide.ui.per_page' sys property value to 10, 20, 50 
         <table>sys_user_preference</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=d3f47b4b97823110dd0178300153af08"/>
 </record_update>

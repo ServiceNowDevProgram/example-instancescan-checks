@@ -47,4 +47,5 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-10-31 17:25:20</sys_updated_on>
     </scan_column_type_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=c5493fd897523110839d76021153afb8"/>
 </record_update>

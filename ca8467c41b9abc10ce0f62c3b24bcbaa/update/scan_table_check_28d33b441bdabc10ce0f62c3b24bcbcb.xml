@@ -9,6 +9,7 @@
         </conditions>
         <description>getMessage used in a client script needs to have the message key added to the Messages field on the script record.</description>
         <documentation_url>http://docs.servicenow.com/csh?topicname=t_TranslateAClientScriptMessage.html</documentation_url>
+        <finding_type/>
         <name>getMessage() called in Client Script </name>
         <priority>3</priority>
         <resolution_details>Use the messages field on the client script record to load the message key being used in getMessage().</resolution_details>
@@ -37,4 +38,5 @@
         <table>sys_script_client</table>
         <use_manifest>false</use_manifest>
     </scan_table_check>
+    <sys_translated_text action="delete_multiple" query="documentkey=28d33b441bdabc10ce0f62c3b24bcbcb"/>
 </record_update>
