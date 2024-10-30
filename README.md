@@ -164,6 +164,15 @@ Tickets from tables such as Incident, Change Request, Problem, and other task-re
 ### Check Inactive Business Rules over 90 days
 Inactive Business Rules which are not updated for more than 90 days and not created by glide.maint and not updated by admin should be identified to remove unnecessary overhead.
 
+### Always keep code/snippet in functions - Business Rules
+In general, an advanced busiess rule will wrap your code in a function, and it is important that this guideline is followed. When code is not enclosed in a function, variable and other objects are avilable to all other server-side scripts. This availability can lead to unexpected consequences that are difficult to troubleshoot.
+
+### Update set In Progress/Completed previously Ignored
+Usually, developers mark an updatesets as Ignore if the work done is not required to be promoted or incorrect or irrelavent or due to any other reasons. 
+However, at times, some of the developers may use the ignored set for any active work instead of creating new one by updating the state from Ignore to In-Progress. It is not a good practice to do the same. It may case the deployment issues and also makes the troubleshooting process cumbersome.
+It may also impact the deployment and cause issues in case if the state is changed to In-Progress/Completed for the potential ignored sets.
+
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
@@ -331,6 +340,9 @@ Unpublished knowledge articles may contain sensitive information that should not
 
 ### Scripts in ACLs should be cleared when Advanced is not checked
 Scripts in ACLs ARE executed regardless of whether or not the Advanced checked box is checked off. As such, unnecessary scripts should be cleared from the field OR the Advanced checkbox should be checked in cases where scripts are required to provide better visibility to admins for troubleshooting purposes.
+
+### Catalog Client script with GlideRecord API calls
+Catalog Client script should be using GlideAjax if you need to make asyc calls to Server to get data from Server.  GlideRecord() API shouldn't be used to avoid performance issues.
 
 ## Category: User Experience
 
