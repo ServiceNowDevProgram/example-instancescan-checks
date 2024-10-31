@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Check any assets assigned to inactive user
+Check if any asset is assigned to inactive users.
+
 ###Avoid gs.log()Statement
 Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
 gs.info() for informative messages.
