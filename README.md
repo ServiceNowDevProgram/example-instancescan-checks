@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Check any assets assigned to inactive user
+Check if any asset is assigned to inactive users.
+
 ### Inactive User Check : Catalog Item
 We should ensure that inactive users are removed from being assigned as Catalog item owners.
 
