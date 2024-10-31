@@ -12,6 +12,9 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Inactive User Check : Catalog Item
+We should ensure that inactive users are removed from being assigned as Catalog item owners.
+
 ###Avoid gs.log()Statement
 Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
 gs.info() for informative messages.
