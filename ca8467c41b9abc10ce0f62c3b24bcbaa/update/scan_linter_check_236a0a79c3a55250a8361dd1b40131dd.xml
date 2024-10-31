@@ -2,12 +2,12 @@
     <scan_linter_check action="INSERT_OR_UPDATE">
         <active>true</active>
         <category>manageability</category>
-        <description>Avoid using hard-coded values in scripts, as they can lead to unpredictable results and can be difficult to track down later. Hard coding sys_ids is not recommended, as they may not be the same between instances. </description>
+        <description/>
         <documentation_url>https://developer.servicenow.com/dev.do#!/guides/rome/now-platform/tpb-guide/scripting_technical_best_practices#do-not-use-hard-coded-values</documentation_url>
         <finding_type>scan_finding</finding_type>
         <name>Do not use hard-coded sys_ids Contri</name>
         <priority>3</priority>
-        <resolution_details>Instead, try looking up a value by reference or by creating a property and retrieving the value with gs.getProperty().</resolution_details>
+        <resolution_details/>
         <run_condition/>
         <score_max>100</score_max>
         <score_min>0</score_min>
@@ -46,14 +46,25 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-30 10:47:12</sys_created_on>
         <sys_id>236a0a79c3a55250a8361dd1b40131dd</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Do not use hard-coded sys_ids Contri</sys_name>
         <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
         <sys_policy/>
         <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
         <sys_update_name>scan_linter_check_236a0a79c3a55250a8361dd1b40131dd</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-30 10:47:12</sys_updated_on>
+        <sys_updated_on>2024-10-31 10:46:17</sys_updated_on>
     </scan_linter_check>
     <sys_translated_text action="delete_multiple" query="documentkey=236a0a79c3a55250a8361dd1b40131dd"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>236a0a79c3a55250a8361dd1b40131dd</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-31 10:46:17</sys_created_on>
+        <sys_id>3fc31b06c3a55a50a8361dd1b40131ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-31 10:46:17</sys_updated_on>
+        <table>scan_linter_check</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>
