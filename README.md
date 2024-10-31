@@ -11,6 +11,8 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 # Checks in this repository
 
 ## Category: Manageability
+### Inactive user check : Catalog task Assigned To
+Check any Catalog Tasks Assigned to Inactive user
 
 ###Avoid gs.log()Statement
 Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
