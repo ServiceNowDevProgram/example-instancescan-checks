@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scan_table_check">
+    <scan_table_check action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <category>manageability</category>
+        <conditions table="sys_update_set">state=in progress^ORstate=complete^EQ<item display_value="In progress" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="in progress"/>
+            <item display_value="Complete" endquery="false" field="state" goto="false" newquery="false" operator="=" or="true" value="complete"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description>Usually, developers mark an updatesets as Ignore if the work done is not required to be promoted or incorrect or irrelavent or due to any other reasons. 
+However, at times, some of the developers may use the ignored set for any active work instead of creating new one by updating the state from Ignore to In-Progress. It is not a good practice to do the same. It may case the deployment issues and also makes the troubleshooting process cumbersome.
+It may also impact the deployment and cause issues in case if the state is changed to In-Progress/Completed for the potential ignored sets.</description>
+        <documentation_url/>
+        <finding_type>scan_finding</finding_type>
+        <name>Update set In Progress/Completed previously Ignored</name>
+        <priority>3</priority>
+        <resolution_details>It is always good and recommended to create a new updateset instead of using already Ignored updatesets by changing the state from Ignore to In-Progress/Completed.</resolution_details>
+        <run_condition/>
+        <score_max>100</score_max>
+        <score_min>0</score_min>
+        <score_scale>1</score_scale>
+        <script><![CDATA[(function (finding, current) {
+
+	var usSysId = current.getUniqueValue();
+	var audit = new GlideRecord('sys_audit');
+	audit.addEncodedQuery('fieldname=state^tablename=sys_update_set^oldvalue=ignore^newvalue=in progress^ORnewvalue=complete');
+	audit.addQuery('documentkey', usSysId);
+	audit.setLimit(1);
+	audit.query();
+	
+	if(audit.hasNext()){
+		finding.increment();
+	}
+
+})(finding, current);]]></script>
+        <short_description>Already Ignored  Update Set shouldn't be set back to In Pogress/Completed.</short_description>
+        <sys_class_name>scan_table_check</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-30 19:28:34</sys_created_on>
+        <sys_id>01c1c08ec3a19610afa6fc84e401310d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update set In Progress/Completed previously Ignored</sys_name>
+        <sys_package display_value="Example Instance Checks" source="x_appe_exa_checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Example Instance Checks">ca8467c41b9abc10ce0f62c3b24bcbaa</sys_scope>
+        <sys_update_name>scan_table_check_01c1c08ec3a19610afa6fc84e401310d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-30 19:28:34</sys_updated_on>
+        <table>sys_update_set</table>
+        <use_manifest>false</use_manifest>
+    </scan_table_check>
+</record_update>
