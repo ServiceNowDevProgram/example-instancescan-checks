@@ -21,6 +21,9 @@ Check any Catalog Tasks Assigned to Inactive user
 ### Check any assets assigned to inactive user
 Check if any asset is assigned to inactive users.
 
+### Check if any incidents are assigned to inactive users.
+Check if any incidents are assigned to inactive user.
+
 ### Inactive User Check: Catalog Item
 We should ensure that inactive users are removed from being assigned as Catalog item owners.
 
