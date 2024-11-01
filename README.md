@@ -386,6 +386,11 @@ The isLoading flag is the simplest way to prevent unnecessary code from taking u
 
 It is recommended to select columans in List type report to provide better user experence.
 
+## Find Orphaned UI Policies
+
+Orphaned UI policies add a technical debt as they are active but no UI Policy Actions defined or No scripts are running on execution. 
+It is recommeded to deactivate or delete such UI policies.
+
 # Additional resources
 
 Please check these additional links for more information and details:
