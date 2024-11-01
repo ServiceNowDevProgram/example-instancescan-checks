@@ -12,16 +12,25 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 
 ## Category: Manageability
 
+### Inactive user check: Approvals
+Check any approvals waiting in inactive users queue
+
+### Inactive user check: Catalog task Assigned To
+Check any Catalog Tasks Assigned to Inactive user
+
 ### Check any assets assigned to inactive user
 Check if any asset is assigned to inactive users.
 
 ### Check if any incidents are assigned to inactive users.
 Check if any incidents are assigned to inactive user.
 
-### Inactive User Check : Catalog Item
+### Inactive User Check: Catalog Item
 We should ensure that inactive users are removed from being assigned as Catalog item owners.
 
-###Avoid gs.log()Statement
+### Check problem ticket assigned to inactive user
+Make sure that a problem ticket is not assigned to an inactive user.
+
+### Avoid gs.log() Statement
 Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
 gs.info() for informative messages.
 gs.warn() for warnings that don’t break functionality but may need attention.
@@ -173,6 +182,11 @@ Tickets from tables such as Incident, Change Request, Problem, and other task-re
 ### Check Inactive Business Rules over 90 days
 Inactive Business Rules which are not updated for more than 90 days and not created by glide.maint and not updated by admin should be identified to remove unnecessary overhead.
 
+### Update set In Progress/Completed previously Ignored
+Usually, developers mark an updatesets as Ignore if the work done is not required to be promoted or incorrect or irrelavent or due to any other reasons. 
+However, at times, some of the developers may use the ignored set for any active work instead of creating new one by updating the state from Ignore to In-Progress. It is not a good practice to do the same. It may case the deployment issues and also makes the troubleshooting process cumbersome.
+It may also impact the deployment and cause issues in case if the state is changed to In-Progress/Completed for the potential ignored sets.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
@@ -277,7 +291,8 @@ Select the check box to ignore flushing some server-side caches, thus flushing o
 Avoid using gs.sleep() in any script because it does not release session and will cause delays, and add logs to the script whenever gs.sleep() has to be used.
 
 ## Category: Security
-##Check Mandatory fields on incident
+
+### Check Mandatory fields on incident
 This check is used to find mandatory fields on incident
 
 ### Avoid using setBasicAuth for REST messages
@@ -346,7 +361,7 @@ Scripts in ACLs ARE executed regardless of whether or not the Advanced checked b
 ### Added a Number Prefix which already exists
 Creating new number records does not require uniqueness. Though having duplicate number records causes some ServiceNow core functionality not to behave as expected. For example, the search might return a record from another table the number prefix is also used on.
 
-## List Inactive users from active group 
+### List Inactive users from active group 
 List inactive users that still belongs to activate groups
 
 ### HTTP connection records not excluded on clones from Prod
