@@ -24,7 +24,10 @@ Check if any asset is assigned to inactive users.
 ### Inactive User Check: Catalog Item
 We should ensure that inactive users are removed from being assigned as Catalog item owners.
 
-### Avoid gs.log()Statement
+### Check problem ticket assigned to inactive user
+Make sure that a problem ticket is not assigned to an inactive user.
+
+### Avoid gs.log() Statement
 Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
 gs.info() for informative messages.
 gs.warn() for warnings that don’t break functionality but may need attention.
