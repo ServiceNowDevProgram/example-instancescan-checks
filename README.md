@@ -179,6 +179,11 @@ Tickets from tables such as Incident, Change Request, Problem, and other task-re
 ### Check Inactive Business Rules over 90 days
 Inactive Business Rules which are not updated for more than 90 days and not created by glide.maint and not updated by admin should be identified to remove unnecessary overhead.
 
+### Update set In Progress/Completed previously Ignored
+Usually, developers mark an updatesets as Ignore if the work done is not required to be promoted or incorrect or irrelavent or due to any other reasons. 
+However, at times, some of the developers may use the ignored set for any active work instead of creating new one by updating the state from Ignore to In-Progress. It is not a good practice to do the same. It may case the deployment issues and also makes the troubleshooting process cumbersome.
+It may also impact the deployment and cause issues in case if the state is changed to In-Progress/Completed for the potential ignored sets.
+
 ## Category: Upgradability
 
 ### Call GlideRecord using new
