@@ -14,6 +14,12 @@ Open-Sourced community contributed and owned repository for Instance Scan Defini
 ### Inactive user check : Catalog task Assigned To
 Check any Catalog Tasks Assigned to Inactive user
 
+### Check any assets assigned to inactive user
+Check if any asset is assigned to inactive users.
+
+### Inactive User Check : Catalog Item
+We should ensure that inactive users are removed from being assigned as Catalog item owners.
+
 ###Avoid gs.log()Statement
 Use Logging Levels: Instead of gs.log(), consider using more appropriate logging levels, such as:
 gs.info() for informative messages.
